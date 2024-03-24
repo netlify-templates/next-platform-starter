@@ -2,7 +2,7 @@ export const metadata = {
     title: 'Blobs'
 };
 
-export default function BlobsPage() {
+export default function Page() {
     return (
         <section className="mb-16 sm:mb-24">
             <header className="mb-16 sm:mb-24">

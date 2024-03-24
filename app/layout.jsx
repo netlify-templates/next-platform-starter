@@ -12,6 +12,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
     return (
         <html lang="en">
+            <head>
+                <link rel="icon" href="/favicon.svg" sizes="any" />
+            </head>
             <body className="text-white bg-blue-800">
                 <div className="flex flex-col min-h-screen px-6 bg-grid-pattern sm:px-12">
                     <div className="flex flex-col w-full max-w-6xl mx-auto grow">
