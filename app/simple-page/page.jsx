@@ -1,4 +1,4 @@
-import { Geo } from '../../components/Geo';
+import { Geo } from '../../components/geo';
 import { CodeBlock } from '../../components/code-block';
 
 export const metadata = {
