@@ -1,40 +1,26 @@
-'use client';
-
-import { useEffect, useState } from 'react';
-import { getRandomNumber } from '../utils';
-
-export default function RandomPost() {
-    const [post, setPost] = useState(null);
-    const [currentTime, setCurrentTime] = useState(null);
-
-    useEffect(() => {
-        const getPost = async () => {
-            const randomPostId = getRandomNumber(1, 100);
-            const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${randomPostId}`, { cache: 'no-store' });
-            const postData = await res.json();
-            setPost(postData);
-            setCurrentTime(new Date().toLocaleString());
-        };
-
-        getPost();
-    }, []);
+export default async function RandomPostAsync() {
+    const fetchDataFromApi = async () => {
+        try {
+            const response = await fetch(`http://localhost:3000/api/posts/random`, { cache: 'no-store' });
+            if (response) {
+                const data = await response.json();
+                return data;
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    };
+    const post = await fetchDataFromApi();
 
     return (
         <section>
-            {post ? (
-                <>
-                    <div className="bg-white text-neutral-600 card">
-                        <div className="card-body">
-                            <h3 className="capitalize text-neutral-900 card-title">{post.title}</h3>
-                            <p>{post.body}</p>
-                        </div>
+            {post && (
+                <div className="bg-white text-neutral-600 card">
+                    <div className="card-body">
+                        <h3 className="capitalize text-neutral-900 card-title">{post.title}</h3>
+                        <p>{post.body}</p>
                     </div>
-                    <p className="mt-6 font-medium text-white">
-                        This is loaded dynamically from the client. Time: <span className="text-secondary">{currentTime}</span>
-                    </p>
-                </>
-            ) : (
-                <p className="font-medium">Loading...</p>
+                </div>
             )}
         </section>
     );
