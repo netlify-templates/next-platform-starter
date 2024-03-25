@@ -20,8 +20,8 @@ export default function Header() {
                     </Link>
                 </li>
                 <li>
-                    <Link href="/app-router" className="inline-block px-1.5 py-1 transition hover:opacity-80 sm:px-3 sm:py-2">
-                        App Router
+                    <Link href="/simple-page" className="inline-block px-1.5 py-1 transition hover:opacity-80 sm:px-3 sm:py-2">
+                        Simple Page
                     </Link>
                 </li>
             </ul>
