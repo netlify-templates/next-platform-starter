@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import netlifyLogo from '../public/netlify-logo.svg';
 
-export default function Header() {
+export function Header() {
     return (
         <nav className="flex flex-wrap items-center gap-4 py-6 sm:py-12">
             <Link href="/">

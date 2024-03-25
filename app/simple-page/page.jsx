@@ -1,4 +1,5 @@
-import { Geo } from "../../components/Geo";
+import { Geo } from '../../components/Geo';
+import { CodeBlock } from '../../components/code-block';
 
 export const metadata = {
     title: 'Simple page'
@@ -11,6 +12,12 @@ export default function Page() {
                 <h1 className="mb-6 text-4xl font-bold sm:text-5xl">Simple page</h1>
             </header>
             <Geo />
+            <CodeBlock lineNumbers lang="js">
+                {`import { CodeBlock } from "../../components/code-block";`}
+            </CodeBlock>
+            <CodeBlock lineNumbers lang="jsx">
+                {`const nextConfig = { reactStrictMode: true, swcMinify: true};`}
+            </CodeBlock>
         </section>
     );
 }

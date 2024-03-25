@@ -1,6 +1,6 @@
 import '../styles/globals.css';
-import Footer from '../components/Footer.jsx';
-import Header from '../components/Header.jsx';
+import { Footer } from '../components/footer';
+import { Header } from '../components/header';
 
 export const metadata = {
     title: {

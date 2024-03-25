@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-export default function Footer() {
+export function Footer() {
     return (
         <footer className="py-12 sm:py-16">
             <p className="text-sm">
