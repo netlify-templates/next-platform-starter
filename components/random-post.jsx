@@ -1,4 +1,4 @@
-export default async function RandomPostAsync() {
+export async function RandomPost() {
     const fetchDataFromApi = async () => {
         try {
             const response = await fetch(`https://api-next-template.netlify.app/api/posts/random`, { cache: 'no-store' });

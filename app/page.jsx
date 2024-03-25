@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import RandomPost from './random-post';
+import { RandomPost } from '../components/random-post';
 
 export default function Page() {
     return (
