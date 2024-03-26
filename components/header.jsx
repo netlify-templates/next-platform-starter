@@ -24,6 +24,11 @@ export function Header() {
                         Simple Page
                     </Link>
                 </li>
+                <li>
+                    <Link href="/geo" className="inline-block px-1.5 py-1 transition hover:opacity-80 sm:px-3 sm:py-2">
+                        Geo
+                    </Link>
+                </li>
             </ul>
         </nav>
     );
