@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { RandomPost } from '../components/random-post';
+import { RandomPostId } from '../components/random-post-id';
 
 export default function Page() {
     return (
@@ -46,7 +46,7 @@ export default function Page() {
                     </div>
                 </div>
             </section>
-            <RandomPost />
+            <RandomPostId />
         </div>
     );
 }
