@@ -1,11 +1,10 @@
 const rewrite = async (request, context) => {
-    if (context.geo?.country?.code === 'AU') {
-        return new URL('/geo/australia', request.url);
-    }
+    const path = context.geo?.country?.code === 'AU' ? '/edge/australia' : '/edge/not-australia';
+    return new URL(path, request.url);
 };
 
 export const config = {
-    path: '/geo'
+    path: '/edge'
 };
 
 export default rewrite;
