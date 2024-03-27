@@ -10,8 +10,13 @@ export function Header() {
             </Link>
             <ul className="flex flex-wrap gap-x-4 gap-y-1">
                 <li>
-                    <Link href="/blobs" className="inline-block px-1.5 py-1 transition hover:opacity-80 sm:px-3 sm:py-2">
-                        Blobs
+                    <Link href="/" className="inline-block px-1.5 py-1 transition hover:opacity-80 sm:px-3 sm:py-2">
+                        Home
+                    </Link>
+                </li>
+                <li>
+                    <Link href="/simple-page" className="inline-block px-1.5 py-1 transition hover:opacity-80 sm:px-3 sm:py-2">
+                        Simple Page (WIP)
                     </Link>
                 </li>
                 <li>
@@ -20,13 +25,13 @@ export function Header() {
                     </Link>
                 </li>
                 <li>
-                    <Link href="/simple-page" className="inline-block px-1.5 py-1 transition hover:opacity-80 sm:px-3 sm:py-2">
-                        Simple Page
+                    <Link href="/edge" className="inline-block px-1.5 py-1 transition hover:opacity-80 sm:px-3 sm:py-2">
+                        Edge Function
                     </Link>
                 </li>
                 <li>
-                    <Link href="/edge" className="inline-block px-1.5 py-1 transition hover:opacity-80 sm:px-3 sm:py-2">
-                        Edge Function
+                    <Link href="/blobs" className="inline-block px-1.5 py-1 transition hover:opacity-80 sm:px-3 sm:py-2">
+                        Blobs (TBD)
                     </Link>
                 </li>
             </ul>
