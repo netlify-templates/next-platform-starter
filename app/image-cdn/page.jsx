@@ -21,7 +21,7 @@ export default function Page() {
                 <div className="diff aspect-[3/2] rounded-2xl border-2 border-white">
                     <div className="diff-item-1">
                         <div>
-                            <ImageWithSizeOverlay src={`/.netlify/images?url=images/corgi.jpg`} width={2400} height={1600} overlayPosition="right" />
+                            <ImageWithSizeOverlay src={`/.netlify/images?url=images/corgi.jpg&fm=avif`} width={2400} height={1600} overlayPosition="right" />
                         </div>
                     </div>
                     <div className="diff-item-2">
