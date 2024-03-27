@@ -13,9 +13,9 @@ const currentEnv = process.env.NODE_ENV;
 
 export default function Page() {
     return (
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-12 sm:gap-16">
             <section>
-                <h1 className="mb-6 text-4xl font-bold sm:text-5xl">Netlify Platform Starter - Next.js</h1>
+                <h1 className="mb-8 text-4xl font-bold sm:text-5xl">Netlify Platform Starter - Next.js</h1>
                 <p className="mb-6 text-lg">Get started with Next.js and Netlify in seconds.</p>
                 <Link href="https://docs.netlify.com/frameworks/next-js/overview/" className="btn btn-primary">
                     Read the Docs
