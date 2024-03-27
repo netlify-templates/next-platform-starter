@@ -26,25 +26,21 @@ export function RandomPostId() {
 
     return (
         <section>
-            {post ? (
-                <>
-                    <div className="bg-white text-neutral-600 card">
-                        <div className="card-body">
+            <div className="bg-white text-neutral-600 card">
+                <div className="card-body">
+                    {post ? (
+                        <>
                             <h3 className="capitalize text-neutral-900 card-title">{post.title}</h3>
                             <p>{post.body}</p>
-                        </div>
-                    </div>
-                    <p className="mt-6 font-medium text-white">
-                        This is loaded dynamically from the client. Time: <span className="text-secondary">{time}</span>
-                    </p>
-                </>
-            ) : (
-                <div className="bg-white text-neutral-600 card">
-                    <div className="card-body">
-                        <p className="font-medium">Loading...</p>
-                    </div>
+                            <span className="text-secondary">
+                                This card&lsquo;s content is always loaded dynamically from the client - handle with care to avoid layout shifts! (last loaded at {time})
+                            </span>
+                        </>
+                    ) : (
+                        'Loading...'
+                    )}
                 </div>
-            )}
+            </div>
         </section>
     );
 }
