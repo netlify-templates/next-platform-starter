@@ -1,10 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+    body {
+        @apply antialiased;
+    }
+
     :not(pre) > code {
         @apply px-1 py-0.5 font-mono rounded bg-neutral-950/40;
         font-size: 0.9em;

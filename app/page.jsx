@@ -15,9 +15,9 @@ export default function Page() {
     return (
         <div className="flex flex-col gap-12 sm:gap-16">
             <section>
-                <h1 className="mb-8 text-4xl font-bold sm:text-5xl">Netlify Platform Starter - Next.js</h1>
-                <p className="mb-6 text-lg">Get started with Next.js and Netlify in seconds.</p>
-                <Link href="https://docs.netlify.com/frameworks/next-js/overview/" className="btn btn-primary">
+                <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">Netlify Platform Starter - Next.js</h1>
+                <p className="mt-4 text-lg">Get started with Next.js and Netlify in seconds.</p>
+                <Link href="https://docs.netlify.com/frameworks/next-js/overview/" className="mt-8 text-lg btn btn-primary btn-wide text-neutral-900">
                     Read the Docs
                 </Link>
             </section>
@@ -48,7 +48,7 @@ function CardsGrid() {
 
 function Card({title, text, linkText, href}) {
     return (
-        <div className="bg-white text-neutral-600 card">
+        <div className="bg-white text-neutral-600 card card-bordered">
             <div className="card-body">
                 <h3 className="text-neutral-900 card-title">{title}</h3>
                 <p>{text}</p>

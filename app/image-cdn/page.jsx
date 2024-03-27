@@ -27,7 +27,7 @@ export default function Page() {
     return (
         <div className="flex flex-col gap-16 sm:gap-24">
             <section>
-                <h1 className="mb-6 text-4xl font-bold sm:text-5xl">Image CDN</h1>
+                <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">Image CDN</h1>
             </section>
             {!ctx && (
                 <Alert>

@@ -17,12 +17,12 @@ export function Geo() {
     return (
         <div>
             {data ? (
-                <div className="bg-white text-neutral-600 card">
+                <div className="mt-8 bg-white text-neutral-900 card">
                     <div className="card-body">
-                        <p className="font-medium">
+                        <p>
                             User IP: <span className="text-secondary">{data.ip}</span>
                         </p>
-                        <p className="font-medium">
+                        <p>
                             User Location: <span className="text-secondary">{data.city}</span>, <span className="text-secondary">{data.region}</span>,{' '}
                             <span className="text-secondary">{data.country_name}</span>
                         </p>

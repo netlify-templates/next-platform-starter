@@ -4,6 +4,17 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
     content: ['./app/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
+    daisyui: {
+        themes: [
+          {
+            lofi: {
+              ...require("daisyui/src/theming/themes")["lofi"],
+              primary: "#2bdcd2",
+              secondary: "teal",
+            },
+          },
+        ],
+      },
     theme: {
         extend: {
             backgroundImage: {
@@ -13,7 +24,7 @@ module.exports = {
                 neutral: colors.neutral,
             },
             fontFamily: {
-                sans: ['Mulish', ...defaultTheme.fontFamily.sans]
+                sans: ['Inter', ...defaultTheme.fontFamily.sans]
             }
         }
     },

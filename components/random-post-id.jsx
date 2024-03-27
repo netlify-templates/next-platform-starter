@@ -32,9 +32,11 @@ export function RandomPostId() {
                         <>
                             <h3 className="capitalize text-neutral-900 card-title">{post.title}</h3>
                             <p>{post.body}</p>
-                            <span className="text-secondary">
-                                This card&lsquo;s content is always loaded dynamically from the client - handle with care to avoid layout shifts! (last loaded at {time})
-                            </span>
+                            <p className="text-blue-600">
+                                This card&lsquo;s content is always loaded dynamically from the client - handle with care to avoid layout shifts!
+                                <span className="block">(last loaded at {time})</span> 
+                            </p>
+                            
                         </>
                     ) : (
                         'Loading...'
