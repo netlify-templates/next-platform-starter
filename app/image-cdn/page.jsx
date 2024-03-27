@@ -1,3 +1,4 @@
+import { Alert } from '../../components/alert';
 import { getNetlifyContext } from '../../utils';
 import { ImageWithSizeOverlay } from './image-with-size-overlay';
 import { CodeBlock } from '../../components/code-block';
@@ -29,19 +30,23 @@ export default function Page() {
                 <h1 className="mb-6 text-4xl font-bold sm:text-5xl">Image CDN</h1>
             </section>
             {!ctx && (
-                <p>
-                    Note: for this page to work properly, either run this starter locally via <code>netlify dev</code>, or deploy to Nelify.
-                </p>
+                <Alert>
+                    <p>
+                        Note: for this page to work properly, either run this starter locally via <code>netlify dev</code>, or deploy to Nelify.
+                    </p>
+                </Alert>
             )}
             {ctx === 'dev' && (
-                <p>
-                    Note: in local development, the Image CDN is mocked through the IPX package, and no auto-format detection is performed. Try this on a site
-                    deployed to Netlify!
-                </p>
+                <Alert>
+                    <p>
+                        Note: in local development, the Image CDN is mocked through the IPX package, and no auto-format detection is performed. Try this on a site
+                        deployed to Netlify!
+                    </p>
+                </Alert>
             )}
 
             <section>
-                <h2 className="text-2xl mb-4">Using next/image component</h2>
+                <h2 className="mb-4 text-2xl">Using next/image component</h2>
                 <h2 className="mb-6">
                     On Netlify, the <code>next/image</code> component is automatically configured to uses our Image CDN and serve optimized images.
                 </h2>
@@ -52,7 +57,7 @@ export default function Page() {
             </section>
 
             <section>
-                <h2 className="text-2xl mb-4">Original vs. optimized image: can you tell the difference?</h2>
+                <h2 className="mb-4 text-2xl">Original vs. optimized image: can you tell the difference?</h2>
                 <h2 className="mb-6">
                     This example shows the original image (on the left) vs. the optimized image (on the right), using regular <code>{'<img>'}</code> tags.
                 </h2>
