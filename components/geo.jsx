@@ -15,22 +15,21 @@ export function Geo() {
     }, []);
 
     return (
-        <div>
-            {data ? (
-                <div className="mt-8 bg-white text-neutral-900 card">
-                    <div className="card-body">
+        <div className="bg-white rounded card text-neutral-600">
+            <div className="card-body">
+                {data ? (
+                    <>
                         <p>
                             User IP: <span className="text-secondary">{data.ip}</span>
                         </p>
                         <p>
-                            User Location: <span className="text-secondary">{data.city}</span>, <span className="text-secondary">{data.region}</span>,{' '}
-                            <span className="text-secondary">{data.country_name}</span>
+                            User Location: <span className="text-secondary">{data.city}</span>, <span className="text-secondary">{data.region}</span>, <span className="text-secondary">{data.country_name}</span>
                         </p>
-                    </div>
-                </div>
-            ) : (
-                <p>Loading...</p>
-            )}
+                    </>
+                ) : (
+                    <p>Loading...</p>
+                )}
+            </div>
         </div>
     );
 }
