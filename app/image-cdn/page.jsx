@@ -1,25 +1,29 @@
 import { Alert } from '../../components/alert';
 import { getNetlifyContext } from '../../utils';
 import { ImageWithSizeOverlay } from './image-with-size-overlay';
-import { CodeBlock } from '../../components/code-block';
+import { Markdown } from '../../components/markdown';
 
 export const metadata = {
     title: 'Image CDN'
 };
 
 const nextImageSnippet = `
+~~~jsx
 import Image from 'next/image';
 
 // In your component
 <Image src="images/corgi.jpg" width="2400" height="1600" alt="Corgi" />
+~~~
 `;
 
 const originalVsCdnSnippet = `
+~~~jsx
 // <== On the left, the original image
 <img src="/images/corgi.jpg" width="2400" height="1600" alt="Corgi" />
 
 // ==> On the right, explicitly using the Image CDN endpoint
 <img src="/.netlify/images?url=images/corgi.jpg" width="2400" height="1600" alt="Corgi" />
+~~~
 `;
 
 export default function Page() {
@@ -50,7 +54,7 @@ export default function Page() {
                 <p className="mb-6">
                     On Netlify, the <code>next/image</code> component is automatically configured to uses our Image CDN and serve optimized images.
                 </p>
-                <CodeBlock lang="jsx">{nextImageSnippet}</CodeBlock>
+                <Markdown content={nextImageSnippet} />
                 <div className="mt-8 overflow-hidden border-2 border-white rounded-lg">
                     <ImageWithSizeOverlay src="/images/corgi.jpg" width={2400} height={1600} isNextImage={true} />
                 </div>
@@ -61,7 +65,7 @@ export default function Page() {
                 <p className="mb-6">
                     This example shows the original image (on the left) vs. the optimized image (on the right), using regular <code>{'<img>'}</code> tags.
                 </p>
-                <CodeBlock lang="jsx">{originalVsCdnSnippet}</CodeBlock>
+                <Markdown content={originalVsCdnSnippet} />
                 <div className="diff aspect-[3/2] rounded-lg border-2 border-white mt-8">
                     <div className="diff-item-1">
                         <div>
