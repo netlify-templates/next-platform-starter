@@ -1,9 +1,9 @@
 import { Code } from 'bright';
 
-export function CodeBlock({ children, lang, lineNumbers, title }) {
+export function CodeBlock({ code, lang, lineNumbers, title }) {
     return (
-        <Code lang={lang} lineNumbers={lineNumbers} title={title} theme="poimandres">
-            {children?.trim()}
+        <Code lang={lang} title={title} lineNumbers={lineNumbers} theme="poimandres">
+            {code}
         </Code>
     );
 }

@@ -9,9 +9,7 @@ export default async function EdgeFunctionExplainer() {
     return (
         <>
             <p className="mb-6">This page is using a Netlify Edge Function to rewrite the URL based on visitor geography.</p>
-            <CodeBlock lineNumbers lang="js" title={edgeFunctionFile}>
-                {code}
-            </CodeBlock>
+            <CodeBlock lineNumbers lang="js" title={edgeFunctionFile} code={code} />
             <p className="mt-8">
                 <Link href="https://edge-functions-examples.netlify.app" className="transition link hover:opacity-80">
                     See more examples
