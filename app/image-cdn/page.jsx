@@ -51,7 +51,7 @@ export default function Page() {
                     On Netlify, the <code>next/image</code> component is automatically configured to uses our Image CDN and serve optimized images.
                 </h2>
                 <CodeBlock lang="jsx">{nextImageSnippet}</CodeBlock>
-                <div className="overflow-hidden border-2 border-white rounded-2xl">
+                <div className="overflow-hidden border-2 border-white rounded-lg">
                     <ImageWithSizeOverlay src="/images/corgi.jpg" width={2400} height={1600} isNextImage={true} />
                 </div>
             </section>
@@ -62,7 +62,7 @@ export default function Page() {
                     This example shows the original image (on the left) vs. the optimized image (on the right), using regular <code>{'<img>'}</code> tags.
                 </h2>
                 <CodeBlock lang="jsx">{originalVsCdnSnippet}</CodeBlock>
-                <div className="diff aspect-[3/2] rounded-2xl border-2 border-white">
+                <div className="diff aspect-[3/2] rounded-lg border-2 border-white">
                     <div className="diff-item-1">
                         <div>
                             <ImageWithSizeOverlay src={`/.netlify/images?url=images/corgi.jpg`} overlayPosition="right" />

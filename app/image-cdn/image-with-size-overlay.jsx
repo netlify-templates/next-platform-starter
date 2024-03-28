@@ -26,7 +26,7 @@ export function ImageWithSizeOverlay({ src, width, height, overlayPosition, isNe
         <div className="relative">
             {imgSize && (
                 <span
-                    className={`absolute py-1.5 px-2.5 text-sm rounded-xl bg-neutral-900/70 top-2.5 ${overlayPosition === 'right' ? 'right-2.5' : 'left-2.5'}`}
+                    className={`absolute py-1.5 px-2.5 text-sm rounded-lg bg-neutral-900/70 top-2.5 ${overlayPosition === 'right' ? 'right-2.5' : 'left-2.5'}`}
                 >{`Size: ${Math.ceil(imgSize / 1024)}KB`}</span>
             )}
             {isNextImage ? (

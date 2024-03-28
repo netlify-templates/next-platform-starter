@@ -10,7 +10,7 @@
     }
 
     :not(pre) > code {
-        @apply px-1 py-0.5 font-mono rounded bg-neutral-950/40;
+        @apply px-1 py-0.5 font-mono rounded bg-neutral-900 text-yellow-200;
         font-size: 0.9em;
     }
 }

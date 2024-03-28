@@ -11,7 +11,7 @@ export function RandomPostId() {
         const fetchDataFromApi = async () => {
             const randomId = getRandomNumber(1, 100);
             try {
-                const response = await fetch(`https://api-next-template.netlify.app/api/posts/${randomId}`, { cache: 'no-store' });
+                const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${randomId}`, { cache: 'no-store' });
                 if (response) {
                     const data = await response.json();
                     setPost(data);
