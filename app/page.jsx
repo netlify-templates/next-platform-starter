@@ -2,6 +2,8 @@ import Link from 'next/link';
 import { Card } from '../components/card';
 import { CardsGrid } from '../components/cards-grid';
 import { RandomPostId } from '../components/random-post-id';
+import { getNetlifyContext } from '../utils';
+import { Alert } from '../components/alert';
 
 const cards = [
     /*{
@@ -24,7 +26,7 @@ export default function Page() {
                 </Link>
             </section>
             <section className="flex flex-col gap-8">
-                <RunModeCard />
+                <RuntimeContextCard />
                 {!!cards?.length && <CardsGrid cards={cards} />}
                 <RandomPostId />
             </section>
@@ -32,10 +34,23 @@ export default function Page() {
     );
 }
 
-function RunModeCard() {
-    const title = `This site is running in ${currentEnv} mode.`;
-    const text = `
-        In ${currentEnv === 'development' ? 'this' : 'development'} mode, this page is re-rendered each time your load it. 
-        In ${currentEnv === 'production' ? 'this' : 'production'} mode, the page is statically built once at deploy time.`;
-    return <Card title={title} text={text} />;
+function RuntimeContextCard() {
+    const currentContext = getNetlifyContext();
+    if (!currentContext) {
+        return (
+            <Alert>
+                <p>
+                    For full functionality, either run this starter locally via <code>netlify dev</code> (
+                    <a href="https://docs.netlify.com/cli/local-development/">docs</a>) or deploy it to Netlify.
+                </p>
+            </Alert>
+        );
+    } else {
+        const title = `Netlify Context: running locally in ${currentContext} mode.`;
+        if (currentContext === 'dev') {
+            return <Card title={title} text="Next.js will rebuild any page you navigate to, including static pages." />;
+        } else {
+            return <Card title={title} text={`This page was statically-generated at build time.`} />;
+        }
+    }
 }

@@ -31,27 +31,26 @@ export default function Page() {
                 {!ctx && (
                     <Alert>
                         <p>
-                            Note: for this page to work properly, either run this starter locally via <code>netlify dev</code>, or deploy to Nelify.
+                        For full functionality, either run this starter locally via <code>netlify dev</code> (
+                    <a href="https://docs.netlify.com/cli/local-development/">docs</a>) or deploy it to Netlify.
                         </p>
                     </Alert>
                 )}
                 {ctx === 'dev' && (
                     <Alert>
                         <p>
-                            Note: in local development, the Image CDN is mocked through the IPX package, and no auto-format detection is performed. Try this on
-                            a site deployed to Netlify!
+                            In local development, the Image CDN is mocked through the IPX package, and no auto-format detection is performed.<br/>
+                            Try this on a site deployed to Netlify!
                         </p>
                     </Alert>
                 )}
             </section>
             <section className="mb-16 sm:gap-8 sm:mb-24">
-            <h2 className="mb-6 text-2xl font-bold sm:text-3xl">Using next/image component</h2>
+                <h2 className="mb-6 text-2xl font-bold sm:text-3xl">Using next/image component</h2>
                 <p className="mb-6">
                     On Netlify, the <code>next/image</code> component is automatically configured to uses our Image CDN and serve optimized images.
                 </p>
-                <CodeBlock lang="jsx">
-                    {nextImageSnippet}
-                </CodeBlock>
+                <CodeBlock lang="jsx">{nextImageSnippet}</CodeBlock>
                 <div className="mt-8 overflow-hidden border-2 border-white rounded-lg">
                     <ImageWithSizeOverlay src="/images/corgi.jpg" width={2400} height={1600} isNextImage={true} />
                 </div>
