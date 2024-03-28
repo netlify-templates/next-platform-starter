@@ -8,8 +8,8 @@ export const metadata = {
 
 export default function Page() {
     return (
-        <section>
-            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">Simple page</h1>
+        <>
+            <h1 className="mb-8 text-4xl font-bold tracking-tight sm:text-5xl sm:mb-12">Simple page</h1>
             <Geo />
             <CodeBlock lineNumbers lang="js">
                 {`import { CodeBlock } from "../../components/code-block";`}
@@ -20,6 +20,6 @@ export default function Page() {
             <Alert>
                 <p>This is the alert message.</p>
             </Alert>
-        </section>
+        </>
     );
 }

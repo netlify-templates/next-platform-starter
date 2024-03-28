@@ -3,11 +3,7 @@ export const metadata = {
 };
 
 async function getTime() {
-    const res = await fetch('http://worldtimeapi.org/api/timezone/Europe/Riga', 
-    { next: 
-        { revalidate: 3 } 
-    }
-    );
+    const res = await fetch('http://worldtimeapi.org/api/timezone/Europe/Riga', { next: { revalidate: 3 } });
     return res.json();
 }
 
@@ -16,15 +12,21 @@ async function getRepo() {
     return res.json();
 }
 
-
 export default async function Page() {
-    const[time, data] = await Promise.all([getTime(), getRepo()]);
+    const [time, data] = await Promise.all([getTime(), getRepo()]);
     return (
-        <section className="mb-16 sm:mb-24">
-            <header className="mb-16 sm:mb-24">
-                <h1 className="mb-6 text-2xl font-bold sm:text-2xl">Time: {time.datetime}</h1>
-                <h2 className="mb-6 text-4xl font-bold sm:text-5xl">Repo: {data.full_name}</h2>
-            </header>
-        </section>
+        <>
+            <h1 className="mb-8 text-4xl font-bold tracking-tight sm:text-5xl sm:mb-12">Revalidation</h1>
+            <div className="bg-white rounded card text-neutral-600">
+                <div className="card-body">
+                    <p>
+                        Time: <span className="text-secondary">{time.datetime}</span>
+                    </p>
+                    <p>
+                        Repo: <span className="text-secondary">{data.full_name}</span>
+                    </p>
+                </div>
+            </div>
+        </>
     );
 }

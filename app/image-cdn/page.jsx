@@ -25,44 +25,45 @@ const originalVsCdnSnippet = `
 export default function Page() {
     const ctx = getNetlifyContext();
     return (
-        <div className="flex flex-col gap-16 sm:gap-24">
-            <section>
+        <>
+            <section className="flex flex-col items-start gap-6 mb-16 sm:gap-8 sm:mb-24">
                 <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">Image CDN</h1>
+                {!ctx && (
+                    <Alert>
+                        <p>
+                            Note: for this page to work properly, either run this starter locally via <code>netlify dev</code>, or deploy to Nelify.
+                        </p>
+                    </Alert>
+                )}
+                {ctx === 'dev' && (
+                    <Alert>
+                        <p>
+                            Note: in local development, the Image CDN is mocked through the IPX package, and no auto-format detection is performed. Try this on
+                            a site deployed to Netlify!
+                        </p>
+                    </Alert>
+                )}
             </section>
-            {!ctx && (
-                <Alert>
-                    <p>
-                        Note: for this page to work properly, either run this starter locally via <code>netlify dev</code>, or deploy to Nelify.
-                    </p>
-                </Alert>
-            )}
-            {ctx === 'dev' && (
-                <Alert>
-                    <p>
-                        Note: in local development, the Image CDN is mocked through the IPX package, and no auto-format detection is performed. Try this on a site
-                        deployed to Netlify!
-                    </p>
-                </Alert>
-            )}
-
-            <section>
-                <h2 className="mb-4 text-2xl">Using next/image component</h2>
-                <h2 className="mb-6">
+            <section className="mb-16 sm:gap-8 sm:mb-24">
+            <h2 className="mb-6 text-2xl font-bold sm:text-3xl">Using next/image component</h2>
+                <p className="mb-6">
                     On Netlify, the <code>next/image</code> component is automatically configured to uses our Image CDN and serve optimized images.
-                </h2>
-                <CodeBlock lang="jsx">{nextImageSnippet}</CodeBlock>
-                <div className="overflow-hidden border-2 border-white rounded-lg">
+                </p>
+                <CodeBlock lang="jsx">
+                    {nextImageSnippet}
+                </CodeBlock>
+                <div className="mt-8 overflow-hidden border-2 border-white rounded-lg">
                     <ImageWithSizeOverlay src="/images/corgi.jpg" width={2400} height={1600} isNextImage={true} />
                 </div>
             </section>
 
-            <section>
-                <h2 className="mb-4 text-2xl">Original vs. optimized image: can you tell the difference?</h2>
-                <h2 className="mb-6">
+            <section className="mb-16 sm:gap-8 sm:mb-24">
+                <h2 className="mb-6 text-2xl font-bold sm:text-3xl">Original vs. optimized image: can you tell the difference?</h2>
+                <p className="mb-6">
                     This example shows the original image (on the left) vs. the optimized image (on the right), using regular <code>{'<img>'}</code> tags.
-                </h2>
+                </p>
                 <CodeBlock lang="jsx">{originalVsCdnSnippet}</CodeBlock>
-                <div className="diff aspect-[3/2] rounded-lg border-2 border-white">
+                <div className="diff aspect-[3/2] rounded-lg border-2 border-white mt-8">
                     <div className="diff-item-1">
                         <div>
                             <ImageWithSizeOverlay src={`/.netlify/images?url=images/corgi.jpg`} overlayPosition="right" />
@@ -76,6 +77,6 @@ export default function Page() {
                     <div className="diff-resizer"></div>
                 </div>
             </section>
-        </div>
+        </>
     );
 }

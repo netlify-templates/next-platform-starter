@@ -15,18 +15,20 @@ const currentEnv = process.env.NODE_ENV;
 
 export default function Page() {
     return (
-        <div className="flex flex-col gap-12 sm:gap-16">
-            <section>
+        <>
+            <section className="flex flex-col items-start gap-6 mb-16 sm:gap-8 sm:mb-24">
                 <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">Netlify Platform Starter - Next.js</h1>
-                <p className="mt-4 text-lg">Get started with Next.js and Netlify in seconds.</p>
-                <Link href="https://docs.netlify.com/frameworks/next-js/overview/" className="mt-8 text-lg btn btn-primary btn-wide text-neutral-900">
+                <p className="text-lg">Get started with Next.js and Netlify in seconds.</p>
+                <Link href="https://docs.netlify.com/frameworks/next-js/overview/" className="btn btn-lg btn-primary sm:btn-wide">
                     Read the Docs
                 </Link>
             </section>
-            <RunModeCard />
-            {!!cards?.length && <CardsGrid cards={cards} />}
-            <RandomPostId />
-        </div>
+            <section className="flex flex-col gap-8">
+                <RunModeCard />
+                {!!cards?.length && <CardsGrid cards={cards} />}
+                <RandomPostId />
+            </section>
+        </>
     );
 }
 
