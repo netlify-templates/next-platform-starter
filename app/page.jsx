@@ -46,7 +46,7 @@ function RuntimeContextCard() {
             </Alert>
         );
     } else {
-        const title = `Netlify Context: running locally in ${currentContext} mode.`;
+        const title = `Netlify Context: running in ${currentContext} mode.`;
         if (currentContext === 'dev') {
             return <Card title={title} text="Next.js will rebuild any page you navigate to, including static pages." />;
         } else {
