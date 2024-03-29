@@ -1,6 +1,7 @@
 import { Alert } from '../../components/alert';
-import { Geo } from '../../components/geo';
 import { Markdown } from '../../components/markdown';
+import { Geo } from '../../components/geo';
+import { RandomPost } from '../../components/random-post';
 
 export const metadata = {
     title: 'Simple page'
@@ -25,7 +26,8 @@ export default function Page() {
             <Geo />
             <Markdown content={markdownSnippet} />
             <Markdown content={markdownSnippetAlt} />
-            <Alert>
+            <RandomPost />
+            <Alert className="mt-4">
                 <p>This is the alert message.</p>
             </Alert>
         </>
