@@ -10,3 +10,16 @@
         font-size: 0.9em;
     }
 }
+
+a {
+    @apply underline
+}
+
+.markdown {
+    @apply mb-1;
+    @apply lg:text-lg;
+}
+
+.markdown p {
+    @apply mb-1;
+}

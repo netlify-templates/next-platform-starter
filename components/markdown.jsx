@@ -10,6 +10,7 @@ export function Markdown({ content }) {
 
     return (
         <MarkdownToJsx
+            className="markdown"
             options={{
                 overrides: {
                     pre: HighlightedCodeBlock

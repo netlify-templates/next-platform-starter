@@ -1,10 +1,9 @@
 'use client';
 
-import Image from 'next/image';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { getResourceSize } from '../../utils';
 
-export function ImageWithSizeOverlay({ src, width, height, overlayPosition, isNextImage }) {
+export function ImageWithSizeOverlay({ src, srcSet, sizes, overlayPosition }) {
     const imageRef = useRef();
     const [imgSize, setImgSize] = useState(undefined);
 
@@ -29,11 +28,8 @@ export function ImageWithSizeOverlay({ src, width, height, overlayPosition, isNe
                     className={`absolute py-1.5 px-2.5 text-sm rounded-lg bg-neutral-900/70 top-2.5 ${overlayPosition === 'right' ? 'right-2.5' : 'left-2.5'}`}
                 >{`Size: ${Math.ceil(imgSize / 1024)}KB`}</span>
             )}
-            {isNextImage ? (
-                <Image src={src} width={width} height={height} alt="Corgi" onLoad={handleImageLoad} ref={imageRef} />
-            ) : (
-                <img src={src} width={width} height={height} alt="Corgi" onLoad={handleImageLoad} ref={imageRef} />
-            )}
+            
+                <img src={src} srcSet={srcSet} sizes={sizes} alt="Corgi" onLoad={handleImageLoad} ref={imageRef} />
         </div>
     );
 }
