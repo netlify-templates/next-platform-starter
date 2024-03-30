@@ -1,5 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    :not(pre) > code {
+        @apply px-1 py-0.5 font-mono rounded bg-neutral-900 text-yellow-200;
+        font-size: 0.9em;
+    }
+}
+
+a {
+    @apply underline
+}
+
+.markdown {
+    @apply mb-1;
+    @apply lg:text-lg;
+}
+
+.markdown p {
+    @apply mb-3;
+}
