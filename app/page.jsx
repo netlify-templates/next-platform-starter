@@ -15,7 +15,7 @@ The card below is rendered on the server based on the value of \`process.env.CON
 `;
 
 const preDynamicContentExplainer = `
-The content of the card below is fetched by the client from the Route Handler \`api/quotes/random\`, with a random quote shown on each page load:
+The card content below is fetched by the client-side from \`/quotes/random\` (see file \`app/quotes/random/route.js\`) with a different quote shown on each page load:
 `;
 
 const postDynamicContentExplainer = `
