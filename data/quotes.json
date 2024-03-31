@@ -1,0 +1,702 @@
+[
+    {
+      "text": "Frankly, my dear, I don't give a damn.",
+      "character": "Rhett Butler",
+      "playedBy": "Clark Gable",
+      "film": "Gone with the Wind",
+      "year": 1939
+    },
+    {
+      "text": "I'm gonna make him an offer he can't refuse.",
+      "character": "Vito Corleone",
+      "playedBy": "Marlon Brando",
+      "film": "The Godfather",
+      "year": 1972
+    },
+    {
+      "text": "You don't understand! I coulda had class. I coulda been a contender. I could've been somebody, instead of a bum, which is what I am.",
+      "character": "Terry Malloy",
+      "playedBy": "Marlon Brando",
+      "film": "On the Waterfront",
+      "year": 1954
+    },
+    {
+      "text": "Toto, I've a feeling we're not in Kansas anymore.",
+      "character": "Dorothy Gale",
+      "playedBy": "Judy Garland",
+      "film": "The Wizard of Oz",
+      "year": 1939
+    },
+    {
+      "text": "Here's looking at you, kid.",
+      "character": "Rick Blaine",
+      "playedBy": "Humphrey Bogart",
+      "film": "Casablanca",
+      "year": 1942
+    },
+    {
+      "text": "Go ahead, make my day.",
+      "character": "Harry Callahan",
+      "playedBy": "Clint Eastwood",
+      "film": "Sudden Impact",
+      "year": 1983
+    },
+    {
+      "text": "All right, Mr. DeMille, I'm ready for my close-up.",
+      "character": "Norma Desmond",
+      "playedBy": "Gloria Swanson",
+      "film": "Sunset Boulevard",
+      "year": 1950
+    },
+    {
+      "text": "May the Force be with you.",
+      "character": "Han Solo",
+      "playedBy": "Harrison Ford",
+      "film": "Star Wars",
+      "year": 1977
+    },
+    {
+      "text": "Fasten your seatbelts. It's going to be a bumpy night.",
+      "character": "Margo Channing",
+      "playedBy": "Bette Davis",
+      "film": "All About Eve",
+      "year": 1950
+    },
+    {
+      "text": "You talkin' to me?",
+      "character": "Travis Bickle",
+      "playedBy": "Robert De Niro",
+      "film": "Taxi Driver",
+      "year": 1976
+    },
+    {
+      "text": "What we've got here is failure to communicate.",
+      "character": "Captain",
+      "playedBy": "Strother Martin",
+      "film": "Cool Hand Luke",
+      "year": 1967
+    },
+    {
+      "text": "I love the smell of napalm in the morning.",
+      "character": "Lt. Col. Bill Kilgore",
+      "playedBy": "Robert Duvall",
+      "film": "Apocalypse Now",
+      "year": 1979
+    },
+    {
+      "text": "Love means never having to say you're sorry.",
+      "character": "Jennifer Cavalleri, Oliver Barrett IV",
+      "playedBy": "Ali MacGraw, Ryan O'Neal",
+      "film": "Love Story",
+      "year": 1970
+    },
+    {
+      "text": "The stuff that dreams are made of.",
+      "character": "Sam Spade",
+      "playedBy": "Humphrey Bogart",
+      "film": "The Maltese Falcon",
+      "year": 1941
+    },
+    {
+      "text": "E.T. phone home.",
+      "character": "E.T.",
+      "playedBy": "Pat Welsh",
+      "film": "E.T. the Extra-Terrestrial",
+      "year": 1982
+    },
+    {
+      "text": "They call me Mister Tibbs!",
+      "character": "Virgil Tibbs",
+      "playedBy": "Sidney Poitier",
+      "film": "In the Heat of the Night",
+      "year": 1967
+    },
+    {
+      "text": "Rosebud.",
+      "character": "Charles Foster Kane",
+      "playedBy": "Orson Welles",
+      "film": "Citizen Kane",
+      "year": 1941
+    },
+    {
+      "text": "Made it, Ma! Top of the world!",
+      "character": "Arthur \"Cody\" Jarrett",
+      "playedBy": "James Cagney",
+      "film": "White Heat",
+      "year": 1949
+    },
+    {
+      "text": "I'm as mad as hell, and I'm not going to take this anymore!",
+      "character": "Howard Beale",
+      "playedBy": "Peter Finch",
+      "film": "Network",
+      "year": 1976
+    },
+    {
+      "text": "Louis, I think this is the beginning of a beautiful friendship.",
+      "character": "Rick Blaine",
+      "playedBy": "Humphrey Bogart",
+      "film": "Casablanca",
+      "year": 1942
+    },
+    {
+      "text": "A census taker once tried to test me. I ate his liver with some fava beans and a nice Chianti.",
+      "character": "Hannibal Lecter",
+      "playedBy": "Anthony Hopkins",
+      "film": "The Silence of the Lambs",
+      "year": 1991
+    },
+    {
+      "text": "Bond. James Bond.",
+      "character": "James Bond",
+      "playedBy": "Sean Connery",
+      "film": "Dr. No",
+      "year": 1962
+    },
+    {
+      "text": "There's no place like home.",
+      "character": "Dorothy Gale",
+      "playedBy": "Judy Garland",
+      "film": "The Wizard of Oz",
+      "year": 1939
+    },
+    {
+      "text": "I am big! It's the pictures that got small.",
+      "character": "Norma Desmond",
+      "playedBy": "Gloria Swanson",
+      "film": "Sunset Boulevard",
+      "year": 1950
+    },
+    {
+      "text": "Show me the money!",
+      "character": "Rod Tidwell",
+      "playedBy": "Cuba Gooding Jr.",
+      "film": "Jerry Maguire",
+      "year": 1996
+    },
+    {
+      "text": "Why don't you come up sometime and see me?",
+      "character": "Lady Lou",
+      "playedBy": "Mae West",
+      "film": "She Done Him Wrong",
+      "year": 1933
+    },
+    {
+      "text": "I'm walkin' here! I'm walkin' here!",
+      "character": "Ratso\" Rizzo",
+      "playedBy": "Dustin Hoffman",
+      "film": "Midnight Cowboy",
+      "year": 1969
+    },
+    {
+      "text": "Play it, Sam. Play 'As Time Goes By.'",
+      "character": "Ilsa Lund",
+      "playedBy": "Ingrid Bergman",
+      "film": "Casablanca",
+      "year": 1942
+    },
+    {
+      "text": "You can't handle the truth!",
+      "character": "Col. Nathan R. Jessup",
+      "playedBy": "Jack Nicholson",
+      "film": "A Few Good Men",
+      "year": 1992
+    },
+    {
+      "text": "I want to be alone.",
+      "character": "Grusinskaya",
+      "playedBy": "Greta Garbo",
+      "film": "Grand Hotel",
+      "year": 1932
+    },
+    {
+      "text": "After all, tomorrow is another day!",
+      "character": "Scarlett O'Hara",
+      "playedBy": "Vivien Leigh",
+      "film": "Gone with the Wind",
+      "year": 1939
+    },
+    {
+      "text": "Round up the usual suspects.",
+      "character": "Capt. Louis Renault",
+      "playedBy": "Claude Rains",
+      "film": "Casablanca",
+      "year": 1942
+    },
+    {
+      "text": "I'll have what she's having.",
+      "character": "Customer",
+      "playedBy": "Estelle Reiner",
+      "film": "When Harry Met Sally...",
+      "year": 1989
+    },
+    {
+      "text": "You know how to whistle, don't you, Steve? You just put your lips together and blow.",
+      "character": "Marie \"Slim\" Browning",
+      "playedBy": "Lauren Bacall",
+      "film": "To Have and Have Not",
+      "year": 1944
+    },
+    {
+      "text": "You're gonna need a bigger boat.",
+      "character": "Martin Brody",
+      "playedBy": "Roy Scheider",
+      "film": "Jaws",
+      "year": 1975
+    },
+    {
+      "text": "Badges? We ain't got no badges! We don't need no badges! I don't have to show you any stinking badges!",
+      "character": "Gold Hat",
+      "playedBy": "Alfonso Bedoya",
+      "film": "The Treasure of the Sierra Madre",
+      "year": 1948
+    },
+    {
+      "text": "I'll be back.",
+      "character": "The Terminator",
+      "playedBy": "Arnold Schwarzenegger",
+      "film": "The Terminator",
+      "year": 1984
+    },
+    {
+      "text": "Today, I consider myself the luckiest man on the face of the Earth.",
+      "character": "Lou Gehrig",
+      "playedBy": "Gary Cooper",
+      "film": "The Pride of the Yankees",
+      "year": 1942
+    },
+    {
+      "text": "If you build it, he will come.",
+      "character": "Shoeless Joe Jackson",
+      "playedBy": "Ray Liotta (voice)",
+      "film": "Field of Dreams",
+      "year": 1989
+    },
+    {
+      "text": "My mama always said life was like a box of chocolates. You never know what you're gonna get.",
+      "character": "Forrest Gump",
+      "playedBy": "Tom Hanks",
+      "film": "Forrest Gump",
+      "year": 1994
+    },
+    {
+      "text": "We rob banks.",
+      "character": "Clyde Barrow",
+      "playedBy": "Warren Beatty",
+      "film": "Bonnie and Clyde",
+      "year": 1967
+    },
+    {
+      "text": "Plastics.",
+      "character": "Mr. Maguire",
+      "playedBy": "Walter Brooke",
+      "film": "The Graduate",
+      "year": 1967
+    },
+    {
+      "text": "We'll always have Paris.",
+      "character": "Rick Blaine",
+      "playedBy": "Humphrey Bogart",
+      "film": "Casablanca",
+      "year": 1942
+    },
+    {
+      "text": "I see dead people.",
+      "character": "Cole Sear",
+      "playedBy": "Haley Joel Osment",
+      "film": "The Sixth Sense",
+      "year": 1999
+    },
+    {
+      "text": "Stella! Hey, Stella!",
+      "character": "Stanley Kowalski",
+      "playedBy": "Marlon Brando",
+      "film": "A Streetcar Named Desire",
+      "year": 1951
+    },
+    {
+      "text": "Oh, Jerry, don't let's ask for the moon. We have the stars.",
+      "character": "Charlotte Vale",
+      "playedBy": "Bette Davis",
+      "film": "Now, Voyager",
+      "year": 1942
+    },
+    {
+      "text": "Shane. Shane. Come back!",
+      "character": "Joey Starrett",
+      "playedBy": "Brandon De Wilde",
+      "film": "Shane",
+      "year": 1953
+    },
+    {
+      "text": "Well, nobody's perfect.",
+      "character": "Osgood Fielding III",
+      "playedBy": "Joe E. Brown",
+      "film": "Some Like It Hot",
+      "year": 1959
+    },
+    {
+      "text": "It's alive! It's alive!",
+      "character": "Henry Frankenstein",
+      "playedBy": "Colin Clive",
+      "film": "Frankenstein",
+      "year": 1931
+    },
+    {
+      "text": "Houston, we have a problem.",
+      "character": "Jim Lovell",
+      "playedBy": "Tom Hanks",
+      "film": "Apollo 13",
+      "year": 1995
+    },
+    {
+      "text": "You've got to ask yourself one question: 'Do I feel lucky?' Well, do ya, punk?",
+      "character": "Harry Callahan",
+      "playedBy": "Clint Eastwood",
+      "film": "Dirty Harry",
+      "year": 1971
+    },
+    {
+      "text": "You had me at 'hello.'",
+      "character": "Dorothy Boyd",
+      "playedBy": "Renée Zellweger",
+      "film": "Jerry Maguire",
+      "year": 1996
+    },
+    {
+      "text": "One morning I shot an elephant in my pajamas. How he got in my pajamas, I don't know.",
+      "character": "Capt. Geoffrey T. Spaulding",
+      "playedBy": "Groucho Marx",
+      "film": "Animal Crackers",
+      "year": 1930
+    },
+    {
+      "text": "There's no crying in baseball!",
+      "character": "Jimmy Dugan",
+      "playedBy": "Tom Hanks",
+      "film": "A League of Their Own",
+      "year": 1992
+    },
+    {
+      "text": "La-dee-da, la-dee-da.",
+      "character": "Annie Hall",
+      "playedBy": "Diane Keaton",
+      "film": "Annie Hall",
+      "year": 1977
+    },
+    {
+      "text": "A boy's best friend is his mother.",
+      "character": "Norman Bates",
+      "playedBy": "Anthony Perkins",
+      "film": "Psycho",
+      "year": 1960
+    },
+    {
+      "text": "Greed, for lack of a better word, is good.",
+      "character": "Gordon Gekko",
+      "playedBy": "Michael Douglas",
+      "film": "Wall Street",
+      "year": 1987
+    },
+    {
+      "text": "Keep your friends close, but your enemies closer.",
+      "character": "Michael Corleone",
+      "playedBy": "Al Pacino",
+      "film": "The Godfather Part II",
+      "year": 1974
+    },
+    {
+      "text": "As God is my witness, I'll never be hungry again.",
+      "character": "Scarlett O'Hara",
+      "playedBy": "Vivien Leigh",
+      "film": "Gone with the Wind",
+      "year": 1939
+    },
+    {
+      "text": "Well, here's another nice mess you've gotten me into!",
+      "character": "Oliver",
+      "playedBy": "Oliver Hardy",
+      "film": "Sons of the Desert",
+      "year": 1933
+    },
+    {
+      "text": "Say 'hello' to my little friend!",
+      "character": "Tony Montana",
+      "playedBy": "Al Pacino",
+      "film": "Scarface",
+      "year": 1983
+    },
+    {
+      "text": "What a dump.",
+      "character": "Rosa Moline",
+      "playedBy": "Bette Davis",
+      "film": "Beyond the Forest",
+      "year": 1949
+    },
+    {
+      "text": "Mrs. Robinson, you're trying to seduce me. Aren't you?",
+      "character": "Benjamin Braddock",
+      "playedBy": "Dustin Hoffman",
+      "film": "The Graduate",
+      "year": 1967
+    },
+    {
+      "text": "Gentlemen, you can't fight in here! This is the War Room!",
+      "character": "President Merkin Muffley",
+      "playedBy": "Peter Sellers",
+      "film": "Dr. Strangelove",
+      "year": 1964
+    },
+    {
+      "text": "Elementary, my dear Watson.",
+      "character": "Sherlock Holmes",
+      "playedBy": "Basil Rathbone",
+      "film": "The Adventures of Sherlock Holmes",
+      "year": 1939
+    },
+    {
+      "text": "Take your stinking paws off me, you damned dirty ape.",
+      "character": "George Taylor",
+      "playedBy": "Charlton Heston",
+      "film": "Planet of the Apes",
+      "year": 1968
+    },
+    {
+      "text": "Of all the gin joints in all the towns in all the world, she walks into mine.",
+      "character": "Rick Blaine",
+      "playedBy": "Humphrey Bogart",
+      "film": "Casablanca",
+      "year": 1942
+    },
+    {
+      "text": "Here's Johnny!",
+      "character": "Jack Torrance",
+      "playedBy": "Jack Nicholson",
+      "film": "The Shining",
+      "year": 1980
+    },
+    {
+      "text": "They're here!",
+      "character": "Carol Anne Freeling",
+      "playedBy": "Heather O'Rourke",
+      "film": "Poltergeist",
+      "year": 1982
+    },
+    {
+      "text": "Is it safe?",
+      "character": "Dr. Christian Szell",
+      "playedBy": "Laurence Olivier",
+      "film": "Marathon Man",
+      "year": 1976
+    },
+    {
+      "text": "Wait a minute, wait a minute. You ain't heard nothin' yet!",
+      "character": "Jakie Rabinowitz/Jack Robin",
+      "playedBy": "Al Jolson",
+      "film": "The Jazz Singer",
+      "year": 1927
+    },
+    {
+      "text": "No wire hangers, ever!",
+      "character": "Joan Crawford",
+      "playedBy": "Faye Dunaway",
+      "film": "Mommie Dearest",
+      "year": 1981
+    },
+    {
+      "text": "Mother of mercy, is this the end of Rico?",
+      "character": "Rico Bandello",
+      "playedBy": "Edward G. Robinson",
+      "film": "Little Caesar",
+      "year": 1931
+    },
+    {
+      "text": "Forget it, Jake, it's Chinatown.",
+      "character": "Lawrence Walsh",
+      "playedBy": "Joe Mantell",
+      "film": "Chinatown",
+      "year": 1974
+    },
+    {
+      "text": "I have always depended on the kindness of strangers.",
+      "character": "Blanche DuBois",
+      "playedBy": "Vivien Leigh",
+      "film": "A Streetcar Named Desire",
+      "year": 1951
+    },
+    {
+      "text": "Hasta la vista, baby.",
+      "character": "The Terminator",
+      "playedBy": "Arnold Schwarzenegger",
+      "film": "Terminator 2: Judgment Day",
+      "year": 1991
+    },
+    {
+      "text": "Soylent Green is people!",
+      "character": "Det. Robert Thorn",
+      "playedBy": "Charlton Heston",
+      "film": "Soylent Green",
+      "year": 1973
+    },
+    {
+      "text": "Open the pod bay doors, HAL.",
+      "character": "Dave Bowman",
+      "playedBy": "Keir Dullea",
+      "film": "2001: A Space Odyssey",
+      "year": 1968
+    },
+    {
+      "text": "Striker: \"Surely you can't be serious.\"\nRumack: \"I am serious … and don't call me Shirley.",
+      "character": "Ted Striker and Dr. Rumack",
+      "playedBy": "Robert Hays and Leslie Nielsen",
+      "film": "Airplane!",
+      "year": 1980
+    },
+    {
+      "text": "Yo, Adrian!",
+      "character": "Rocky Balboa",
+      "playedBy": "Sylvester Stallone",
+      "film": "Rocky",
+      "year": 1976
+    },
+    {
+      "text": "Hello, gorgeous.",
+      "character": "Fanny Brice",
+      "playedBy": "Barbra Streisand",
+      "film": "Funny Girl",
+      "year": 1968
+    },
+    {
+      "text": "Toga! Toga!",
+      "character": "John \"Bluto\" Blutarsky",
+      "playedBy": "John Belushi",
+      "film": "National Lampoon's Animal House",
+      "year": 1978
+    },
+    {
+      "text": "Listen to them. Children of the night. What music they make.",
+      "character": "Count Dracula",
+      "playedBy": "Bela Lugosi",
+      "film": "Dracula",
+      "year": 1931
+    },
+    {
+      "text": "Oh, no, it wasn't the airplanes. It was Beauty killed the Beast.",
+      "character": "Carl Denham",
+      "playedBy": "Robert Armstrong",
+      "film": "King Kong",
+      "year": 1933
+    },
+    {
+      "text": "My precious.",
+      "character": "Gollum",
+      "playedBy": "Andy Serkis",
+      "film": "The Lord of the Rings: The Two Towers",
+      "year": 2002
+    },
+    {
+      "text": "Attica! Attica!",
+      "character": "Sonny Wortzik",
+      "playedBy": "Al Pacino",
+      "film": "Dog Day Afternoon",
+      "year": 1975
+    },
+    {
+      "text": "Sawyer, you're going out a youngster, but you've got to come back a star!",
+      "character": "Julian Marsh",
+      "playedBy": "Warner Baxter",
+      "film": "42nd Street",
+      "year": 1933
+    },
+    {
+      "text": "Listen to me, mister. You're my knight in shining armor. Don't you forget it. You're going to get back on that horse, and I'm going to be right behind you, holding on tight, and away we're gonna go, go, go!",
+      "character": "Ethel Thayer",
+      "playedBy": "Katharine Hepburn",
+      "film": "On Golden Pond",
+      "year": 1981
+    },
+    {
+      "text": "Tell 'em to go out there with all they got and win just one for the Gipper.",
+      "character": "George Gipp",
+      "playedBy": "Ronald Reagan",
+      "film": "Knute Rockne, All American",
+      "year": 1940
+    },
+    {
+      "text": "A martini. Shaken, not stirred.",
+      "character": "James Bond",
+      "playedBy": "Sean Connery",
+      "film": "Goldfinger[aa]",
+      "year": 1964
+    },
+    {
+      "text": "Who's on first.\"[ab]",
+      "character": "Dexter",
+      "playedBy": "Bud Abbott",
+      "film": "The Naughty Nineties",
+      "year": 1945
+    },
+    {
+      "text": "Cinderella story. Outta nowhere. A former greenskeeper, now, about to become the Masters champion. It looks like a mirac...It's in the hole! It's in the hole! It's in the hole!",
+      "character": "Carl Spackler",
+      "playedBy": "Bill Murray",
+      "film": "Caddyshack",
+      "year": 1980
+    },
+    {
+      "text": "Life is a banquet, and most poor suckers are starving to death!",
+      "character": "Mame Dennis",
+      "playedBy": "Rosalind Russell",
+      "film": "Auntie Mame",
+      "year": 1958
+    },
+    {
+      "text": "I feel the need—the need for speed!",
+      "character": "Pete Mitchell and Nick Bradshaw",
+      "playedBy": "Tom Cruise and Anthony Edwards",
+      "film": "Top Gun",
+      "year": 1986
+    },
+    {
+      "text": "Carpe diem. Seize the day, boys. Make your lives extraordinary.",
+      "character": "John Keating",
+      "playedBy": "Robin Williams",
+      "film": "Dead Poets Society",
+      "year": 1989
+    },
+    {
+      "text": "Snap out of it!",
+      "character": "Loretta Castorini",
+      "playedBy": "Cher",
+      "film": "Moonstruck",
+      "year": 1987
+    },
+    {
+      "text": "My mother thanks you. My father thanks you. My sister thanks you. And I thank you.",
+      "character": "George M. Cohan",
+      "playedBy": "James Cagney",
+      "film": "Yankee Doodle Dandy",
+      "year": 1942
+    },
+    {
+      "text": "Nobody puts Baby in a corner.",
+      "character": "Johnny Castle",
+      "playedBy": "Patrick Swayze",
+      "film": "Dirty Dancing",
+      "year": 1987
+    },
+    {
+      "text": "I'll get you, my pretty, and your little dog too!",
+      "character": "Wicked Witch of the West",
+      "playedBy": "Margaret Hamilton",
+      "film": "The Wizard of Oz",
+      "year": 1939
+    },
+    {
+      "text": "I'm the king of the world!",
+      "character": "Jack Dawson",
+      "playedBy": "Leonardo DiCaprio",
+      "film": "Titanic",
+      "year": 1997
+    }
+  ]

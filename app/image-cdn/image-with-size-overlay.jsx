@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { getResourceSize } from '../../utils';
+import { getResourceSize } from 'utils';
 
 export function ImageWithSizeOverlay({ src, srcSet, sizes, overlayPosition }) {
     const imageRef = useRef();
@@ -25,11 +25,13 @@ export function ImageWithSizeOverlay({ src, srcSet, sizes, overlayPosition }) {
         <div className="relative">
             {imgSize && (
                 <span
-                    className={`absolute py-1.5 px-2.5 text-sm rounded-lg bg-neutral-900/70 top-2.5 ${overlayPosition === 'right' ? 'right-2.5' : 'left-2.5'}`}
+                    className={`absolute py-1.5 px-2.5 text-sm rounded-lg bg-neutral-900/70 top-2.5 ${
+                        overlayPosition === 'right' ? 'right-2.5' : 'left-2.5'
+                    }`}
                 >{`Size: ${Math.ceil(imgSize / 1024)}KB`}</span>
             )}
-            
-                <img src={src} srcSet={srcSet} sizes={sizes} alt="Corgi" onLoad={handleImageLoad} ref={imageRef} />
+
+            <img src={src} srcSet={srcSet} sizes={sizes} alt="Corgi" onLoad={handleImageLoad} ref={imageRef} />
         </div>
     );
 }

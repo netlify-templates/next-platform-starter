@@ -1,36 +1,49 @@
 import Link from 'next/link';
-import { Card } from '../components/card';
-import { CardsGrid } from '../components/cards-grid';
-import { RandomPostId } from '../components/random-post-id';
-import { getNetlifyContext } from '../utils';
-import { Alert } from '../components/alert';
+import { Card } from 'components/card';
+import { RandomQuote } from 'components/random-quote';
+import { Alert } from 'components/alert';
+import { Markdown } from 'components/markdown';
+import { getNetlifyContext } from 'utils';
 
 const cards = [
-    /*{
-        text: 'Hello',
-        linkText: 'someLink',
-        href: '/'
-    }*/
+    //{ text: 'Hello', linkText: 'someLink', href: '/' }
 ];
 
-const currentEnv = process.env.NODE_ENV;
+const contextExplainer = `
+The card below is rendered on the server based on the value of \`process.env.CONTEXT\` 
+([docs](https://docs.netlify.com/configure-builds/environment-variables/#build-metadata)):
+`;
+
+const dynamicContentExplainer = `
+The content of the card below is fetched by the client from the Route Handler \`api/quotes/random\`.
+
+On Netlify, Next.js Route Handlers are automatically deployed as [Serverless Functions](https://docs.netlify.com/functions/overview/).
+Alternatively, you can add Serverless Functions to any site regardless of framework, with acccess to the [full context data](https://docs.netlify.com/functions/api/).
+`;
 
 export default function Page() {
     return (
-        <>
-            <section className="flex flex-col items-start gap-6 mb-16 sm:gap-8 sm:mb-24">
+        <main className="flex flex-col gap-8 sm:gap-16">
+            <section className="flex flex-col items-start gap-4 sm:gap-6">
                 <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">Netlify Platform Starter - Next.js</h1>
                 <p className="text-lg">Get started with Next.js and Netlify in seconds.</p>
-                <Link href="https://docs.netlify.com/frameworks/next-js/overview/" className="btn btn-lg btn-primary sm:btn-wide">
+                <Link
+                    href="https://docs.netlify.com/frameworks/next-js/overview/"
+                    className="btn btn-lg btn-primary sm:btn-wide"
+                >
                     Read the Docs
                 </Link>
             </section>
-            <section className="flex flex-col gap-8">
+            <section className="flex flex-col gap-4">
+                <Markdown content={contextExplainer} />
                 <RuntimeContextCard />
-                {!!cards?.length && <CardsGrid cards={cards} />}
-                <RandomPostId />
             </section>
-        </>
+            <section className="flex flex-col gap-4">
+                <Markdown content={dynamicContentExplainer} />
+                <RandomQuote />
+            </section>
+            { /* !!cards?.length && <CardsGrid cards={cards} /> */}
+        </main>
     );
 }
 
