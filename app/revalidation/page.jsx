@@ -45,7 +45,7 @@ export default async function Page() {
 
     return (
         <>
-            <h1 className="mb-8 text-4xl font-bold tracking-tight sm:text-5xl sm:mb-12">Revalidation Basics</h1>
+            <h1>Revalidation Basics</h1>
             <Markdown content={explainer} />
             <form className="mt-4" action={revalidateWiki}>
                 <SubmitButton text="Click to Revalidate" />

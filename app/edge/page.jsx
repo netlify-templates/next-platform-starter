@@ -20,7 +20,7 @@ There are advatanges to using Edge Functions directly, such as the ability to ac
 export default function FallbackPage() {
     return (
         <>
-            <h1 className="mb-8 text-4xl font-bold tracking-tight sm:text-5xl sm:mb-12">You&apos;ve reached the fallback page.</h1>
+            <h1>You&apos;ve reached the fallback page.</h1>
             <Markdown content={explainer} />
         </>
     );

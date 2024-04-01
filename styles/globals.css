@@ -9,6 +9,10 @@
         @apply px-1 py-0.5 font-mono rounded bg-neutral-900 text-yellow-200;
         font-size: 0.9em;
     }
+
+    h1 {
+        @apply mb-6 text-4xl font-bold tracking-tight sm:text-5xl;
+    }
 }
 
 a {
@@ -21,4 +25,8 @@ a {
 
 .markdown p {
     @apply mb-3;
+}
+
+.btn:disabled {
+    @apply text-neutral-400 bg-neutral-700;
 }

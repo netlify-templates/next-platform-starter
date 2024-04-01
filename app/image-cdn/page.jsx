@@ -1,8 +1,8 @@
 import Image from 'next/image';
-import { Alert } from 'components/alert';
 import { Markdown } from 'components/markdown';
 import { getNetlifyContext } from 'utils';
 import { ImageWithSizeOverlay } from './image-with-size-overlay';
+import { ContextAlert } from 'components/context-alert';
 
 export const metadata = {
     title: 'Image CDN'
@@ -46,32 +46,24 @@ Other than using \`next/image\` or rolling your own \`<img>\` tags, you can also
 ~~~
 `;
 
+const devModeWarning = `
+In local development, optimization is performed locally without automatic format
+detection, so format is set to WebP.
+`;
+
 export default function Page() {
     return (
-        <>
-            <section className="flex flex-col items-start gap-6 mb-16 sm:gap-8 sm:mb-24">
-                <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">Image CDN</h1>
-                {!ctx && (
-                    <Alert>
-                        <p>
-                            For full functionality, either run this starter locally via <code>netlify dev</code> (
-                            <a href="https://docs.netlify.com/cli/local-development/">docs</a>) or deploy it to Netlify.
-                        </p>
-                    </Alert>
-                )}
-                {ctx === 'dev' && (
-                    <Alert>
-                        <p>
-                            Running in local development mode. Image optimization is run locally without format
-                            detection, so format is fixed to WebP.
-                            <br />
-                            Run this site on Netlify for automatic format detection!
-                        </p>
-                    </Alert>
-                )}
+        <div className="flex flex-col gap-6 sm:gap-12">
+            <section className="flex flex-col items-start gap-6 sm:gap-8">
+                <ContextAlert addedChecksFunction={
+                    (ctx) => {
+                        return ctx === "dev" ? devModeWarning : null;
+                    }
+                } />
+                <h1 className="mb-0">Image CDN</h1>
             </section>
-            <section className="mb-16 sm:gap-8 sm:mb-24">
-                <h2 className="mb-6 text-2xl font-bold sm:text-3xl">Using next/image component</h2>
+            <section>
+                <h2 className="mb-4 text-2xl font-bold sm:text-3xl">Using next/image component</h2>
                 <Markdown content={nextImageSnippet} />
                 <div
                     className="mt-8 overflow-hidden border-2 border-white rounded-lg relative max-w-screen-lg"
@@ -98,8 +90,8 @@ export default function Page() {
                 </span>
             </section>
 
-            <section className="mb-16 sm:gap-8 sm:mb-24">
-                <h2 className="mb-6 text-2xl font-bold sm:text-3xl">
+            <section>
+                <h2 className="mb-4 text-2xl font-bold sm:text-3xl">
                     Original vs. optimized image: can you tell the difference?
                 </h2>
                 <Markdown content={originalVsCdnSnippet} />
@@ -121,6 +113,6 @@ export default function Page() {
                     <div className="diff-resizer"></div>
                 </div>
             </section>
-        </>
+        </div>
     );
 }

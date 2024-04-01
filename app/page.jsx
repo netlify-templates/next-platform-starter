@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import { Card } from 'components/card';
 import { RandomQuote } from 'components/random-quote';
-import { Alert } from 'components/alert';
 import { Markdown } from 'components/markdown';
+import { ContextAlert } from 'components/context-alert';
 import { getNetlifyContext } from 'utils';
 
 const cards = [
@@ -25,11 +25,14 @@ Alternatively, you can add Serverless Functions to any site regardless of framew
 And as always with dynamic content, beware of layout shifts & flicker! (here, we aren't...)
 `;
 
+const ctx = getNetlifyContext();
+
 export default function Page() {
     return (
         <main className="flex flex-col gap-8 sm:gap-16">
-            <section className="flex flex-col items-start gap-4 sm:gap-6">
-                <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">Netlify Platform Starter - Next.js</h1>
+            <section className="flex flex-col items-start gap-3 sm:gap-4">
+                <ContextAlert />
+                <h1 className="mb-0">Netlify Platform Starter - Next.js</h1>
                 <p className="text-lg">Get started with Next.js and Netlify in seconds.</p>
                 <Link
                     href="https://docs.netlify.com/frameworks/next-js/overview/"
@@ -38,37 +41,27 @@ export default function Page() {
                     Read the Docs
                 </Link>
             </section>
-            <section className="flex flex-col gap-4">
-                <Markdown content={contextExplainer} />
-                <RuntimeContextCard />
-            </section>
+            {!!ctx && (
+                <section className="flex flex-col gap-4">
+                    <Markdown content={contextExplainer} />
+                    <RuntimeContextCard />
+                </section>
+            )}
             <section className="flex flex-col gap-4">
                 <Markdown content={preDynamicContentExplainer} />
                 <RandomQuote />
                 <Markdown content={postDynamicContentExplainer} />
             </section>
-            { /* !!cards?.length && <CardsGrid cards={cards} /> */}
+            {/* !!cards?.length && <CardsGrid cards={cards} /> */}
         </main>
     );
 }
 
 function RuntimeContextCard() {
-    const currentContext = getNetlifyContext();
-    if (!currentContext) {
-        return (
-            <Alert>
-                <p>
-                    For full functionality, either run this starter locally via <code>netlify dev</code> (
-                    <a href="https://docs.netlify.com/cli/local-development/">docs</a>) or deploy it to Netlify.
-                </p>
-            </Alert>
-        );
+    const title = `Netlify Context: running in ${ctx} mode.`;
+    if (ctx === 'dev') {
+        return <Card title={title} text="Next.js will rebuild any page you navigate to, including static pages." />;
     } else {
-        const title = `Netlify Context: running in ${currentContext} mode.`;
-        if (currentContext === 'dev') {
-            return <Card title={title} text="Next.js will rebuild any page you navigate to, including static pages." />;
-        } else {
-            return <Card title={title} text="This page was statically-generated at build time." />;
-        }
+        return <Card title={title} text="This page was statically-generated at build time." />;
     }
 }
