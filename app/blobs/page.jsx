@@ -1,5 +1,7 @@
 import { Markdown } from 'components/markdown';
 import { ShapeEditor } from './editor';
+import { ContextAlert } from 'components/context-alert';
+import { getNetlifyContext, uploadDisabled } from 'utils';
 
 export const metadata = {
     title: 'Blobs'
@@ -28,14 +30,27 @@ Click "Randomize" to get a shape you like, then hit "Upload".
 Choose any existing object to view it.
 `;
 
+const uploadDisabledText = `
+User uploads are disabled in this site instance - run your own to try it.
+`;
+
 export default async function Page() {
     return (
         <>
-            <h1 className="mb-8 text-4xl font-bold tracking-tight sm:text-5xl sm:mb-12">Blobs x Blobs</h1>
-            <div className="flex flex-col gap-8">
-            <Markdown content={explainer} />
-            <ShapeEditor />
-            </div>
+            <section className="flex flex-col gap-6 sm:gap-8">
+                <ContextAlert
+                    addedChecksFunction={(ctx) => {
+                        return uploadDisabled ? uploadDisabledText : null;
+                    }}
+                />
+                <h1>Blobs x Blobs</h1>
+            </section>
+            {!!getNetlifyContext() && (
+                <div className="flex flex-col gap-8">
+                    <Markdown content={explainer} />
+                    <ShapeEditor />
+                </div>
+            )}
         </>
     );
 }
