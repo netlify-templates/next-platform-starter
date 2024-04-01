@@ -22,3 +22,8 @@ a {
 .markdown p {
     @apply mb-3;
 }
+
+.btn:disabled {
+    @apply text-neutral-400;
+    @apply bg-neutral-700;
+}
