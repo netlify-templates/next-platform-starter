@@ -23,6 +23,10 @@ a {
     @apply mb-1;
 }
 
+.alert .markdown {
+    @apply mb-0;
+}
+
 .markdown p {
     @apply mb-3;
 }
