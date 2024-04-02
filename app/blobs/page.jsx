@@ -31,7 +31,10 @@ Choose any existing object to view it.
 `;
 
 const uploadDisabledText = `
-User uploads are disabled in this site instance - run your own to try it.
+User uploads are disabled in this site. To run your own and try it out: 
+<a href="https://app.netlify.com/start/deploy?repository=https://github.com/netlify-templates/next-platform-starter">
+<img src="https://www.netlify.com/img/deploy/button.svg" style="display: inline;" alt="Deploy to Netlify" />
+</a>
 `;
 
 export default async function Page() {
