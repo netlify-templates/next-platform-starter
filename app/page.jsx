@@ -4,6 +4,7 @@ import { RandomQuote } from 'components/random-quote';
 import { Markdown } from 'components/markdown';
 import { ContextAlert } from 'components/context-alert';
 import { getNetlifyContext } from 'utils';
+import { FeedbackForm } from 'components/feedback-form';
 
 const cards = [
     //{ text: 'Hello', linkText: 'someLink', href: '/' }
@@ -53,6 +54,9 @@ export default function Page() {
                 <Markdown content={postDynamicContentExplainer} />
             </section>
             {/* !!cards?.length && <CardsGrid cards={cards} /> */}
+            <section className="flex flex-col gap-4">
+                <FeedbackForm />
+            </section>
         </main>
     );
 }
