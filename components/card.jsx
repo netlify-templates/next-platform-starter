@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-export function Card({ title, text, linkText, href }) {
+export function Card({ title, text, linkText, href, children }) {
     return (
         <div className="bg-white text-neutral-600 card">
             <div className="card-body">
@@ -13,6 +13,7 @@ export function Card({ title, text, linkText, href }) {
                         </Link>
                     </div>
                 )}
+                {children}
             </div>
         </div>
     );
