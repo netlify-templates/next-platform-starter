@@ -15,7 +15,7 @@ With modern Next.js versions, no page is truly static: as a developer, you can r
 Below is a simple form using \`fetch\` to submit its data to Netlify rather than using full-page navigation. To be detected, form tags must be hosted in static files -
 and \`public/__forms.html\` exists just for this purpose.
 
-Deploy this site to your Netlify account (using the \`forms\` branch), enable the forms feature via the *Forms* entry in the Netlify UI, trigger a build and you can start collecting submissions.
+Deploy this site to your Netlify account, [enable the forms feature in the UI](https://docs.netlify.com/forms/setup/#enable-form-detection), trigger a build and you can start collecting submissions.
 `;
 
 export default async function Page() {
