@@ -9,6 +9,8 @@
         "lint": "next lint"
     },
     "dependencies": {
+        "glob": "^8.1.0",
+        "gray-matter": "^4.0.3",
         "@netlify/blobs": "^7.3.0",
         "blobshape": "^1.0.0",
         "bright": "^0.8.5",
@@ -19,10 +21,13 @@
         "unique-names-generator": "^4.7.1"
     },
     "devDependencies": {
+        "@stackbit/cms-git": "^0.4.10",
+        "@stackbit/types": "^0.11.12",
         "autoprefixer": "^10.4.18",
         "daisyui": "^4.0.5",
         "eslint": "8.57.0",
         "eslint-config-next": "14.2.2",
+        "fs-extra": "^11.2.0",
         "postcss": "^8.4.36",
         "tailwindcss": "^3.4.1"
     }

@@ -1,0 +1,56 @@
+{
+    "model": "page",
+    "presets": [
+        {
+            "label": "Empty page",
+            "thumbnail": "images/page-empty.png",
+            "data": {
+                "title": "Empty page"
+            }
+        },
+        {
+            "label": "Landing",
+            "thumbnail": "images/page-landing.png",
+            "data": {
+                "title": "Example landing page",
+                "sections": [
+                    {
+                        "type": "hero",
+                        "heading": "This is your main value proposition",
+                        "body": "And a super compelling supporting paragraph that makes the user immediately want to click the button below.\n",
+                        "image": {
+                            "src": "/images/fpo-shapes.png",
+                            "alt": "Stackbit Shapes"
+                        },
+                        "button": {
+                            "label": "Get Started",
+                            "url": "/",
+                            "theme": "outline"
+                        },
+                        "theme": "imgRight"
+                    },
+                    {
+                        "type": "stats",
+                        "heading": "Don't take our word for it",
+                        "body": "Look at these amazing numbers!",
+                        "stats": [
+                            {
+                                "label": "Conversion rate",
+                                "value": "100%"
+                            },
+                            {
+                                "label": "Five-star reviews",
+                                "value": "4M"
+                            },
+                            {
+                                "label": "Prefer our product",
+                                "value": "5 of 5"
+                            }
+                        ],
+                        "theme": "dark"
+                    }
+                ]
+            }
+        }
+    ]
+}
