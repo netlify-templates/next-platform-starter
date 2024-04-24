@@ -8,6 +8,6 @@ export const page: PageModel = {
     filePath: 'content/pages/{slug}.md',
     fields: [
         { name: 'title', type: 'string', required: true },
-        { name: 'sections', type: 'list', items: { type: 'model', models: ['hero', 'stats'] } }
+        { name: 'sections', type: 'list', items: { type: 'model', models: ['hero', 'featuredItems', 'quote'] } }
     ]
 };

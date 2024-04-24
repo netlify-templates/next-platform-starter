@@ -1,18 +1,9 @@
 import Link from 'next/link';
 
-const themeClassMap = {
-    default: 'btn-primary',
-    outline: 'btn-accent btn-outline'
-};
-
-export const Button = (props) => {
+export const Button = ({ label, url, className, 'data-sb-field-path': fieldPath }) => {
     return (
-        <Link
-            href={props.url ?? '/'}
-            className={`btn btn-lg sm:btn-wide ${themeClassMap[props.theme] ?? themeClassMap['default']}`}
-            data-sb-field-path=".button"
-        >
-            <span data-sb-field-path=".label">{props.label}</span>
+        <Link href={url ?? '/'} className={className} data-sb-field-path={fieldPath}>
+            <span data-sb-field-path=".label">{label}</span>
         </Link>
     );
 };

@@ -22,7 +22,13 @@ export async function getPagePaths() {
 }
 
 export async function getPageFromSlug(slug) {
+    if (!slug) {
+        return null;
+    }
     const absPath = pagePathMap()[slug];
+    if (!absPath) {
+        return null;
+    }
     const rawContent = fs.readFileSync(absPath, 'utf8');
     const { data, content } = matter(rawContent);
 

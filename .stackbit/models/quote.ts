@@ -1,33 +1,22 @@
 import { ObjectModel } from '@stackbit/types';
 
-export const hero: ObjectModel = {
+export const quote: ObjectModel = {
     type: 'object',
-    name: 'hero',
-    label: 'Hero',
-    labelField: 'heading',
+    name: 'quote',
+    label: 'Quote',
+    labelField: 'quote',
     fieldGroups: [{ name: 'styles', label: 'Styles' }],
     fields: [
-        { name: 'heading', type: 'string' },
-        { name: 'body', type: 'markdown' },
+        { name: 'quote', type: 'text', required: true },
+        { name: 'authorName', type: 'string' },
+        { name: 'authorTitle', type: 'string' },
         {
-            name: 'image',
+            name: 'authorImage',
             type: 'object',
             fields: [
                 { name: 'src', type: 'image', default: '/images/fpo-shapes.png' },
                 { name: 'alt', type: 'string' }
             ]
-        },
-        { name: 'button', type: 'model', models: ['button'] },
-        {
-            name: 'layout',
-            type: 'enum',
-            controlType: 'button-group',
-            options: [
-                { label: 'Image Left', value: 'imgLeft' },
-                { label: 'Image Right', value: 'imgRight' }
-            ],
-            default: 'imgRight',
-            group: 'styles'
         },
         {
             name: 'background',
