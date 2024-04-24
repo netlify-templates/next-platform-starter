@@ -14,7 +14,7 @@ export const quote: ObjectModel = {
             name: 'authorImage',
             type: 'object',
             fields: [
-                { name: 'src', type: 'image', default: '/images/fpo-shapes.png' },
+                { name: 'src', type: 'image', default: '/images/corgi-author.jpg' },
                 { name: 'alt', type: 'string' }
             ]
         },
