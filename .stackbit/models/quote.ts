@@ -36,7 +36,7 @@ export const quote: ObjectModel = {
                     value: 'primary'
                 }
             ],
-            default: 'none',
+            default: 'light',
             group: 'styles'
         }
     ]

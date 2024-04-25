@@ -7,7 +7,7 @@ export const featuredItems: ObjectModel = {
     labelField: 'heading',
     fieldGroups: [{ name: 'styles', label: 'Styles' }],
     fields: [
-        { name: 'heading', type: 'string' },
+        { name: 'heading', type: 'string', default: 'This Is A Big Headline' },
         { name: 'body', type: 'markdown' },
         {
             name: 'items',
@@ -21,7 +21,7 @@ export const featuredItems: ObjectModel = {
                         name: 'image',
                         type: 'object',
                         fields: [
-                            { name: 'src', type: 'image', default: '/images/fpo-shapes.png' },
+                            { name: 'src', type: 'image', default: '/images/corgi-author.jpg' },
                             { name: 'alt', type: 'string' }
                         ]
                     }
@@ -46,7 +46,7 @@ export const featuredItems: ObjectModel = {
                     value: 'primary'
                 }
             ],
-            default: 'none',
+            default: 'light',
             group: 'styles'
         }
     ]

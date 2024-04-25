@@ -7,13 +7,13 @@ export const hero: ObjectModel = {
     labelField: 'heading',
     fieldGroups: [{ name: 'styles', label: 'Styles' }],
     fields: [
-        { name: 'heading', type: 'string' },
+        { name: 'heading', type: 'string', default: 'This Is A Big Hero Headline' },
         { name: 'body', type: 'markdown' },
         {
             name: 'image',
             type: 'object',
             fields: [
-                { name: 'src', type: 'image', default: '/images/fpo-shapes.png' },
+                { name: 'src', type: 'image', default: '/images/corgi.jpg' },
                 { name: 'alt', type: 'string' }
             ]
         },
@@ -47,7 +47,7 @@ export const hero: ObjectModel = {
                     value: 'primary'
                 }
             ],
-            default: 'none',
+            default: 'primary',
             group: 'styles'
         }
     ]
