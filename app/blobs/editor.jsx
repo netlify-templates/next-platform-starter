@@ -10,11 +10,11 @@ export function ShapeEditor(props) {
     const [lastMutationTime, setLastMutationTime] = useState(0);
 
     return (
-        <div className="flex w-full flex-col md:flex-row md:items-start gap-8">
+        <div className="flex flex-col w-full gap-8 md:flex-row md:items-start">
             <div className="md:w-2/5">
                 <NewShape setLastMutationTime={setLastMutationTime} />
             </div>
-            <div className='w-full'>
+            <div className="w-full">
                 <StoredBlobsList lastMutationTime={lastMutationTime} />
             </div>
         </div>

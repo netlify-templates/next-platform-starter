@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { Card } from './card';
 
 export function FeedbackForm() {
     const [status, setStatus] = useState(null);
@@ -32,12 +31,13 @@ export function FeedbackForm() {
     };
 
     return (
-        <div className="w-full md:max-w-md">
-            <Card title="Leave Feedback">
+        <div className="w-full bg-white text-neutral-600 card md:max-w-md">
+            <div className="card-body">
+                <h3 className="text-neutral-900 card-title">Leave Feedback</h3>
                 <form
                     name="feedback"
                     onSubmit={handleFormSubmit}
-                    className="text-black flex flex-col gap-3 align-center"
+                    className="flex flex-col gap-3 align-center"
                 >
                     <input type="hidden" name="form-name" value="feedback" />
                     <input name="name" type="text" placeholder="Name" required className="input input-bordered" />
@@ -59,7 +59,7 @@ export function FeedbackForm() {
                         </div>
                     )}
                 </form>
-            </Card>
+            </div>
         </div>
     );
 }
@@ -68,7 +68,7 @@ function SuccessIcon() {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="stroke-current shrink-0 h-6 w-6"
+            className="w-6 h-6 stroke-current shrink-0"
             fill="none"
             viewBox="0 0 24 24"
         >
@@ -85,7 +85,7 @@ function ErrorIcon(success) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="stroke-current shrink-0 h-6 w-6"
+            className="w-6 h-6 stroke-current shrink-0"
             fill="none"
             viewBox="0 0 24 24"
         >

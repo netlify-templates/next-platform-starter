@@ -23,38 +23,43 @@ export function StoredBlobsList({ lastMutationTime }) {
     };
 
     return (
-        <div className="flex flex-col items-center justify-center gap-3">
-            <div className="text-lg font-bold h-6">Objects in Blob Store</div>
-            <div className="flex flex-col gap-1 w-full bg-white text-neutral-900 min-h-56 card">
-                <div className="card-body text-md">
-                    {!keys?.length && <span>Please upload some shapes!</span>}
-                    {keys.map((keyName) => {
-                        const isSelected = keyName === selectedKey;
-                        return (
-                            <div
-                                key={keyName}
-                                onClick={() => {
-                                    onSelect(keyName);
-                                }}
-                                className={'w-full hover:bg-neutral-200 ' + (isSelected ? 'font-bold' : '')}
-                            >
-                                {keyName}
-                            </div>
-                        );
-                    })}
-                    {previewData && <BlobPreview data={previewData} />}
-                </div>
+        <>
+            <h2 className="mb-4 text-lg text-center">Objects in Blob Store</h2>
+            <div className="w-full p-8 bg-white rounded-lg text-neutral-900 min-h-56">
+                {keys?.length ? (
+                    <div className="space-y-1">
+                        {keys.map((keyName) => {
+                            const isSelected = keyName === selectedKey;
+                            return (
+                                <button
+                                    key={keyName}
+                                    onClick={() => {
+                                        onSelect(keyName);
+                                    }}
+                                    className={
+                                        'w-full px-2 py-1 rounded text-left text-neutral-900 hover:bg-neutral-200' + (isSelected ? ' bg-neutral-200 font-bold pointer-events-none' : ' font-normal')
+                                    }
+                                >
+                                    {keyName}
+                                </button>
+                            );
+                        })}
+                    </div>
+                ) : (
+                    <span>Please upload some shapes!</span>
+                )}
+                {previewData && <BlobPreview data={previewData} />}
             </div>
-        </div>
+        </>
     );
 }
 
 function BlobPreview({ data }) {
     const fullBlobData = generateBlob(data); // Recreates the SVG path by the existing parameters
     return (
-        <div className="mt-4 lg:mx-16 border border-neutral-800 rounded">
-            <div className="p-2 text-center">{data.name}</div>
-            <div className="bg-neutral-800 text-neutral-100 p-2 font-mono">{JSON.stringify(data, null, ' ')}</div>
+        <div className="mt-6 border rounded border-neutral-200 lg:mx-16">
+            <div className="p-4 text-center">{data.name}</div>
+            <div className="p-4 -mx-px font-mono text-sm bg-neutral-800 text-neutral-100">{JSON.stringify(data, null, ' ')}</div>
             <ShapeRenderer svgPath={fullBlobData.svgPath} colors={fullBlobData.parameters.colors} />
         </div>
     );

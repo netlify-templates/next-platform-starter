@@ -1,5 +1,3 @@
-import Link from 'next/link';
-import { Alert } from '../../components/alert';
 import { Markdown } from 'components/markdown';
 
 export const metadata = {
@@ -20,7 +18,7 @@ There are advatanges to using Edge Functions directly, such as the ability to ac
 export default function FallbackPage() {
     return (
         <>
-            <h1>You&apos;ve reached the fallback page.</h1>
+            <h1 className="mb-8">You&apos;ve reached the fallback page.</h1>
             <Markdown content={explainer} />
         </>
     );

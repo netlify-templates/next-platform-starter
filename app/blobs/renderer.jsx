@@ -6,7 +6,7 @@ export function ShapeRenderer(props) {
     const { svgPath, colors } = props;
     const uniqueGradientId = `gradient-${randomInt(10_000_000, 100_000_000)}` 
     return (
-        <div className="w-full bg-white text-primary aspect-square">
+        <div className="w-full bg-white rounded text-primary aspect-square">
             {!!svgPath && !!colors && (
             <svg
                 viewBox={`0 0 ${fixedSize} ${fixedSize}`}

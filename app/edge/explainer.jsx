@@ -20,5 +20,5 @@ export default rewrite;
 `;
 
 export default function EdgeFunctionExplainer() {
-    return <Markdown content={explainer} />    
+    return <Markdown content={explainer} />
 }

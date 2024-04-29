@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import { Hero } from '../../components/hero.jsx';
-import { FeaturedItems } from '../../components/featuredItems.jsx';
+import { FeaturedItems } from '../../components/featured-items.jsx';
 import { Quote } from '../../components/quote.jsx';
 import { getPageFromSlug, getPagePaths } from '../../utils/content.js';
 
@@ -39,11 +39,9 @@ export default async function ComposablePage({ params }) {
 
 function EmptyState() {
     return process.env.NODE_ENV === 'development' ? (
-        <div className="flex items-center justify-center w-full">
-            <div className="flex flex-col items-center gap-2 p-16 border-4 border-gray-400 border-dashed rounded">
-                <p className="text-2xl">Empty page! Add sections.</p>
-                <p>(this message does not appear in production)</p>
-            </div>
+        <div className="self-center w-full max-w-xl px-6 py-10 text-center border-4 border-dashed rounded sm:px-16 sm:py-20 border-white/40 my-[10vh]">
+            <p className="mb-2 text-2xl">Empty page! Add sections.</p>
+            <p>(this message does not appear in production)</p>
         </div>
     ) : (
         <></>

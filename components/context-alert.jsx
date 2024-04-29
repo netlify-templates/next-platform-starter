@@ -8,7 +8,7 @@ For full functionality, either run this site locally via \`netlify dev\`
 `;
 
 export function ContextAlert(props) {
-    const { addedChecksFunction } = props;
+    const { addedChecksFunction, className } = props;
     const ctx = getNetlifyContext();
 
     let markdownText = null;
@@ -20,7 +20,7 @@ export function ContextAlert(props) {
 
     if (markdownText) {
         return (
-            <Alert>
+            <Alert className={className}>
                 <Markdown content={markdownText} />
             </Alert>
         );

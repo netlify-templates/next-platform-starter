@@ -9,15 +9,14 @@ const navItems = [
     { linkText: 'Image CDN', href: '/image-cdn' },
     { linkText: 'Edge Function', href: '/edge' },
     { linkText: 'Blobs', href: '/blobs' },
-    { linkText: 'Classics', href: '/classics' },
-    { linkText: 'Visual Editing', href: '/visual-editing' }
+    { linkText: 'Classics', href: '/classics' }
 ];
 
 export function Header() {
     return (
         <nav className="flex flex-wrap items-center gap-4 pt-6 pb-12 sm:pt-12 md:pb-24">
             <Link href="/">
-                <Image src={netlifyLogo} alt="Netlify logo" />
+                <Image src={netlifyLogo} alt="Netlify logo" priority />
             </Link>
             {!!navItems?.length && (
                 <ul className="flex flex-wrap gap-x-4 gap-y-1">

@@ -3,7 +3,7 @@ import { defineStackbitConfig } from '@stackbit/types';
 import { GitContentSource } from '@stackbit/cms-git';
 
 import { button } from './.stackbit/models/button';
-import { featuredItems } from './.stackbit/models/featuredItems';
+import { featuredItems } from './.stackbit/models/featured-items';
 import { hero } from './.stackbit/models/hero';
 import { page } from './.stackbit/models/page';
 import { quote } from './.stackbit/models/quote';

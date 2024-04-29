@@ -1,8 +1,8 @@
 import Image from 'next/image';
-import { Markdown } from 'components/markdown';
-import { getNetlifyContext } from 'utils';
-import { ImageWithSizeOverlay } from './image-with-size-overlay';
 import { ContextAlert } from 'components/context-alert';
+import { Markdown } from 'components/markdown';
+import { ImageWithSizeOverlay } from './image-with-size-overlay';
+import { getNetlifyContext } from 'utils';
 
 export const metadata = {
     title: 'Image CDN'
@@ -53,49 +53,41 @@ detection, so format is set to WebP.
 
 export default function Page() {
     return (
-        <div className="flex flex-col gap-6 sm:gap-12">
+        <div className="flex flex-col gap-12 sm:gap-16">
             <section className="flex flex-col items-start gap-6 sm:gap-8">
-                <ContextAlert addedChecksFunction={
-                    (ctx) => {
-                        return ctx === "dev" ? devModeWarning : null;
-                    }
-                } />
-                <h1 className="mb-0">Image CDN</h1>
+                <ContextAlert
+                    addedChecksFunction={(ctx) => {
+                        return ctx === 'dev' ? devModeWarning : null;
+                    }}
+                />
+                <h1>Image CDN</h1>
             </section>
             <section>
-                <h2 className="mb-4 text-2xl font-bold sm:text-3xl">Using next/image component</h2>
-                <Markdown content={nextImageSnippet} />
-                <div
-                    className="mt-8 overflow-hidden border-2 border-white rounded-lg relative max-w-screen-lg"
-                    style={{ aspectRatio: '3/2' }}
-                >
-                    <Image
-                        src="/images/corgi.jpg"
-                        priority
-                        fill={true}
-                        style={{ objectFit: 'contain' }}
-                        sizes="(max-width: 1024px) 100vw, 1024px"
-                        alt="Corgi"
-                    />
-                </div>
-                <span className="text-sm italic">
-                    Credit: photo by{' '}
-                    <a href="https://unsplash.com/@alvannee?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">
-                        Alvan Nee
-                    </a>{' '}
-                    on{' '}
-                    <a href="https://unsplash.com/photos/long-coated-white-and-brown-dog-lvFlpqEvuRM?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">
-                        Unsplash
-                    </a>
-                </span>
+                <h2 className="mb-6 text-2xl font-bold sm:text-3xl">Using next/image component</h2>
+                <Markdown content={nextImageSnippet} className="mb-8" />
+                <figure>
+                    <div className="relative overflow-hidden border-2 border-white rounded-lg aspect-[3/2]">
+                        <Image
+                            src="/images/corgi.jpg"
+                            priority
+                            fill={true}
+                            style={{ objectFit: 'contain' }}
+                            sizes="(max-width: 1024px) 100vw, 1024px"
+                            alt="Corgi"
+                        />
+                    </div>
+                    <figcaption className="mt-2 text-sm italic">
+                        Credit: photo by <a href="https://unsplash.com/@alvannee">Alvan Nee</a> on{' '}
+                        <a href="https://unsplash.com/photos/long-coated-white-and-brown-dog-lvFlpqEvuRM">Unsplash</a>
+                    </figcaption>
+                </figure>
             </section>
-
             <section>
-                <h2 className="mb-4 text-2xl font-bold sm:text-3xl">
+                <h2 className="mb-6 text-2xl font-bold sm:text-3xl">
                     Original vs. optimized image: can you tell the difference?
                 </h2>
-                <Markdown content={originalVsCdnSnippet} />
-                <div className="diff aspect-[3/2] rounded-lg border-2 border-white mt-8">
+                <Markdown content={originalVsCdnSnippet} className="mb-8" />
+                <div className="diff aspect-[3/2] rounded-lg border-2 border-white">
                     <div className="diff-item-1">
                         <div>
                             <ImageWithSizeOverlay
