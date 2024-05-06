@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { ContextAlert } from 'components/context-alert';
 import { Markdown } from 'components/markdown';
 import { ImageWithSizeOverlay } from './image-with-size-overlay';
-import { getNetlifyContext } from 'utils';
+import { getNetlifyContext } from 'utils/general';
 
 export const metadata = {
     title: 'Image CDN'

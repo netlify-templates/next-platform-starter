@@ -1,7 +1,7 @@
 import { Markdown } from 'components/markdown';
 import { ShapeEditor } from './editor';
 import { ContextAlert } from 'components/context-alert';
-import { getNetlifyContext, uploadDisabled } from 'utils';
+import { getNetlifyContext, uploadDisabled } from 'utils/general';
 
 export const metadata = {
     title: 'Blobs'

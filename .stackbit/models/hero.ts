@@ -8,16 +8,27 @@ export const hero: ObjectModel = {
     fieldGroups: [{ name: 'styles', label: 'Styles' }],
     fields: [
         { name: 'heading', type: 'string', default: 'This Is A Big Hero Headline' },
-        { name: 'body', type: 'markdown' },
+        { name: 'body', type: 'markdown', default: 'This is the description.' },
         {
             name: 'image',
-            type: 'object',
-            fields: [
-                { name: 'src', type: 'image', default: '/images/corgi.jpg' },
-                { name: 'alt', type: 'string' }
-            ]
+            type: 'model',
+            models: ['image'],
+            default: {
+                type: 'image',
+                src: '/images/corgi-hero.jpg',
+                alt: 'Corgi'
+            }
         },
-        { name: 'button', type: 'model', models: ['button'] },
+        {
+            name: 'button',
+            type: 'model',
+            models: ['button'],
+            default: {
+                type: 'button',
+                label: 'Get Started',
+                url: '/'
+            }
+        },
         {
             name: 'layout',
             type: 'enum',

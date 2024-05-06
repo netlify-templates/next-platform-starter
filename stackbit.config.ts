@@ -5,6 +5,7 @@ import { GitContentSource } from '@stackbit/cms-git';
 import { button } from './.stackbit/models/button';
 import { featuredItems } from './.stackbit/models/featured-items';
 import { hero } from './.stackbit/models/hero';
+import { image } from './.stackbit/models/image';
 import { page } from './.stackbit/models/page';
 import { quote } from './.stackbit/models/quote';
 
@@ -16,7 +17,7 @@ export default defineStackbitConfig({
         new GitContentSource({
             rootPath: __dirname,
             contentDirs: ['content'],
-            models: [button, featuredItems, hero, page, quote],
+            models: [button, featuredItems, hero, image, page, quote],
             assetsConfig: {
                 referenceType: 'static',
                 staticDir: 'public',

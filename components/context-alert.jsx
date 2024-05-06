@@ -1,6 +1,6 @@
-import { getNetlifyContext } from 'utils';
 import { Alert } from './alert';
 import { Markdown } from './markdown';
+import { getNetlifyContext } from 'utils/general';
 
 const noNetlifyContextAlert = `
 For full functionality, either run this site locally via \`netlify dev\`

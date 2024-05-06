@@ -26,6 +26,7 @@ sections:
     authorTitle: Author title
     authorImage:
       src: /images/corgi-author.jpg
+      alt: Corgi
   - type: featuredItems
     background: light
     heading: Featured Items
@@ -36,6 +37,7 @@ sections:
         body: Item text.
         image:
           src: /images/corgi.jpg
+          alt: Corgi
       - heading: Item Title
         body: Item text.
 ---

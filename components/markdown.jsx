@@ -18,6 +18,7 @@ export function Markdown({ content, className, 'data-sb-field-path': fieldPath }
         <MarkdownToJsx
             className={['markdown', className].join(' ').trim()}
             options={{
+                forceBlock: true,
                 overrides: {
                     pre: HighlightedCodeBlock
                 }

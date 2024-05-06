@@ -7,16 +7,18 @@ export const quote: ObjectModel = {
     labelField: 'quote',
     fieldGroups: [{ name: 'styles', label: 'Styles' }],
     fields: [
-        { name: 'quote', type: 'text', required: true },
-        { name: 'authorName', type: 'string' },
-        { name: 'authorTitle', type: 'string' },
+        { name: 'quote', type: 'text', required: true, default: 'This is the quote text.' },
+        { name: 'authorName', type: 'string', default: 'Author Name' },
+        { name: 'authorTitle', type: 'string', default: 'Author Title' },
         {
             name: 'authorImage',
-            type: 'object',
-            fields: [
-                { name: 'src', type: 'image', default: '/images/corgi-author.jpg' },
-                { name: 'alt', type: 'string' }
-            ]
+            type: 'model',
+            models: ['image'],
+            default: {
+                type: 'image',
+                src: '/images/corgi-author.jpg',
+                alt: 'Corgi'
+            }
         },
         {
             name: 'background',

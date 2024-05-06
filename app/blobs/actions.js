@@ -1,6 +1,6 @@
 'use server';
 import { getStore } from '@netlify/blobs';
-import { uploadDisabled } from 'utils';
+import { uploadDisabled } from 'utils/general';
 
 function store() {
     return getStore({ name: 'shapes', consistency: 'strong' });

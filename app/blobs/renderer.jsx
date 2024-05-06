@@ -1,5 +1,5 @@
 import { fixedSize } from './generator';
-import { randomInt } from 'utils';
+import { randomInt } from 'utils/general';
 
 // See: https://github.com/lokesh-coder/blobs.app/blob/master/src/components/Blob.js
 export function ShapeRenderer(props) {

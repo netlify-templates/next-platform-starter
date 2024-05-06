@@ -1,8 +1,8 @@
 import { notFound } from 'next/navigation';
-import { Hero } from '../../components/hero.jsx';
-import { FeaturedItems } from '../../components/featured-items.jsx';
-import { Quote } from '../../components/quote.jsx';
-import { getPageFromSlug, getPagePaths } from '../../utils/content.js';
+import { FeaturedItems } from 'components/featured-items';
+import { Hero } from 'components/hero';
+import { Quote } from 'components/quote';
+import { getPageFromSlug, getPagePaths } from 'utils/content';
 
 export async function generateStaticParams() {
     const paths = await getPagePaths();

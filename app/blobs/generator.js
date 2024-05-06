@@ -1,5 +1,5 @@
 import blobshape from 'blobshape';
-import { randomInt, uniqueName } from 'utils';
+import { randomInt, uniqueName } from 'utils/general';
 
 const gradientColors = [
     ['#e96443', '#904e95'],

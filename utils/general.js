@@ -1,4 +1,4 @@
-import { uniqueNamesGenerator, adjectives, animals, NumberDictionary } from 'unique-names-generator';
+import { uniqueNamesGenerator, adjectives, animals } from 'unique-names-generator';
 
 /*
 Get the actual size of a resource downloaded by the browser (e.g. an image) in bytes.
