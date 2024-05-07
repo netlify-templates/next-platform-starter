@@ -1,0 +1,19 @@
+{
+    "model": "quote",
+    "presets": [
+        {
+            "label": "Quote",
+            "thumbnail": "images/quote.jpg",
+            "data": {
+                "quote": "Netlify is an excellent platform for publishing web projects. It's fast, reliable, and has a great community.",
+                "authorName": "Author Name",
+                "authorTitle": "Author title",
+                "authorImage": {
+                    "src": "/images/corgi-author.jpg",
+                    "alt": "Corgi"
+                },
+                "background": "light"
+            }
+        }
+    ]
+}

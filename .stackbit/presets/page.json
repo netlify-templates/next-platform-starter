@@ -17,7 +17,7 @@
                     {
                         "type": "hero",
                         "heading": "This is your main value proposition",
-                        "body": "And a super compelling supporting paragraph that makes the user immediately want to click the button below.\n",
+                        "body": "And a super compelling supporting paragraph that makes the user immediately want to click the button below.",
                         "image": {
                             "src": "/images/corgi.jpg",
                             "alt": "Corgi"
@@ -31,7 +31,7 @@
                     },
                     {
                         "type": "quote",
-                        "quote": "Netlify is just amazing. Fast, reliable, good community, perfect to publish web projects from Github without any headache.",
+                        "quote": "Netlify is an excellent platform for publishing web projects. It's fast, reliable, and has a great community.",
                         "background": "primary"
                     }
                 ]

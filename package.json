@@ -21,8 +21,8 @@
         "unique-names-generator": "^4.7.1"
     },
     "devDependencies": {
-        "@stackbit/cms-git": "^0.4.10",
-        "@stackbit/types": "^0.11.12",
+        "@stackbit/cms-git": "^0.4.12",
+        "@stackbit/types": "^0.11.14",
         "autoprefixer": "^10.4.18",
         "daisyui": "^4.0.5",
         "eslint": "8.57.0",
