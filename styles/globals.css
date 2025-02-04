@@ -1,18 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap');
+@import 'tailwindcss';
+@plugin "daisyui";
+@theme {
+    --font-display: 'Inter', 'sans-serif';
+}
+@plugin "daisyui/theme" {
+    name: lofi;
+    default: true;
+    --color-primary: #2bdcd2;
+    --color-primary-content: #171717;
+    --color-secondary: #016968;
+    --color-info: #2bdcd2;
+    --color-info-content: #171717;
+}
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
-    :not(pre) > code {
-        @apply px-1 py-0.5 font-mono rounded bg-neutral-900 text-yellow-200;
-        font-size: 0.9em;
-    }
-
-    h1 {
-        @apply mb-6 text-4xl font-bold tracking-tight md:text-5xl;
-    }
+h1 {
+    @apply mb-6 text-4xl font-bold tracking-tight md:text-5xl;
 }
 
 a {
@@ -33,4 +36,13 @@ a {
 
 .btn:disabled {
     @apply text-neutral-400 bg-neutral-700;
+}
+
+:not(pre) > code {
+    @apply px-1 py-0.5 font-mono rounded bg-neutral-900 text-yellow-200;
+    font-size: 0.9em;
+}
+
+.bg-grid-pattern {
+    background-image: linear-gradient(to bottom, theme('colors.neutral.950 / 0%'), theme('colors.neutral.950 / 100%')), url('/images/noise.png');
 }

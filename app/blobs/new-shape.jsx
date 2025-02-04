@@ -31,7 +31,7 @@ export function NewShape(props) {
     return (
         <div className="flex flex-col items-center justify-center w-full gap-2">
             <div className="text-lg font-bold">New Random Shape</div>
-            <div className="rounded bg-white">
+            <div className="rounded-sm bg-white">
                 <div className="text-md w-full text-center text-neutral-900 text-lg p-2 border-b border-neutral-900">
                     {blobData?.parameters?.name}
                 </div>
