@@ -55,7 +55,7 @@ export function StoredBlobsList({ lastMutationTime }) {
 function BlobPreview({ data }) {
     const fullBlobData = generateBlob(data); // Recreates the SVG path by the existing parameters
     return (
-        <div className="mt-4 lg:mx-16 border border-neutral-800 rounded">
+        <div className="mt-4 lg:mx-16 border border-neutral-800 rounded-sm">
             <div className="p-2 text-center">{data.name}</div>
             <div className="bg-neutral-800 text-neutral-100 p-2 font-mono">{JSON.stringify(data, null, ' ')}</div>
             <ShapeRenderer svgPath={fullBlobData.svgPath} colors={fullBlobData.parameters.colors} />
