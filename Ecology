@@ -1,0 +1,295 @@
+import zipfile
+
+import os
+
+
+
+# Создание директории для сайта
+
+folder_name = "/mnt/data/ecology_site"
+
+os.makedirs(folder_name, exist_ok=True)
+
+
+
+# HTML контент
+
+html_content = """
+
+<!DOCTYPE html>
+
+<html lang="ru">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Сайт об экологии: проблемы, решения и советы по защите природы.">
+
+    <title>Экология и природа</title>
+
+    <style>
+
+        body {
+
+            font-family: Arial, sans-serif;
+
+            line-height: 1.6;
+
+            margin: 0;
+
+            padding: 0;
+
+            box-sizing: border-box;
+
+            background-color: #e8f5e9;
+
+            color: #2e7d32;
+
+        }
+
+        header {
+
+            background: #4caf50;
+
+            color: white;
+
+            padding: 1rem;
+
+            text-align: center;
+
+        }
+
+        nav {
+
+            background: #66bb6a;
+
+            padding: 0.5rem;
+
+            text-align: center;
+
+        }
+
+        nav a {
+
+            color: white;
+
+            margin: 0 1rem;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+        }
+
+        nav a:hover {
+
+            text-decoration: underline;
+
+        }
+
+        .container {
+
+            padding: 2rem;
+
+        }
+
+        h2 {
+
+            color: #388e3c;
+
+        }
+
+        section {
+
+            margin-bottom: 2rem;
+
+            padding: 1rem;
+
+            background: white;
+
+            border-radius: 8px;
+
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+        }
+
+        footer {
+
+            background: #4caf50;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 1rem;
+
+            margin-top: 2rem;
+
+        }
+
+        .btn {
+
+            display: inline-block;
+
+            padding: 0.5rem 1rem;
+
+            color: white;
+
+            background-color: #43a047;
+
+            border-radius: 5px;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+        }
+
+        .btn:hover {
+
+            background-color: #2e7d32;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+
+    <header>
+
+        <h1>Экология и защита природы</h1>
+
+        <p>Сохраним природу для будущих поколений</p>
+
+    </header>
+
+
+
+    <nav>
+
+        <a href="#about">О проблеме</a>
+
+        <a href="#solutions">Решения</a>
+
+        <a href="#tips">Советы</a>
+
+        <a href="#contact">Контакты</a>
+
+    </nav>
+
+
+
+    <div class="container">
+
+        <section id="about">
+
+            <h2>Проблемы экологии</h2>
+
+            <p>Сегодня экология планеты находится под угрозой из-за загрязнения воды, воздуха и почвы. Основные причины — промышленные отходы, вырубка лесов, выбросы углекислого газа и чрезмерное использование пластика.</p>
+
+        </section>
+
+
+
+        <section id="solutions">
+
+            <h2>Возможные решения</h2>
+
+            <ul>
+
+                <li>Использование возобновляемых источников энергии (солнечная и ветровая энергия).</li>
+
+                <li>Переработка отходов и сокращение использования пластика.</li>
+
+                <li>Посадка деревьев и восстановление лесов.</li>
+
+                <li>Сокращение выбросов от транспорта.</li>
+
+            </ul>
+
+        </section>
+
+
+
+        <section id="tips">
+
+            <h2>Советы для каждого</h2>
+
+            <ol>
+
+                <li>Сортируйте мусор: пластик, стекло, бумагу.</li>
+
+                <li>Используйте многоразовые сумки и бутылки.</li>
+
+                <li>Экономьте воду и электричество.</li>
+
+                <li>Поддерживайте эко-инициативы в своём городе.</li>
+
+            </ol>
+
+            <a href="#contact" class="btn">Связаться с нами</a>
+
+        </section>
+
+
+
+        <section id="contact">
+
+            <h2>Контакты</h2>
+
+            <p>Если у вас есть предложения или вопросы, напишите нам:</p>
+
+            <p>Email: eco.project@mail.com</p>
+
+            <p>Телефон: +7 (777) 123-45-67</p>
+
+        </section>
+
+    </div>
+
+
+
+    <footer>
+
+        <p>&copy; 2025 Экология и защита природы. Все права защищены.</p>
+
+    </footer>
+
+
+
+</body>
+
+</html>
+
+"""
+
+
+
+# Сохранение HTML файла
+
+html_file_path = os.path.join(folder_name, "index.html")
+
+with open(html_file_path, "w", encoding="utf-8") as f:
+
+    f.write(html_content)
+
+
+
+# Создание ZIP архива
+
+zip_file_path = "/mnt/data/ecology_site.zip"
+
+with zipfile.ZipFile(zip_file_path, "w") as zipf:
+
+    zipf.write(html_file_path, "index.html")
+
+
+
+zip_file_path
