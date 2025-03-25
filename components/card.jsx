@@ -1,18 +1,8 @@
-import Link from 'next/link';
-
-export function Card({ title, text, linkText, href, children }) {
+export function Card({ title, children, className }) {
     return (
-        <div className="bg-white text-neutral-600 card">
-            <div className="card-body">
-                {title && <h3 className="text-neutral-900 card-title">{title}</h3>}
-                {text && <p>{text}</p>}
-                {linkText && href && (
-                    <div className="card-actions">
-                        <Link href={href} className="transition link text-neutral-900 hover:opacity-80">
-                            {linkText}
-                        </Link>
-                    </div>
-                )}
+        <div className={['bg-white rounded-sm text-neutral-600', className].filter(Boolean).join(' ')}>
+            <div className="flex flex-col gap-4 px-6 py-8">
+                {title && <h3 className="text-neutral-900">{title}</h3>}
                 {children}
             </div>
         </div>

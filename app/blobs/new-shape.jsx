@@ -29,24 +29,24 @@ export function NewShape(props) {
     }, [blobData]);
 
     return (
-        <div className="flex flex-col items-center justify-center w-full gap-2">
-            <div className="text-lg font-bold">New Random Shape</div>
-            <div className="rounded bg-white">
-                <div className="text-md w-full text-center text-neutral-900 text-lg p-2 border-b border-neutral-900">
+        <>
+            <h2 className="mb-4 text-xl text-center">New Random Shape</h2>
+            <div className="mb-6 bg-white rounded-sm">
+                <div className="p-4 text-center border-b text-neutral-900 border-neutral-300">
                     {blobData?.parameters?.name}
                 </div>
-                <div className="p-2">
+                <div className="p-4">
                     <ShapeRenderer svgPath={blobData?.svgPath} colors={blobData?.parameters?.colors} />
                 </div>
             </div>
-            <div className="flex justify-center gap-4">
-                <button className="btn btn-primary" onClick={randomizeBlob}>
+            <div className="flex flex-wrap justify-center gap-4">
+                <button className="btn" onClick={randomizeBlob}>
                     Randomize
                 </button>
-                <button className="btn btn-primary" onClick={onUpload} disabled={uploadDisabled || wasUploaded || !blobData}>
+                <button className="btn" onClick={onUpload} disabled={uploadDisabled || wasUploaded || !blobData}>
                     Upload
                 </button>
             </div>
-        </div>
+        </>
     );
 }

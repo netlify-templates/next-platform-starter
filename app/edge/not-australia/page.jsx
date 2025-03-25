@@ -7,7 +7,7 @@ export const metadata = {
 export default function Page() {
     return (
         <>
-            <h1>You&apos;re not in Australia!</h1>
+            <h1 className="mb-8">You&apos;re not in Australia!</h1>
             <EdgeFunctionExplainer />
         </>
     );

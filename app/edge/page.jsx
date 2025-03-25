@@ -1,5 +1,3 @@
-import Link from 'next/link';
-import { Alert } from '../../components/alert';
 import { Markdown } from 'components/markdown';
 
 export const metadata = {
@@ -15,12 +13,12 @@ Edge Functions are framework-agnostic, but are also used behind the scenes to ru
 There are advatanges to using Edge Functions directly, such as the ability to access & transform the response body.
 
 [See more examples](https://edge-functions-examples.netlify.app)
-`
+`;
 
 export default function FallbackPage() {
     return (
         <>
-            <h1>You&apos;ve reached the fallback page.</h1>
+            <h1 className="mb-8">You&apos;ve reached the fallback page.</h1>
             <Markdown content={explainer} />
         </>
     );

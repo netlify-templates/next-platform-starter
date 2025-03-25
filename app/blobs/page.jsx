@@ -1,6 +1,6 @@
-import { Markdown } from 'components/markdown';
 import { ShapeEditor } from './editor';
 import { ContextAlert } from 'components/context-alert';
+import { Markdown } from 'components/markdown';
 import { getNetlifyContext, uploadDisabled } from 'utils';
 
 export const metadata = {
@@ -40,19 +40,18 @@ User uploads are disabled in this site. To run your own and try it out:
 export default async function Page() {
     return (
         <>
-            <section className="flex flex-col gap-6 sm:gap-8">
-                <ContextAlert
-                    addedChecksFunction={(ctx) => {
-                        return uploadDisabled ? uploadDisabledText : null;
-                    }}
-                />
-                <h1>Blobs x Blobs</h1>
-            </section>
+            <ContextAlert
+                addedChecksFunction={(ctx) => {
+                    return uploadDisabled ? uploadDisabledText : null;
+                }}
+                className="mb-6"
+            />
+            <h1 className="mb-8">Blobs x Blobs</h1>
             {!!getNetlifyContext() && (
-                <div className="flex flex-col gap-8">
-                    <Markdown content={explainer} />
+                <>
+                    <Markdown content={explainer} className="mb-12" />
                     <ShapeEditor />
-                </div>
+                </>
             )}
         </>
     );
