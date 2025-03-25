@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { Card } from './card';
 
 const randomQuoteUrl = '/quotes/random';
 
@@ -25,25 +26,20 @@ export function RandomQuote() {
     }, []);
 
     return (
-        <div className="bg-white card text-neutral-600">
-            <div className="card-body">
-                {quote ? (
-                    <>
-                        <h3 className="text-xl text-neutral-900 font-bold">&ldquo;{quote.text}&rdquo;</h3>
-                        <p>
-                            {' '}
-                            - {quote.playedBy} as {quote.character} in &ldquo;{quote.film}&rdquo; ({quote.year})
-                        </p>
-                        <p className="pt-2.5 mt-2.5 border-t border-dashed text-secondary border-neutral-200">
-                            <span className="text-sm italic">
-                                loaded at {time}. <a href={quote.dataSource}>Original data source.</a>
-                            </span>
-                        </p>
-                    </>
-                ) : (
-                    <div className="card-body">Loading...</div>
-                )}
-            </div>
-        </div>
+        <Card>
+            {quote ? (
+                <>
+                    <h3 className="text-neutral-900">&ldquo;{quote.text}&rdquo;</h3>
+                    <p>
+                        - {quote.playedBy} as {quote.character} in &ldquo;{quote.film}&rdquo; ({quote.year})
+                    </p>
+                    <p className="pt-2 mt-2 text-sm italic border-t border-dashed text-secondary border-neutral-300">
+                        loaded at {time}. <a href={quote.dataSource}>Original data source.</a>
+                    </p>
+                </>
+            ) : (
+                <>Loading...</>
+            )}
+        </Card>
     );
 }

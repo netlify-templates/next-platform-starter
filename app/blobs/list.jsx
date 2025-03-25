@@ -23,41 +23,50 @@ export function StoredBlobsList({ lastMutationTime }) {
     };
 
     return (
-        <div className="flex flex-col items-center justify-center gap-3">
-            <div className="text-lg font-bold h-6">Objects in Blob Store</div>
-            <div className="flex flex-col gap-1 w-full bg-white text-neutral-900 min-h-56 card">
-                <div className="card-body text-md">
+        <>
+            <h2 className="mb-4 text-xl text-center">Objects in Blob Store</h2>
+            <div className="bg-white rounded-sm text-neutral-900">
+                <div className="px-4 py-2.5 text-center">
                     {!keys?.length ? (
-                        <span>Please upload some shapes!</span>
+                        <span className="inline-flex w-full justify-center py-1.5">Please upload some shapes!</span>
                     ) : (
-                        keys.map((keyName) => {
-                            const isSelected = keyName === selectedKey;
-                            return (
-                                <div
-                                    key={keyName}
-                                    onClick={() => {
-                                        onSelect(keyName);
-                                    }}
-                                    className={'w-full hover:bg-neutral-200 ' + (isSelected ? 'font-bold' : '')}
-                                >
-                                    {keyName}
-                                </div>
-                            );
-                        })
+                        <div className="space-y-1">
+                            {keys.map((keyName) => {
+                                const isSelected = keyName === selectedKey;
+                                return (
+                                    <button
+                                        key={keyName}
+                                        onClick={() => {
+                                            onSelect(keyName);
+                                        }}
+                                        className={
+                                            'inline-flex items-center justify-center w-full px-4 py-1.5 rounded-sm text-neutral-900 ' +
+                                            (isSelected
+                                                ? 'bg-neutral-200'
+                                                : 'cursor-pointer transition hover:bg-neutral-200')
+                                        }
+                                    >
+                                        {keyName}
+                                    </button>
+                                );
+                            })}
+                        </div>
                     )}
-                    {previewData && <BlobPreview data={previewData} />}
                 </div>
+                {previewData && <BlobPreview data={previewData} />}
             </div>
-        </div>
+        </>
     );
 }
 
 function BlobPreview({ data }) {
     const fullBlobData = generateBlob(data); // Recreates the SVG path by the existing parameters
     return (
-        <div className="mt-4 lg:mx-16 border border-neutral-800 rounded">
-            <div className="p-2 text-center">{data.name}</div>
-            <div className="bg-neutral-800 text-neutral-100 p-2 font-mono">{JSON.stringify(data, null, ' ')}</div>
+        <div className="p-4 border-t border-neutral-300 aspect-square">
+            <div className="mb-4 text-center">{data.name}</div>
+            <div className="p-2 font-mono rounded-sm bg-neutral-800 text-neutral-100">
+                {JSON.stringify(data, null, ' ')}
+            </div>
             <ShapeRenderer svgPath={fullBlobData.svgPath} colors={fullBlobData.parameters.colors} />
         </div>
     );

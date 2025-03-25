@@ -1,4 +1,4 @@
-import { Markdown } from "components/markdown";
+import { Markdown } from 'components/markdown';
 
 const explainer = `
 This page is using a Netlify Edge Function (\`netlify/edge-functions/rewrite.js\`) to rewrite the URL based on visitor geography.
@@ -20,5 +20,5 @@ export default rewrite;
 `;
 
 export default function EdgeFunctionExplainer() {
-    return <Markdown content={explainer} />    
+    return <Markdown content={explainer} />;
 }

@@ -1,5 +1,5 @@
 import { FeedbackForm } from 'components/feedback-form';
-import { Markdown } from '../../components/markdown';
+import { Markdown } from 'components/markdown';
 
 export const metadata = {
     title: 'Classics'
@@ -21,9 +21,9 @@ Deploy this site to your Netlify account, [enable the forms feature in the UI](h
 export default async function Page() {
     return (
         <>
-            <h1>Netlify Classics</h1>
-            <Markdown content={explainer} />
-            <div className="flex w-full pt-12 justify-center">
+            <h1 className="mb-8">Netlify Classics</h1>
+            <Markdown content={explainer} className="mb-12" />
+            <div className="flex justify-center">
                 <FeedbackForm />
             </div>
         </>
