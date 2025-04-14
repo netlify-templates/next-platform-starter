@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موقع السيرة الذاتية</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script src="https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.9.3/dist/html2pdf.bundle.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
+const { useState, useRef } = React;
+
+function CVGenerator() {
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        phone: "",
+        education: "",
+        skills: "",
+        experience: "",
+        languages: "",
+        hobbies: "",
+    });
+
+    const cvRef = useRef();
+
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+
+    const generatePDF = () => {
+        html2pdf().from(cvRef.current).save("سيرتي الذاتية.pdf");
+    };
+
+    return (
+        <div style={{ padding: "20px", maxWidth: "800px", margin: "0 auto" }}>
+            <h1>موقع السيرة الذاتية</h1>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px" }}>
+                {Object.keys(formData).map((key) => (
+                    <div key={key}>
+                        <label>{key === "name" ? "الاسم" : key === "email" ? "البريد الإلكتروني" : key === "phone" ? "رقم الجوال" : key === "education" ? "المؤهل الدراسي" : key === "skills" ? "المهارات" : key === "experience" ? "الخبرات" : key === "languages" ? "اللغات" : "الهوايات"}</label>
+                        <textarea name={key} rows={key === "skills" || key === "experience" ? 3 : 2} value={formData[key]} onChange={handleChange}></textarea>
+                    </div>
+                ))}
+            </div>
+            <button onClick={generatePDF}>تحميل السيرة الذاتية PDF</button>
+            <div ref={cvRef} style={{ marginTop: "20px", padding: "20px", border: "1px solid #ddd" }}>
+                <h2>{formData.name}</h2>
+                <p>البريد: {formData.email}</p>
+                <p>الجوال: {formData.phone}</p>
+                <hr />
+                <p><strong>المؤهل الدراسي:</strong> {formData.education}</p>
+                <p><strong>المهارات:</strong> {formData.skills}</p>
+                <p><strong>الخبرات:</strong> {formData.experience}</p>
+                <p><strong>اللغات:</strong> {formData.languages}</p>
+                <p><strong>الهوايات:</strong> {formData.hobbies}</p>
+            </div>
+            <div style={{ textAlign: "center", marginTop: "20px", fontSize: "12px" }}>
+                لو استفدت من الموقع، ممكن تدعمني عبر <br />
+                <strong>فودافون كاش: 010xxxxxxxx</strong>
+            </div>
+        </div>
+    );
+}
+
+ReactDOM.render(<CVGenerator />, document.getElementById("root"));
