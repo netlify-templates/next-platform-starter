@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Pembentukan Diksi atau Pilihan Kata</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/black.min.css">
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <h1>Pembentukan Diksi atau Pilihan Kata</h1>
+        <p>Disusun oleh: M. Nabil</p>
+      </section>
+      <section>
+        <h2>Pendahuluan</h2>
+        <p>Diksi atau pilihan kata sangat penting dalam menyampaikan pesan secara efektif dan tepat sasaran.</p>
+      </section>
+      <section>
+        <h2>Pengertian Diksi</h2>
+        <ul>
+          <li>Pilihan kata yang tepat dan selaras untuk mengungkapkan gagasan.</li>
+          <li>Menurut Harimurti Kridalaksana: Diksi adalah pilihan kata yang tepat dalam konteks.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Fungsi Diksi</h2>
+        <ul>
+          <li>Memperjelas pesan.</li>
+          <li>Menghindari kesalahpahaman.</li>
+          <li>Meningkatkan estetika bahasa.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Syarat Pemilihan Kata</h2>
+        <ul>
+          <li>Ketepatan</li>
+          <li>Kesesuaian</li>
+          <li>Keindahan</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Jenis Makna Kata</h2>
+        <ul>
+          <li>Makna Denotatif: makna sebenarnya.</li>
+          <li>Makna Konotatif: makna tambahan atau emosional.</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Faktor yang Mempengaruhi Diksi</h2>
+        <ul>
+          <li>Konteks situasi</li>
+          <li>Audiens atau lawan bicara</li>
+          <li>Tujuan komunikasi</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Kesalahan Umum dalam Diksi</h2>
+        <ul>
+          <li>Penggunaan kata tidak tepat</li>
+          <li>Pleonasme (pengulangan makna)</li>
+          <li>Ambiguitas</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Latihan</h2>
+        <p>Perbaiki kalimat berikut: "Saya pribadi secara pribadi mengundurkan diri sendiri."</p>
+      </section>
+      <section>
+        <h2>Penutup</h2>
+        <p>Diksi adalah kunci komunikasi efektif. Pilihlah kata secara bijak dan tepat.</p>
+      </section>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.js"></script>
+  <script>
+    Reveal.initialize();
+  </script>
+</body>
+</html>
