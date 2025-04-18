@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>To the Girl Who Has My Heart</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #ffe6f0, #ffccdd);
+      font-family: 'Georgia', serif;
+      margin: 0;
+      padding: 0;
+      color: #800040;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      background-color: #fff0f5;
+      box-shadow: 0 0 20px #ffb3d9;
+      border-radius: 20px;
+      margin-top: 50px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 3em;
+      color: #ff3399;
+    }
+
+    .intro, .final, .poem {
+      margin-top: 30px;
+      font-size: 1.2em;
+      line-height: 1.7;
+    }
+
+    .poem {
+      font-style: italic;
+      background-color: #ffe6f0;
+      border-left: 5px solid #ff66b2;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .heart {
+      text-align: center;
+      font-size: 4em;
+      margin: 30px 0;
+      color: #ff3399;
+    }
+
+    .button-container {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .button {
+      background-color: #ff66b2;
+      color: white;
+      font-size: 1.2em;
+      border: none;
+      padding: 15px 30px;
+      margin: 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #e60073;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9em;
+      margin-top: 40px;
+      color: #b30059;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>To the Girl Who Has My Heart</h1>
+
+    <div class="intro">
+      <p>Hey you,</p>
+      <p>I could write you poems filled with stars and roses, but none of them would feel real enough. So instead, I’m sharing Shakespeare’s <strong>Sonnet 130</strong>—a sonnet that doesn’t sugarcoat love, but shows how deep and genuine it can be, even without perfect metaphors.</p>
+    </div>
+
+    <div class="poem">
+      <p>My mistress’ eyes are nothing like the sun;<br>
+      Coral is far more red than her lips’ red;<br>
+      If snow be white, why then her breasts are dun;<br>
+      If hairs be wires, black wires grow on her head.</p>
+
+      <p>I have seen roses damasked, red and white,<br>
+      But no such roses see I in her cheeks;<br>
+      And in some perfumes is there more delight<br>
+      Than in the breath that from my mistress reeks.</p>
+
+      <p>I love to hear her speak, yet well I know<br>
+      That music hath a far more pleasing sound;<br>
+      I grant I never saw a goddess go;<br>
+      My mistress when she walks treads on the ground.</p>
+
+      <p>And yet, by heaven, I think my love as rare<br>
+      As any she belied with false compare.</p>
+    </div>
+
+    <div class="intro">
+      <p>What I’m saying is: you're not a fairytale—and I wouldn't want you to be. You're real, you're beautiful, and every moment with you feels like a heartwarming playlist and a thousand pink butterflies.</p>
+    </div>
+
+    <div class="heart">♥</div>
+
+    <div class="final">
+      <p>So here I am…</p>
+      <p><strong>Will you be my girlfriend?</strong></p>
+    </div>
+
+    <div class="button-container">
+      <button class="button" onclick="alert('You said YES! I’m the happiest person alive!')">Yes</button>
+      <button class="button" onclick="alert('Still love you either way.')">Let me think</button>
+    </div>
+  </div>
+
+  <footer>
+    Made with love and pink vibes
+  </footer>
+</body>
+</html>
