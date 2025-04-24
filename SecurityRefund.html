@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Deposit Refund Calculator</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .form-container {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        input[type="text"], input[type="number"], input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        .deposit-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .deposit-table th, .deposit-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        .deposit-table th {
+            background-color: #f2f2f2;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #e8f4fc;
+            border-radius: 5px;
+            border-left: 5px solid #3498db;
+        }
+        .result h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        .result-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .result-table th, .result-table td {
+            border: 1px solid #3498db;
+            padding: 8px;
+            text-align: left;
+        }
+        .result-table th {
+            background-color: #d4e6f1;
+        }
+        .add-bill {
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 3px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .add-bill:hover {
+            background-color: #27ae60;
+        }
+    </style>
+</head>
+<body>
+    <h1>Security Deposit Refund Calculator</h1>
+    
+    <div class="form-container">
+        <div class="form-group">
+            <label for="contractorName">1. Name of Contractor</label>
+            <input type="text" id="contractorName" placeholder="Enter contractor name">
+        </div>
+        
+        <div class="form-group">
+            <label for="workName">3. Name of Work</label>
+            <input type="text" id="workName" placeholder="Enter name of work">
+        </div>
+        
+        <div class="form-group">
+            <label for="agreementNo">4. Agreement No.</label>
+            <input type="text" id="agreementNo" placeholder="Enter agreement number">
+        </div>
+        
+        <div class="form-group">
+            <label for="commencementDate">11. Date of Commencement</label>
+            <input type="date" id="commencementDate">
+        </div>
+        
+        <div class="form-group">
+            <label for="stipulatedDate">12. Stipulated date of Completion</label>
+            <input type="date" id="stipulatedDate">
+        </div>
+        
+        <div class="form-group">
+            <label for="actualDate">13. Actual Date of Completion</label>
+            <input type="date" id="actualDate">
+        </div>
+        
+        <div class="form-group">
+            <label for="mbNo">14. MB No.</label>
+            <input type="text" id="mbNo" placeholder="Enter MB number">
+        </div>
+        
+        <h3>18. Details of Security Deposit</h3>
+        <table class="deposit-table" id="depositTable">
+            <thead>
+                <tr>
+                    <th>Bill Type</th>
+                    <th>MB No.</th>
+                    <th>SD Type</th>
+                    <th>Amount (₹)</th>
+                </tr>
+            </thead>
+            <tbody id="depositRows">
+                <tr>
+                    <td><input type="text" value="I RB" class="bill-type"></td>
+                    <td><input type="text" placeholder="e.g. 831/18-24" class="bill-mb"></td>
+                    <td><input type="text" value="SD II" class="bill-sd"></td>
+                    <td><input type="number" placeholder="Amount" class="bill-amount"></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <button type="button" class="add-bill" onclick="addBill()">Add Another Running Bill</button>
+        
+        <button type="button" onclick="calculate()">Generate Refund Summary</button>
+        
+        <div class="result" id="result" style="display: none;">
+            <h3>ORDER FOR REFUND OF SECURITY DEPOSITE</h3>
+            <p><strong>1. Name of Contractor:</strong> <span id="result-contractor"></span></p>
+            <p><strong>3. Name of Work:</strong> <span id="result-work"></span></p>
+            <p><strong>4. Agreement No.:</strong> <span id="result-agreement"></span></p>
+            <p><strong>11. Date of Commencement:</strong> <span id="result-commencement"></span></p>
+            <p><strong>12. Stipulated date of Completion:</strong> <span id="result-stipulated"></span></p>
+            <p><strong>13. Actual Date of Completion:</strong> <span id="result-actual"></span></p>
+            <p><strong>14. MB No.:</strong> <span id="result-mbno"></span></p>
+            
+            <h4>18. Details of Security Deposite</h4>
+            <table class="result-table" id="result-deposit">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>MB No.</th>
+                        <th>SD Type</th>
+                        <th>Amount (₹)</th>
+                    </tr>
+                </thead>
+                <tbody id="result-deposit-rows">
+                </tbody>
+            </table>
+            
+            <p><strong>Total Security Deposit to be Refunded:</strong> ₹<span id="result-total"></span></p>
+            
+            <h4>Certified That:-</h4>
+            <p>1. The Work has been completed as per G-schedule.</p>
+            <p>2. The work has been inspected by the undersigned as on <span id="inspection-date"></span> and it stood satisfactory.</p>
+            <p>3. No Defect found during DLP Period.</p>
+            <p>The final time extension granted upto <span id="extension-date"></span> With/without compensation by the competent authority.</p>
+            <p>4. The defects pointed out by higher authorities or other authorized authorities during inspection etc have been removed by the contractor and compliance has been refund.</p>
+            
+            <div style="display: flex; justify-content: space-between; margin-top: 40px;">
+                <div>
+                    <p>Divisional Accountant</p>
+                </div>
+                <div>
+                    <p>Assistant Engineer</p>
+                </div>
+                <div>
+                    <p>Executive Engineer</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function addBill() {
+            const tbody = document.getElementById('depositRows');
+            const rows = tbody.getElementsByTagName('tr');
+            const newRow = document.createElement('tr');
+            
+            // Determine the bill type (I RB, II RB, etc.)
+            let billType = '';
+            if (rows.length === 0) {
+                billType = 'I RB';
+            } else if (rows.length === 1) {
+                billType = 'II RB';
+            } else if (rows.length === 2) {
+                billType = 'III RB';
+            } else {
+                // For additional rows beyond 3, we'll just number them sequentially
+                billType = (rows.length + 1) + ' RB';
+            }
+            
+            newRow.innerHTML = `
+                <td><input type="text" value="${billType}" class="bill-type"></td>
+                <td><input type="text" placeholder="e.g. 831/25-35" class="bill-mb"></td>
+                <td><input type="text" value="SD II" class="bill-sd"></td>
+                <td><input type="number" placeholder="Amount" class="bill-amount"></td>
+            `;
+            tbody.appendChild(newRow);
+        }
+        
+        function calculate() {
+            // Get basic info
+            const contractorName = document.getElementById('contractorName').value;
+            const workName = document.getElementById('workName').value;
+            const agreementNo = document.getElementById('agreementNo').value;
+            const commencementDate = document.getElementById('commencementDate').value;
+            const stipulatedDate = document.getElementById('stipulatedDate').value;
+            const actualDate = document.getElementById('actualDate').value;
+            const mbNo = document.getElementById('mbNo').value;
+            
+            // Format dates
+            const formatDate = (dateString) => {
+                if (!dateString) return 'Not provided';
+                const date = new Date(dateString);
+                return date.toLocaleDateString('en-GB'); // DD/MM/YYYY format
+            };
+            
+            // Process deposit rows
+            const depositRows = document.querySelectorAll('#depositRows tr');
+            let total = 0;
+            const depositDetails = [];
+            
+            depositRows.forEach((row, index) => {
+                const typeInput = row.querySelector('.bill-type');
+                const mbInput = row.querySelector('.bill-mb');
+                const sdInput = row.querySelector('.bill-sd');
+                const amountInput = row.querySelector('.bill-amount');
+                
+                let billType = typeInput.value;
+                // For the last row, add "& FB" suffix
+                if (index === depositRows.length - 1) {
+                    billType = billType.replace('RB', 'RB & FB');
+                }
+                
+                const amount = amountInput.value ? parseFloat(amountInput.value) : 0;
+                total += amount;
+                
+                depositDetails.push({
+                    type: billType,
+                    mb: mbInput.value || 'Not provided',
+                    sd: sdInput.value || 'SD II',
+                    amount: amount.toLocaleString('en-IN')
+                });
+            });
+            
+            // Display results
+            document.getElementById('result-contractor').textContent = contractorName || 'Not provided';
+            document.getElementById('result-work').textContent = workName || 'Not provided';
+            document.getElementById('result-agreement').textContent = agreementNo || 'Not provided';
+            document.getElementById('result-commencement').textContent = formatDate(commencementDate);
+            document.getElementById('result-stipulated').textContent = formatDate(stipulatedDate);
+            document.getElementById('result-actual').textContent = formatDate(actualDate);
+            document.getElementById('result-mbno').textContent = mbNo || 'Not provided';
+            document.getElementById('result-total').textContent = total.toLocaleString('en-IN');
+            
+            // Populate deposit table in results
+            const resultDepositRows = document.getElementById('result-deposit-rows');
+            resultDepositRows.innerHTML = '';
+            
+            depositDetails.forEach(detail => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${detail.type}</td>
+                    <td>${detail.mb}</td>
+                    <td>${detail.sd}</td>
+                    <td>${detail.amount}</td>
+                `;
+                resultDepositRows.appendChild(row);
+            });
+            
+            // Set today's date for inspection date
+            const today = new Date();
+            document.getElementById('inspection-date').textContent = today.toLocaleDateString('en-GB');
+            
+            document.getElementById('result').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
