@@ -1,0 +1,307 @@
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+
+const Navbar = () => (
+  <nav className="bg-slate-900 text-white px-6 py-4 flex justify-between items-center">
+    <h1 className="text-xl font-bold">Egpro</h1>
+    <ul className="flex gap-6">
+      <li><Link to="/" className="hover:text-blue-400">Home</Link></li>
+      <li><Link to="/about" className="hover:text-blue-400">About</Link></li>
+      <li><Link to="/services" className="hover:text-blue-400">Services</Link></li>
+      <li><Link to="/portfolio" className="hover:text-blue-400">Portfolio</Link></li>
+      <li><Link to="/blog" className="hover:text-blue-400">Blog</Link></li>
+      <li><Link to="/contact" className="hover:text-blue-400">Contact</Link></li>
+      <li><Link to="/login" className="hover:text-blue-400">Log in</Link></li>
+    </ul>
+  </nav>
+);
+
+const Footer = () => (
+  <footer className="bg-slate-900 text-white text-center py-6 mt-16">
+    <p>&copy; 2025 Egpro. All rights reserved.</p>
+    <div className="mt-2 flex justify-center gap-4">
+      <a href="#" className="hover:text-blue-400">Facebook</a>
+      <a href="#" className="hover:text-blue-400">Twitter</a>
+      <a href="#" className="hover:text-blue-400">Instagram</a>
+    </div>
+  </footer>
+);
+
+const Home = () => (
+  <div className="p-6 max-w-7xl mx-auto">
+    <section className="flex flex-col md:flex-row items-center gap-6 my-12">
+      <div className="flex-1">
+        <h2 className="text-4xl font-bold mb-4">Empowering Your Business to Succeed</h2>
+        <p className="mb-6 text-lg">We provide solutions to help you grow your business, showcase your work, and share insights.</p>
+        <button className="bg-blue-600 text-white px-4 py-2 rounded mr-4">Get Started</button>
+        <button className="border border-blue-600 text-blue-600 px-4 py-2 rounded">Learn More</button>
+      </div>
+      <img src="https://via.placeholder.com/400x300" alt="Team working" className="rounded-xl" />
+    </section>
+  </div>
+);
+
+const About = () => (
+  <div className="p-6 max-w-5xl mx-auto">
+    <h2 className="text-3xl font-bold mb-6">About Us</h2>
+    <p className="text-lg mb-4">Egpro is a digital platform built to empower professionals and businesses. Our mission is to deliver powerful tools, knowledge, and services that help our community grow, earn, and thrive online.</p>
+    <p className="text-lg">We value collaboration, innovation, and transparency. Whether you're a beginner or a pro, Egpro é pra você!</p>
+  </div>
+);
+
+const Services = () => (
+  <div className="p-6 max-w-6xl mx-auto">
+    <h2 className="text-3xl font-bold mb-6">Our Services</h2>
+    <div className="grid md:grid-cols-3 gap-6">
+      <div className="bg-white shadow p-4 rounded-xl">
+        <h3 className="font-semibold text-lg mb-2">Mentorias e Consultorias</h3>
+        <p>Suporte estratégico personalizado para alavancar seu negócio digital.</p>
+      </div>
+      <div className="bg-white shadow p-4 rounded-xl">
+        <h3 className="font-semibold text-lg mb-2">Venda de Infoprodutos</h3>
+        <p>Produtos digitais de alta conversão com estratégias testadas.</p>
+      </div>
+      <div className="bg-white shadow p-4 rounded-xl">
+        <h3 className="font-semibold text-lg mb-2">Apoio para Afiliados</h3>
+        <p>Materiais prontos, links, treinamento e estrutura de equipe.</p>
+      </div>
+    </div>
+  </div>
+);
+
+const Portfolio = () => (
+  <div className="p-6 max-w-6xl mx-auto">
+    <h2 className="text-3xl font-bold mb-6">Our Portfolio</h2>
+    <div className="grid md:grid-cols-3 gap-6">
+      <div className="bg-gray-100 p-4 rounded-xl">
+        <h4 className="font-semibold mb-2">Projeto 1</h4>
+        <p>Campanha de lançamento com resultados de +350% em vendas.</p>
+      </div>
+      <div className="bg-gray-100 p-4 rounded-xl">
+        <h4 className="font-semibold mb-2">Landing Page Profissional</h4>
+        <p>Estrutura pronta para vendas com alta conversão.</p>
+      </div>
+      <div className="bg-gray-100 p-4 rounded-xl">
+        <h4 className="font-semibold mb-2">Treinamento Online</h4>
+        <p>Curso estruturado com plataforma própria para afiliados.</p>
+      </div>
+    </div>
+  </div>
+);
+
+const Blog = () => (
+  <div className="p-6 max-w-6xl mx-auto">
+    <h2 className="text-3xl font-bold mb-6">Blog</h2>
+    <div className="grid md:grid-cols-3 gap-6">
+      <div className="bg-white border rounded-xl p-4">
+        <h3 className="font-semibold mb-2">Como vender mais na internet</h3>
+        <p>Dicas práticas para alavancar suas vendas online.</p>
+      </div>
+      <div className="bg-white border rounded-xl p-4">
+        <h3 className="font-semibold mb-2">Erros que travam iniciantes</h3>
+        <p>Evite os principais erros de quem está começando no digital.</p>
+      </div>
+      <div className="bg-white border rounded-xl p-4">
+        <h3 className="font-semibold mb-2">Afiliado vs. Produtor</h3>
+        <p>Entenda as diferenças e qual caminho seguir.</p>
+      </div>
+    </div>
+  </div>
+);
+
+const Contact = () => (
+  <div className="p-6 max-w-3xl mx-auto">
+    <h2 className="text-3xl font-bold mb-6">Contact Us</h2>
+    <form className="grid gap-4">
+      <input className="border p-2 rounded" type="text" placeholder="Name" />
+      <input className="border p-2 rounded" type="email" placeholder="Email" />
+      <textarea className="border p-2 rounded" placeholder="Message" rows="4"></textarea>
+      <button className="bg-blue-600 text-white px-4 py-2 rounded">Send Message</button>
+    </form>
+    <div className="mt-6 text-center">
+      <p>Ou fale direto pelo WhatsApp:</p>
+      <a href="https://wa.me/5599999999999" className="text-blue-600 font-semibold">Clique aqui</a>
+    </div>
+  </div>
+);
+
+const Login = () => (
+  <div className="p-6 max-w-md mx-auto">
+    <h2 className="text-3xl font-bold mb-6">Área da Equipe</h2>
+    <form className="grid gap-4">
+      <input className="border p-2 rounded" type="email" placeholder="Email" />
+      <input className="border p-2 rounded" type="password" placeholder="Senha" />
+      <button className="bg-slate-900 text-white px-4 py-2 rounded">Entrar</button>
+    </form>
+    <p className="text-center text-sm mt-4">Acesso exclusivo para membros da equipe.</p>
+  </div>
+);
+
+const App = () => (
+  <Router>
+    <Navbar />
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/services" element={<Services />} />
+      <Route path="/portfolio" element={<Portfolio />} />
+      <Route path="/blog" element={<Blog />} />
+      <Route path="/contact" element={<Contact />} />
+      <Route path="/login" element={<Login />} />
+    </Routes>
+    <Footer />
+  </Router>
+);import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+
+const Navbar = () => (
+  <nav className="bg-slate-900 text-white px-6 py-4 flex justify-between items-center">
+    <h1 className="text-xl font-bold">Egpro</h1>
+    <ul className="flex gap-6">
+      <li><Link to="/" className="hover:text-blue-400">Home</Link></li>
+      <li><Link to="/about" className="hover:text-blue-400">About</Link></li>
+      <li><Link to="/services" className="hover:text-blue-400">Services</Link></li>
+      <li><Link to="/portfolio" className="hover:text-blue-400">Portfolio</Link></li>
+      <li><Link to="/blog" className="hover:text-blue-400">Blog</Link></li>
+      <li><Link to="/contact" className="hover:text-blue-400">Contact</Link></li>
+      <li><Link to="/login" className="hover:text-blue-400">Log in</Link></li>
+    </ul>
+  </nav>
+);
+
+const Footer = () => (
+  <footer className="bg-slate-900 text-white text-center py-6 mt-16">
+    <p>&copy; 2025 Egpro. All rights reserved.</p>
+    <div className="mt-2 flex justify-center gap-4">
+      <a href="#" className="hover:text-blue-400">Facebook</a>
+      <a href="#" className="hover:text-blue-400">Twitter</a>
+      <a href="#" className="hover:text-blue-400">Instagram</a>
+    </div>
+  </footer>
+);
+
+const Home = () => (
+  <div className="p-6 max-w-7xl mx-auto">
+    <section className="flex flex-col md:flex-row items-center gap-6 my-12">
+      <div className="flex-1">
+        <h2 className="text-4xl font-bold mb-4">Empowering Your Business to Succeed</h2>
+        <p className="mb-6 text-lg">We provide solutions to help you grow your business, showcase your work, and share insights.</p>
+        <button className="bg-blue-600 text-white px-4 py-2 rounded mr-4">Get Started</button>
+        <button className="border border-blue-600 text-blue-600 px-4 py-2 rounded">Learn More</button>
+      </div>
+      <img src="https://via.placeholder.com/400x300" alt="Team working" className="rounded-xl" />
+    </section>
+  </div>
+);
+
+const About = () => (
+  <div className="p-6 max-w-5xl mx-auto">
+    <h2 className="text-3xl font-bold mb-6">About Us</h2>
+    <p className="text-lg mb-4">Egpro is a digital platform built to empower professionals and businesses. Our mission is to deliver powerful tools, knowledge, and services that help our community grow, earn, and thrive online.</p>
+    <p className="text-lg">We value collaboration, innovation, and transparency. Whether you're a beginner or a pro, Egpro é pra você!</p>
+  </div>
+);
+
+const Services = () => (
+  <div className="p-6 max-w-6xl mx-auto">
+    <h2 className="text-3xl font-bold mb-6">Our Services</h2>
+    <div className="grid md:grid-cols-3 gap-6">
+      <div className="bg-white shadow p-4 rounded-xl">
+        <h3 className="font-semibold text-lg mb-2">Mentorias e Consultorias</h3>
+        <p>Suporte estratégico personalizado para alavancar seu negócio digital.</p>
+      </div>
+      <div className="bg-white shadow p-4 rounded-xl">
+        <h3 className="font-semibold text-lg mb-2">Venda de Infoprodutos</h3>
+        <p>Produtos digitais de alta conversão com estratégias testadas.</p>
+      </div>
+      <div className="bg-white shadow p-4 rounded-xl">
+        <h3 className="font-semibold text-lg mb-2">Apoio para Afiliados</h3>
+        <p>Materiais prontos, links, treinamento e estrutura de equipe.</p>
+      </div>
+    </div>
+  </div>
+);
+
+const Portfolio = () => (
+  <div className="p-6 max-w-6xl mx-auto">
+    <h2 className="text-3xl font-bold mb-6">Our Portfolio</h2>
+    <div className="grid md:grid-cols-3 gap-6">
+      <div className="bg-gray-100 p-4 rounded-xl">
+        <h4 className="font-semibold mb-2">Projeto 1</h4>
+        <p>Campanha de lançamento com resultados de +350% em vendas.</p>
+      </div>
+      <div className="bg-gray-100 p-4 rounded-xl">
+        <h4 className="font-semibold mb-2">Landing Page Profissional</h4>
+        <p>Estrutura pronta para vendas com alta conversão.</p>
+      </div>
+      <div className="bg-gray-100 p-4 rounded-xl">
+        <h4 className="font-semibold mb-2">Treinamento Online</h4>
+        <p>Curso estruturado com plataforma própria para afiliados.</p>
+      </div>
+    </div>
+  </div>
+);
+
+const Blog = () => (
+  <div className="p-6 max-w-6xl mx-auto">
+    <h2 className="text-3xl font-bold mb-6">Blog</h2>
+    <div className="grid md:grid-cols-3 gap-6">
+      <div className="bg-white border rounded-xl p-4">
+        <h3 className="font-semibold mb-2">Como vender mais na internet</h3>
+        <p>Dicas práticas para alavancar suas vendas online.</p>
+      </div>
+      <div className="bg-white border rounded-xl p-4">
+        <h3 className="font-semibold mb-2">Erros que travam iniciantes</h3>
+        <p>Evite os principais erros de quem está começando no digital.</p>
+      </div>
+      <div className="bg-white border rounded-xl p-4">
+        <h3 className="font-semibold mb-2">Afiliado vs. Produtor</h3>
+        <p>Entenda as diferenças e qual caminho seguir.</p>
+      </div>
+    </div>
+  </div>
+);
+
+const Contact = () => (
+  <div className="p-6 max-w-3xl mx-auto">
+    <h2 className="text-3xl font-bold mb-6">Contact Us</h2>
+    <form className="grid gap-4">
+      <input className="border p-2 rounded" type="text" placeholder="Name" />
+      <input className="border p-2 rounded" type="email" placeholder="Email" />
+      <textarea className="border p-2 rounded" placeholder="Message" rows="4"></textarea>
+      <button className="bg-blue-600 text-white px-4 py-2 rounded">Send Message</button>
+    </form>
+    <div className="mt-6 text-center">
+      <p>Ou fale direto pelo WhatsApp:</p>
+      <a href="https://wa.me/5599999999999" className="text-blue-600 font-semibold">Clique aqui</a>
+    </div>
+  </div>
+);
+
+const Login = () => (
+  <div className="p-6 max-w-md mx-auto">
+    <h2 className="text-3xl font-bold mb-6">Área da Equipe</h2>
+    <form className="grid gap-4">
+      <input className="border p-2 rounded" type="email" placeholder="Email" />
+      <input className="border p-2 rounded" type="password" placeholder="Senha" />
+      <button className="bg-slate-900 text-white px-4 py-2 rounded">Entrar</button>
+    </form>
+    <p className="text-center text-sm mt-4">Acesso exclusivo para membros da equipe.</p>
+  </div>
+);
+
+const App = () => (
+  <Router>
+    <Navbar />
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/services" element={<Services />} />
+      <Route path="/portfolio" element={<Portfolio />} />
+      <Route path="/blog" element={<Blog />} />
+      <Route path="/contact" element={<Contact />} />
+      <Route path="/login" element={<Login />} />
+    </Routes>
+    <Footer />
+  </Router>
+);
