@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Connexion Instagram (Clone)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #fafafa;
+      font-family: 'Roboto', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .login-container {
+      background-color: white;
+      border: 1px solid #dbdbdb;
+      padding: 40px;
+      width: 300px;
+      text-align: center;
+    }
+    .login-container img {
+      width: 175px;
+      margin-bottom: 20px;
+    }
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 6px 0;
+      border: 1px solid #dbdbdb;
+      background: #fafafa;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background-color: #3897f0;
+      border: none;
+      color: white;
+      font-weight: bold;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+    .signup {
+      margin-top: 20px;
+      font-size: 14px;
+    }
+    .signup a {
+      color: #3897f0;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Logo">
+    <form>
+      <input type="text" placeholder="Num. mobile ou e-mail" required>
+      <input type="password" placeholder="Mot de passe" required>
+      <button type="submit">Connexion</button>
+    </form>
+    <div class="signup">
+      Vous n’avez pas de compte ? <a href="#">Inscrivez-vous</a>
+    </div>
+  </div>
+</body>
+</html>
