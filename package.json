@@ -14,8 +14,8 @@
         "bright": "^0.8.5",
         "markdown-to-jsx": "^7.4.5",
         "next": "15.3.3",
-        "react": "18.3.1",
-        "react-dom": "18.3.1",
+        "react": "19.1.0",
+        "react-dom": "19.1.0",
         "unique-names-generator": "^4.7.1"
     },
     "devDependencies": {
