@@ -19,6 +19,8 @@
         "unique-names-generator": "^4.7.1"
     },
     "devDependencies": {
+        "@21st-extension/react": "^0.5.14",
+        "@21st-extension/toolbar-next": "^0.5.14",
         "@tailwindcss/postcss": "^4.0.15",
         "eslint": "8.57.1",
         "eslint-config-next": "15.4.6",
