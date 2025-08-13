@@ -1,0 +1,486 @@
+// =============================================
+// Project layout (folders & key files)
+// =============================================
+// You can paste this whole doc into your repo as a reference. Files marked (•) are included below.
+//
+// ├─ app/
+// │  ├─ api/
+// │  │  ├─ jobs/route.ts               (•) create job + trigger background worker
+// │  │  └─ downloads/[jobId]/route.ts  (•) secure download proxy
+// │  ├─ admin/page.tsx                 (scaffold UI for managers)
+// │  └─ page.tsx                       (landing)
+// ├─ lib/
+// │  ├─ db.ts                          (•) Prisma client
+// │  ├─ llm.ts                         (•) OpenAI client + batching helper
+// │  ├─ csv.ts                         (•) CSV helpers (parse/stringify)
+// │  └─ types.ts                       (•) shared types
+// ├─ prisma/
+// │  └─ schema.prisma                  (•) minimal data model
+// ├─ netlify/
+// │  └─ functions/
+// │     ├─ process-upload-background.mts  (•) Background Function: join→LLM→write output
+// │     └─ cleanup.mts                     (•) Scheduled Function: housekeeping
+// ├─ netlify.toml                        (•) build + scheduled config
+// ├─ package.json                        (•) scripts + deps (snippet)
+// ├─ .env.local                          (sample env names)
+//
+// NOTE: This draft focuses on the server/back-end path. Plug in your preferred auth (Auth0 or Supabase) on the frontend and use middleware to protect routes.
+
+
+// =============================================
+// netlify.toml
+// =============================================
+/*
+Place at the repo root. The Next.js adapter is auto-applied by Netlify; no extra plugin needed.
+This config schedules the cleanup function and sets sensible bundling for functions.
+*/
+
+// --- file: netlify.toml ---
+[build]
+  command = "pnpm build"
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+  external_node_modules = ["@prisma/client"]
+  included_files = ["prisma/schema.prisma"]
+
+# Run cleanup daily at 03:00 UTC
+[functions."cleanup"]
+  schedule = "0 3 * * *"
+
+
+// =============================================
+// Prisma schema (minimal)
+// =============================================
+// --- file: prisma/schema.prisma ---
+// Choose your provider. Neon/Supabase use "postgresql".
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum JobStatus {
+  queued
+  running
+  completed
+  failed
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  role      String   // "user" | "manager"
+  uploads   Upload[]
+  jobs      Job[]
+  createdAt DateTime @default(now())
+}
+
+model Upload {
+  id           String   @id @default(cuid())
+  userId       String
+  user         User     @relation(fields: [userId], references: [id])
+  blobKey      String   // key in Netlify Blobs store (e.g., "uploads/{userId}/{uuid}.csv")
+  originalName String
+  createdAt    DateTime @default(now())
+  jobs         Job[]
+}
+
+model Job {
+  id           String    @id @default(cuid())
+  uploadId     String
+  upload       Upload    @relation(fields: [uploadId], references: [id])
+  status       JobStatus @default(queued)
+  error        String?
+  rowsTotal    Int?      
+  rowsProcessed Int?
+  outputBlobKey String?
+  tokensIn     Int?      
+  tokensOut    Int?      
+  costCents    Int?      
+  createdAt    DateTime @default(now())
+  startedAt    DateTime?
+  finishedAt   DateTime?
+}
+
+// Domain table: your master list + LLM enrichment
+model MasterRecord {
+  id            String   @id // your domain key (e.g., email or SKU)
+  // --- domain fields ---
+  name          String?
+  category      String?
+  // --- LLM enrichment fields ---
+  llmSummary    String?
+  llmTag        String?
+  llmVersion    String?  // model used, etc.
+  updatedAt     DateTime @updatedAt
+  createdAt     DateTime @default(now())
+}
+
+// Optional de-dup cache to avoid identical LLM calls
+model LlmCache {
+  id        String   @id @default(cuid())
+  promptKey String   @unique // hash of prompt template + input
+  result    String   // JSON/text result
+  tokensIn  Int?
+  tokensOut Int?
+  model     String?
+  createdAt DateTime @default(now())
+}
+
+
+// =============================================
+// lib/db.ts — Prisma client
+// =============================================
+// --- file: lib/db.ts ---
+import { PrismaClient } from "@prisma/client";
+
+declare global {
+  // eslint-disable-next-line no-var
+  var prisma: PrismaClient | undefined;
+}
+
+export const prisma = global.prisma ?? new PrismaClient();
+if (process.env.NODE_ENV !== "production") global.prisma = prisma;
+
+
+// =============================================
+// lib/llm.ts — OpenAI client + batching helper
+// =============================================
+// --- file: lib/llm.ts ---
+import OpenAI from "openai";
+import crypto from "node:crypto";
+import { prisma } from "./db";
+
+type LlmInput = { id: string; text: string; extra?: Record<string, any> };
+
+type LlmOutput = {
+  id: string;
+  summary: string;
+  tag?: string;
+  usage?: { promptTokens?: number; completionTokens?: number };
+};
+
+const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+
+function promptFor(input: LlmInput) {
+  return `You are enriching rows for a data pipeline.\n\nRow:\n${JSON.stringify(input)}\n\nReturn a concise JSON object {"summary": string, "tag": string}`;
+}
+
+function hashPrompt(s: string) {
+  return crypto.createHash("sha256").update(s).digest("hex");
+}
+
+export async function runLlmBatch(inputs: LlmInput[], model = process.env.OPENAI_MODEL ?? "gpt-4o-mini") {
+  const outputs: LlmOutput[] = [];
+
+  for (const input of inputs) {
+    const prompt = promptFor(input);
+    const key = hashPrompt(model + "::" + prompt);
+
+    // lookup cache
+    const cached = await prisma.llmCache.findUnique({ where: { promptKey: key } });
+    if (cached) {
+      try {
+        const cachedJson = JSON.parse(cached.result);
+        outputs.push({ id: input.id, ...cachedJson, usage: { promptTokens: cached.tokensIn ?? 0, completionTokens: cached.tokensOut ?? 0 } });
+        continue;
+      } catch {}
+    }
+
+    // call OpenAI
+    const resp = await client.chat.completions.create({
+      model,
+      messages: [
+        { role: "system", content: "Return strict JSON only." },
+        { role: "user", content: prompt }
+      ],
+      temperature: 0.3,
+      response_format: { type: "json_object" }
+    });
+
+    const content = resp.choices[0]?.message?.content ?? "{}";
+    const usage = resp.usage ?? { prompt_tokens: 0, completion_tokens: 0 };
+
+    // persist cache
+    await prisma.llmCache.create({
+      data: {
+        promptKey: key,
+        result: content,
+        tokensIn: usage.prompt_tokens ?? undefined,
+        tokensOut: usage.completion_tokens ?? undefined,
+        model
+      }
+    });
+
+    const parsed = JSON.parse(content);
+    outputs.push({ id: input.id, summary: parsed.summary ?? "", tag: parsed.tag, usage: { promptTokens: usage.prompt_tokens, completionTokens: usage.completion_tokens } });
+  }
+
+  return outputs;
+}
+
+
+// =============================================
+// lib/csv.ts — CSV helpers
+// =============================================
+// --- file: lib/csv.ts ---
+import { parse as parseCsv } from "csv-parse/sync";
+import { stringify as stringifyCsv } from "csv-stringify/sync";
+
+export function parseCsvText(input: string): Record<string, string>[] {
+  return parseCsv(input, { columns: true, skip_empty_lines: true, trim: true });
+}
+
+export function toCsv(rows: Record<string, any>[]) {
+  return stringifyCsv(rows, { header: true });
+}
+
+
+// =============================================
+// lib/types.ts — shared types
+// =============================================
+// --- file: lib/types.ts ---
+export type CreateJobBody = {
+  uploadId: string;        // DB Upload id
+  uploadBlobKey: string;   // key in Blobs store
+  originalName: string;    // file name (e.g., ".csv")
+  userId: string;          // from auth layer
+};
+
+
+// =============================================
+// Background Function — process-upload-background
+// =============================================
+// Reads CSV from Netlify Blobs, joins with Postgres master table, calls OpenAI in batches,
+// writes output CSV back to Blobs, and updates the Job record.
+//
+// Invoke via POST to "/.netlify/functions/process-upload-background" with JSON body:
+// { jobId, userId, uploadBlobKey, originalName }
+//
+// NOTE: This sample assumes CSV input. For XLSX, read ArrayBuffer and parse with "xlsx".
+// =============================================
+// --- file: netlify/functions/process-upload-background.mts ---
+import type { Context } from "@netlify/functions";
+import { getStore } from "@netlify/blobs";
+import { prisma } from "../../lib/db";
+import { parseCsvText, toCsv } from "../../lib/csv";
+import { runLlmBatch } from "../../lib/llm";
+
+export default async (req: Request, context: Context) => {
+  const started = Date.now();
+  let jobId = "";
+
+  try {
+    const { jobId: id, userId, uploadBlobKey, originalName } = (await req.json()) as {
+      jobId: string; userId: string; uploadBlobKey: string; originalName: string;
+    };
+    jobId = id;
+
+    // Mark running
+    await prisma.job.update({ where: { id: jobId }, data: { status: "running", startedAt: new Date() } });
+
+    // Fetch CSV from Blobs (store name is configurable)
+    const uploads = getStore(process.env.BLOB_STORE_UPLOADS ?? "uploads");
+    const csvText = await uploads.get(uploadBlobKey);
+    if (csvText == null) throw new Error("Upload not found in Blobs");
+
+    // Parse CSV
+    const rows = parseCsvText(csvText);
+
+    // Join with master + collect LLM inputs only for rows that need enrichment
+    const inputs: { id: string; text: string; extra?: Record<string, any> }[] = [];
+    const enriched: Record<string, any>[] = [];
+
+    for (const row of rows) {
+      const key = String(row.id ?? row.ID ?? row.key ?? row.email ?? "").trim();
+      if (!key) continue;
+
+      // Pull (or create) master record
+      let master = await prisma.masterRecord.findUnique({ where: { id: key } });
+      if (!master) {
+        master = await prisma.masterRecord.create({ data: { id: key, name: row.name ?? null, category: row.category ?? null } });
+      }
+
+      if (!master.llmSummary) {
+        inputs.push({ id: key, text: row.description ?? row.notes ?? row.name ?? key, extra: { category: row.category ?? "" } });
+      }
+
+      enriched.push({ ...row, _master_llmSummary: master.llmSummary ?? null, _master_llmTag: master.llmTag ?? null });
+    }
+
+    // Call LLM in small batches to respect rate limits
+    const BATCH = Number(process.env.LLM_BATCH ?? 20);
+    let tokensIn = 0, tokensOut = 0;
+
+    for (let i = 0; i < inputs.length; i += BATCH) {
+      const slice = inputs.slice(i, i + BATCH);
+      const out = await runLlmBatch(slice);
+
+      // Persist results into MasterRecord
+      for (const o of out) {
+        await prisma.masterRecord.update({
+          where: { id: o.id },
+          data: { llmSummary: o.summary, llmTag: o.tag, llmVersion: process.env.OPENAI_MODEL ?? "gpt-4o-mini" }
+        });
+        tokensIn += o.usage?.promptTokens ?? 0;
+        tokensOut += o.usage?.completionTokens ?? 0;
+      }
+    }
+
+    // Re-read master values and produce output CSV
+    const finalRows: Record<string, any>[] = [];
+    for (const row of rows) {
+      const key = String(row.id ?? row.ID ?? row.key ?? row.email ?? "").trim();
+      const master = key ? await prisma.masterRecord.findUnique({ where: { id: key } }) : null;
+      finalRows.push({ ...row, llmSummary: master?.llmSummary ?? null, llmTag: master?.llmTag ?? null });
+    }
+
+    const csvOut = toCsv(finalRows);
+
+    const outputs = getStore(process.env.BLOB_STORE_OUTPUTS ?? "outputs");
+    const outKey = `${userId}/${jobId}.csv`;
+    await outputs.set(outKey, csvOut, { metadata: { originalName, jobId } });
+
+    await prisma.job.update({
+      where: { id: jobId },
+      data: {
+        status: "completed",
+        finishedAt: new Date(),
+        rowsTotal: rows.length,
+        rowsProcessed: finalRows.length,
+        outputBlobKey: outKey,
+        tokensIn, tokensOut
+      }
+    });
+
+    // Background Functions return no body
+    return new Response(null, { status: 202 });
+  } catch (err: any) {
+    if (jobId) {
+      await prisma.job.update({ where: { id: jobId }, data: { status: "failed", error: String(err?.message ?? err), finishedAt: new Date() } }).catch(() => {});
+    }
+    console.error("Worker failed:", err);
+    return new Response(null, { status: 202 });
+  } finally {
+    const ms = Date.now() - started;
+    console.log(`process-upload-background finished in ${ms}ms`);
+  }
+};
+
+
+// =============================================
+// Scheduled Function — cleanup
+// =============================================
+// Deletes/archives old outputs, trims caches, etc. Runs daily via netlify.toml.
+// --- file: netlify/functions/cleanup.mts ---
+export default async (_req: Request) => {
+  // Example: prune LlmCache entries older than 30 days
+  const { prisma } = await import("../../lib/db");
+  const cutoff = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
+  const { count } = await prisma.llmCache.deleteMany({ where: { createdAt: { lt: cutoff } } });
+  console.log(`cleanup: pruned ${count} cache rows`);
+};
+
+export const config = { schedule: "@daily" } as const;
+
+
+// =============================================
+// API route — create a job & trigger the background worker
+// =============================================
+// POST /api/jobs  { uploadId, uploadBlobKey, originalName } -> { jobId }
+// This route is called after the client has uploaded a file to Blobs and created an Upload row.
+// --- file: app/api/jobs/route.ts ---
+import { prisma } from "@/lib/db";
+import type { CreateJobBody } from "@/lib/types";
+
+export async function POST(req: Request) {
+  // TODO: validate/auth — ensure the caller is the owner (or a manager)
+  const body = (await req.json()) as CreateJobBody;
+
+  const upload = await prisma.upload.findUnique({ where: { id: body.uploadId } });
+  if (!upload) return new Response(JSON.stringify({ error: "Upload not found" }), { status: 404 });
+
+  const job = await prisma.job.create({ data: { uploadId: upload.id, status: "queued" } });
+
+  // Trigger background worker by POSTing to its endpoint
+  const payload = { jobId: job.id, userId: body.userId, uploadBlobKey: body.uploadBlobKey, originalName: body.originalName };
+
+  // In production on Netlify, this relative path is fine.
+  await fetch("/.netlify/functions/process-upload-background", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(payload) });
+
+  return Response.json({ jobId: job.id });
+}
+
+
+// =============================================
+// API route — secure download proxy
+// =============================================
+// GET /api/downloads/:jobId → streams the processed CSV from Blobs
+// --- file: app/api/downloads/[jobId]/route.ts ---
+import { prisma } from "@/lib/db";
+import { getStore } from "@netlify/blobs";
+
+export async function GET(_req: Request, { params }: { params: { jobId: string } }) {
+  // TODO: check auth/roles — only owner or manager can access
+  const job = await prisma.job.findUnique({ where: { id: params.jobId } });
+  if (!job?.outputBlobKey) return new Response("Not ready", { status: 404 });
+
+  const outputs = getStore(process.env.BLOB_STORE_OUTPUTS ?? "outputs");
+  // Tip: the Blobs API supports streaming reads in modern runtimes; if not available, this returns full content.
+  const stream = (await outputs.get(job.outputBlobKey, { type: "stream" } as any)) as unknown as ReadableStream | null;
+
+  if (!stream) return new Response("Missing output", { status: 404 });
+  return new Response(stream, { headers: { "content-type": "text/csv", "content-disposition": `attachment; filename="${params.jobId}.csv"` } });
+}
+
+
+// =============================================
+// package.json (snippet)
+// =============================================
+// --- file: package.json ---
+{
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "postinstall": "prisma generate"
+  },
+  "dependencies": {
+    "@prisma/client": "^5.17.0",
+    "csv-parse": "^5.5.0",
+    "csv-stringify": "^6.5.0",
+    "next": "^14.2.5",
+    "openai": "^4.55.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.30",
+    "prisma": "^5.17.0",
+    "typescript": "^5.5.3"
+  }
+}
+
+
+// =============================================
+// .env.local (sample names — set in Netlify UI for production)
+// =============================================
+// DATABASE_URL=postgresql://... 
+// OPENAI_API_KEY=sk-...
+// OPENAI_MODEL=gpt-4o-mini
+// BLOB_STORE_UPLOADS=uploads
+// BLOB_STORE_OUTPUTS=outputs
+// LLM_BATCH=20
+
+
+// =============================================
+// Notes & next steps
+// =============================================
+// • Uploads: For small CSVs, you can POST multipart/form-data to a Function and write to Blobs. For larger files, prefer direct-to-storage patterns (S3/R2 presigned uploads) and then write the key into Upload.
+// • Auth: Use Auth0 or Supabase Auth. Add role-based guards in middleware and on server routes.
+// • Observability: wire Sentry or use Netlify logs for functions; persist token usage and costs as shown.
+// • XLSX: extend process-upload-background to detect .xlsx and parse via `xlsx` on an ArrayBuffer read.
+// • Backpressure: If jobs can exceed 15 minutes, split by chunks and chain multiple background invocations.
