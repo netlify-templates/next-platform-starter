@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Réservation Défense Client</title>
+  <script src="https://js.paystack.co/v1/inline.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; background:#f8f9fa; padding: 50px; }
+    .card { background: white; padding: 30px; border-radius: 12px; max-width: 400px; margin: auto; box-shadow: 0px 4px 12px rgba(0,0,0,0.1);}
+    input, button { width: 100%; padding: 12px; margin: 10px 0; border-radius: 8px; border: 1px solid #ccc; font-size: 16px; }
+    button { background: #007bff; color: white; border: none; cursor: pointer; font-weight: bold; }
+    button:hover { background: #0056b3; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Réservez votre défense</h2>
+    <p>Remplissez vos informations et payez en toute sécurité.</p>
+
+    <form id="paymentForm">
+      <input type="text" id="name" placeholder="Nom complet" required>
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="tel" id="phone" placeholder="Téléphone" required>
+      <input type="number" id="amount" placeholder="Montant (FCFA)" required>
+      <button type="submit">Payer maintenant</button>
+    </form>
+  </div>
+
+  <script>
+    const paymentForm = document.getElementById('paymentForm');
+    paymentForm.addEventListener("submit", payWithPaystack, false);
+
+    function payWithPaystack(e) {
+      e.preventDefault();
+      let handler = PaystackPop.setup({
+        key: 'VOTRE_CLE_PUBLIQUE_PAYSTACK', // 🔑 à remplacer
+        email: document.getElementById("email").value,
+        amount: document.getElementById("amount").value * 100,
+        currency: "XOF",
+        ref: ''+Math.floor((Math.random() * 1000000000) + 1),
+        callback: function(response) {
+          alert("✅ Paiement réussi ! Réf : " + response.reference);
+        },
+        onClose: function() {
+          alert("❌ Paiement annulé");
+        }
+      });
+      handler.openIframe();
+    }
+  </script>
+</body>
+</html>
