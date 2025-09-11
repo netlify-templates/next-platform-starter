@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clash With JPA</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial Black', sans-serif;
+      color: white;
+      background: url('your-background-image.jpg') no-repeat center center/cover;
+      height: 100vh;
+    }
+
+    /* Navbar */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background: rgba(0, 0, 0, 0.7);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 100;
+    }
+    nav .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
+    nav .login-btn {
+      background: orange;
+      color: black;
+      padding: 8px 15px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* Mobile Menu */
+    .menu-toggle {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+    }
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: rgba(0,0,0,0.9);
+        flex-direction: column;
+        text-align: center;
+      }
+      nav ul.show {
+        display: flex;
+      }
+      .menu-toggle {
+        display: block;
+        color: white;
+      }
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      height: 100vh;
+      padding: 0 20px;
+      background: rgba(0, 0, 0, 0.6);
+    }
+    .hero h1 {
+      font-size: 42px;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 8px black;
+    }
+    .hero p {
+      font-size: 18px;
+      max-width: 600px;
+      margin-bottom: 30px;
+    }
+    .hero .cta-btn {
+      background: orange;
+      padding: 15px 30px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+      font-size: 18px;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.5);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">JPA</div>
+    <span class="menu-toggle" onclick="toggleMenu()">☰</span>
+    <ul id="menu">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Clans</a></li>
+      <li><a href="#">War details</a></li>
+      <li><a href="#">Rules</a></li>
+      <li><a href="#">Discord</a></li>
+      <li><a href="#" class="login-btn">Login</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Clash With JPA</h1>
+    <p>
+      FWA experts in War-Farming, offering diverse clans and simultaneous 50v50 FWA wars and CWL action.
+      Join one of the clans in our family today!
+    </p>
+    <a href="#" class="cta-btn">See our clans</a>
+  </section>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("menu").classList.toggle("show");
+    }
+  </script>
+</body>
+</html>
