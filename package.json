@@ -11,7 +11,7 @@
     "dependencies": {
         "@netlify/blobs": "^8.2.0",
         "blobshape": "^1.0.0",
-        "bright": "^0.8.5",
+        "bright": "^1.0.0",
         "markdown-to-jsx": "^7.4.5",
         "next": "15.5.3",
         "react": "18.3.1",
