@@ -1,0 +1,137 @@
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { motion } from "framer-motion";
+import { BookOpen, Users, Calendar, GraduationCap, Image as ImageIcon } from "lucide-react";
+
+export default function SchoolWebsite() {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 text-gray-800">
+      {/* Navbar */}
+      <nav className="flex justify-between items-center px-8 py-4 shadow-md bg-white">
+        <h1 className="text-2xl font-bold text-blue-600">Sekolah Harapan Bangsa</h1>
+        <div className="space-x-6 font-medium">
+          <a href="#about" className="hover:text-blue-600">Tentang</a>
+          <a href="#programs" className="hover:text-blue-600">Program</a>
+          <a href="#gallery" className="hover:text-blue-600">Galeri</a>
+          <a href="#events" className="hover:text-blue-600">Kegiatan</a>
+          <a href="#contact" className="hover:text-blue-600">Kontak</a>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section className="flex flex-col items-center justify-center text-center py-20 px-6">
+        <motion.h2
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          className="text-4xl md:text-6xl font-bold text-blue-700 mb-4"
+        >
+          Membangun Generasi Cerdas & Berkarakter
+        </motion.h2>
+        <p className="text-lg md:text-xl max-w-2xl text-gray-600 mb-6">
+          Sekolah Harapan Bangsa berkomitmen memberikan pendidikan terbaik dengan pendekatan modern dan menyenangkan.
+        </p>
+        <Button className="bg-blue-600 text-white px-6 py-3 rounded-xl text-lg shadow-lg hover:bg-blue-700">
+          Daftar Sekarang
+        </Button>
+      </section>
+
+      {/* About Section */}
+      <section id="about" className="py-16 bg-white px-8">
+        <div className="max-w-5xl mx-auto text-center">
+          <h3 className="text-3xl font-bold text-blue-700 mb-6">Tentang Kami</h3>
+          <p className="text-gray-600 leading-relaxed">
+            Kami adalah sekolah dengan lingkungan belajar yang nyaman, mendukung perkembangan akademik, karakter, dan kreativitas siswa. Dengan tenaga pendidik profesional, kami siap mencetak generasi unggul.
+          </p>
+        </div>
+      </section>
+
+      {/* Programs Section */}
+      <section id="programs" className="py-16 bg-blue-50 px-8">
+        <div className="max-w-6xl mx-auto text-center">
+          <h3 className="text-3xl font-bold text-blue-700 mb-12">Program Unggulan</h3>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[{
+              icon: <BookOpen size={40} className="text-blue-600" />, title: "Kurikulum Modern", desc: "Pembelajaran berbasis teknologi dengan kurikulum nasional dan internasional."
+            },{
+              icon: <Users size={40} className="text-blue-600" />, title: "Pengembangan Karakter", desc: "Membentuk pribadi yang disiplin, tangguh, dan peduli."
+            },{
+              icon: <GraduationCap size={40} className="text-blue-600" />, title: "Ekstrakurikuler", desc: "Beragam kegiatan untuk menggali bakat dan minat siswa."
+            }].map((program, idx) => (
+              <Card key={idx} className="rounded-2xl shadow-lg hover:shadow-xl transition">
+                <CardContent className="p-6 flex flex-col items-center text-center">
+                  {program.icon}
+                  <h4 className="text-xl font-semibold mt-4 mb-2">{program.title}</h4>
+                  <p className="text-gray-600">{program.desc}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery Section */}
+      <section id="gallery" className="py-16 bg-white px-8">
+        <div className="max-w-6xl mx-auto text-center">
+          <h3 className="text-3xl font-bold text-blue-700 mb-12">Galeri Sekolah</h3>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[1,2,3,4,5,6].map((img) => (
+              <div key={img} className="rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition">
+                <img
+                  src={`https://source.unsplash.com/400x300/?school,classroom,student&sig=${img}`}
+                  alt={`Galeri ${img}`}
+                  className="w-full h-64 object-cover"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Events Section */}
+      <section id="events" className="py-16 bg-blue-50 px-8">
+        <div className="max-w-6xl mx-auto text-center">
+          <h3 className="text-3xl font-bold text-blue-700 mb-12">Kegiatan Sekolah</h3>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[1,2,3].map((event) => (
+              <Card key={event} className="rounded-2xl shadow-md hover:shadow-lg transition">
+                <CardContent className="p-6 text-left">
+                  <div className="flex items-center mb-4">
+                    <Calendar className="text-blue-600 mr-2" />
+                    <span className="text-sm text-gray-500">15 September 2025</span>
+                  </div>
+                  <h4 className="text-lg font-semibold mb-2">Kegiatan #{event}</h4>
+                  <p className="text-gray-600">Deskripsi singkat tentang kegiatan #{event} yang akan dilaksanakan di sekolah.</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section with Form */}
+      <section id="contact" className="py-16 bg-white px-8">
+        <div className="max-w-4xl mx-auto text-center">
+          <h3 className="text-3xl font-bold text-blue-700 mb-6">Kontak & Pendaftaran</h3>
+          <p className="text-gray-600 mb-6">Hubungi kami atau isi formulir berikut untuk informasi lebih lanjut mengenai pendaftaran.</p>
+          <form className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
+            <Input placeholder="Nama Lengkap" className="p-3 rounded-xl border" />
+            <Input type="email" placeholder="Email" className="p-3 rounded-xl border" />
+            <Input type="tel" placeholder="Nomor Telepon" className="p-3 rounded-xl border md:col-span-2" />
+            <Textarea placeholder="Pesan Anda" className="p-3 rounded-xl border md:col-span-2" rows={5} />
+            <Button className="bg-blue-600 text-white px-6 py-3 rounded-xl text-lg shadow-lg hover:bg-blue-700 md:col-span-2">
+              Kirim Pesan
+            </Button>
+          </form>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-blue-700 text-white py-6 text-center mt-12">
+        <p>&copy; 2025 Sekolah Harapan Bangsa. Semua Hak Dilindungi.</p>
+      </footer>
+    </div>
+  );
+}
