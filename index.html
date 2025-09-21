@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Feliz día — Mi Kelly</title>
+  <style>
+    :root{--bg:#fff8e6;--accent:#f4c542}
+    html,body{height:100%;margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial}
+    .page{
+      min-height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(180deg,#fffdf5 0%,#fff6e0 50%,#fff0d6 100%);
+      padding:32px;box-sizing:border-box;text-align:center;color:#3b2f25
+    }
+    .card{max-width:900px;width:100%;border-radius:20px;padding:36px;box-shadow:0 10px 30px rgba(59,47,37,0.12);background:linear-gradient(180deg,rgba(255,255,255,0.9),rgba(255,250,240,0.8));position:relative;overflow:hidden}
+    h1{font-size:44px;margin:0 0 8px;letter-spacing:0.6px}
+    p.lead{margin:0 0 18px;font-size:18px}
+    .sunflower-row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-bottom:18px}
+    .sun{width:92px;height:92px}
+    .controls{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:12px}
+    button{background:var(--accent);border:0;padding:10px 16px;border-radius:12px;font-weight:600;cursor:pointer}
+    .small{font-size:13px;color:#6b5a4b}
+    .attribution{position:absolute;right:14px;bottom:10px;font-size:11px;color:#a1886f}
+    input[type="text"]{padding:8px 10px;border-radius:8px;border:1px solid #e3d1a8;min-width:240px}
+    input[type="file"]{display:none}
+    .filelabel{display:inline-block;padding:10px 14px;border-radius:10px;border:1px dashed #e3d1a8;cursor:pointer}
+    footer{margin-top:18px;font-size:13px;color:#7a6a5a}
+    /* simple sunflower svg-friendly responsive */
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="card">
+      <div class="sunflower-row" aria-hidden="true">
+        <!-- sunflowers made with SVG repeated -->
+        <svg class="sun" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="g1"><stop offset="0%" stop-color="#ffd54a"/><stop offset="100%" stop-color="#f4c542"/></radialGradient>
+          </defs>
+          <rect width="100" height="100" rx="14" fill="transparent"/>
+          <g transform="translate(50,50)">
+            <!-- petals -->
+            <g id="petals">
+              <!-- generate petals -->
+            </g>
+            <circle r="18" fill="#6b3e16" stroke="#3b2210" stroke-width="2" />
+            <circle r="10" fill="#402412" opacity="0.9" />
+          </g>
+          <script type="application/ecmascript"><![CDATA[
+            // script inside svg won't run in many browsers; petals are rendered server-side in markup below
+          ]]></script>
+        </svg>
+        <!-- duplicate using inline SVG petals (static repeats) -->
+        <svg class="sun" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <g transform="translate(50,50)">
+            <g>
+              <!-- 16 petals -->
+              <g fill="#f7b934">
+                <g transform="rotate(0)"><ellipse rx="8" ry="22" cx="22" cy="0"/></g>
+                <g transform="rotate(22.5)"><ellipse rx="8" ry="22" cx="22" cy="0"/></g>
+                <g transform="rotate(45)"><ellipse rx="8" ry="22" cx="22" cy="0"/></g>
+                <g transform="rotate(67.5)"><ellipse rx="8" ry="22" cx="22" cy="0"/></g>
+                <g transform="rotate(90)"><ellipse rx="8" ry="22" cx="22" cy="0"/></g>
+                <g transform="rotate(112.5)"><ellipse rx="8" ry="22" cx="22" cy="0"/></g>
+                <g transform="rotate(135)"><ellipse rx="8" ry="22" cx="22" cy="0"/></g>
+                <g transform="rotate(157.5)"><ellipse rx="8" ry="22" cx="22" cy="0"/></g>
+                <g transform="rotate(180)"><ellipse rx="8" ry="22" cx="22" cy="0"/></g>
+                <g transform="rotate(202.5)"><ellipse rx="8" ry="22" cx="22" cy="0"/></g>
+                <g transform="rotate(225)"><ellipse rx="8" ry="22" cx="22" cy="0"/></g>
+                <g transform="rotate(247.5)"><ellipse rx="8" ry="22" cx="22" cy="0"/></g>
+                <g transform="rotate(270)"><ellipse rx="8" ry="22" cx="22" cy="0"/></g>
+                <g transform="rotate(292.5)"><ellipse rx="8" ry="22" cx="22" cy="0"/></g>
+                <g transform="rotate(315)"><ellipse rx="8" ry="22" cx="22" cy="0"/></g>
+                <g transform="rotate(337.5)"><ellipse rx="8" ry="22" cx="22" cy="0"/></g>
+              </g>
+            </g>
+            <circle r="18" fill="#6b3e16" stroke="#3b2210" stroke-width="2" />
+            <circle r="10" fill="#402412" opacity="0.9" />
+          </g>
+        </svg>
+
+        <svg class="sun" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <g transform="translate(50,50)">
+            <g fill="#f7b934">
+              <!-- fewer petals for variety -->
+              <g transform="rotate(0)"><ellipse rx="7" ry="20" cx="22" cy="0"/></g>
+              <g transform="rotate(45)"><ellipse rx="7" ry="20" cx="22" cy="0"/></g>
+              <g transform="rotate(90)"><ellipse rx="7" ry="20" cx="22" cy="0"/></g>
+              <g transform="rotate(135)"><ellipse rx="7" ry="20" cx="22" cy="0"/></g>
+              <g transform="rotate(180)"><ellipse rx="7" ry="20" cx="22" cy="0"/></g>
+              <g transform="rotate(225)"><ellipse rx="7" ry="20" cx="22" cy="0"/></g>
+              <g transform="rotate(270)"><ellipse rx="7" ry="20" cx="22" cy="0"/></g>
+              <g transform="rotate(315)"><ellipse rx="7" ry="20" cx="22" cy="0"/></g>
+            </g>
+            <circle r="18" fill="#6b3e16" stroke="#3b2210" stroke-width="2" />
+            <circle r="10" fill="#402412" opacity="0.9" />
+          </g>
+        </svg>
+      </div>
+
+      <h1>¡Feliz día, Mi Kelly!</h1>
+      <p class="lead">Te envío un abrazo lleno de girasoles 🌻 — que tu día sea tan brillante como estos rayos de sol.</p>
+
+      <!-- Audio controls: user can paste an mp3 url or upload a file -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
+        <div class="controls">
+          <input id="audioUrl" type="text" placeholder="Pega aquí la URL del archivo .mp3 (opcional)" aria-label="URL audio">
+          <button id="loadUrl">Cargar URL</button>
+          <label for="file" class="filelabel">Subir archivo MP3</label>
+          <input id="file" type="file" accept="audio/*">
+          <button id="playPause">Reproducir</button>
+        </div>
+        <div class="small">Si conoces la URL de la canción del otro enlace, pégala arriba. También puedes subir un MP3 desde tu dispositivo.</div>
+      </div>
+
+      <audio id="audio" controls style="margin-top:12px;width:100%;display:none"></audio>
+
+      <footer class="attribution">Diseñado con cariño — cambia el texto o imagen como quieras.</footer>
+    </div>
+  </div>
+
+  <script>
+    const audio = document.getElementById('audio');
+    const playBtn = document.getElementById('playPause');
+    const loadUrlBtn = document.getElementById('loadUrl');
+    const audioUrlInput = document.getElementById('audioUrl');
+    const fileInput = document.getElementById('file');
+
+    loadUrlBtn.addEventListener('click', ()=>{
+      const url = audioUrlInput.value.trim();
+      if(!url){alert('Pega primero la URL del archivo MP3 o stream compatible.');return}
+      audio.src = url;
+      audio.style.display = 'block';
+      audio.play().catch(()=>{});
+      playBtn.textContent = 'Pausar';
+    });
+
+    document.querySelector('.filelabel').addEventListener('click', ()=>document.getElementById('file').click());
+
+    fileInput.addEventListener('change', (e)=>{
+      const f = e.target.files[0];
+      if(!f) return;
+      const url = URL.createObjectURL(f);
+      audio.src = url;
+      audio.style.display = 'block';
+      audio.play().catch(()=>{});
+      playBtn.textContent = 'Pausar';
+    });
+
+    playBtn.addEventListener('click', ()=>{
+      if(audio.paused){audio.play();playBtn.textContent='Pausar'}
+      else {audio.pause();playBtn.textContent='Reproducir'}
+    });
+
+    // Optional: try to preload if there's an audio param in URL like ?audio=...
+    const params = new URLSearchParams(location.search);
+    if(params.get('audio')){
+      audio.src = params.get('audio'); audio.style.display='block';
+    }
+  </script>
+</body>
+</html>
