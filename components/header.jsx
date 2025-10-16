@@ -9,6 +9,7 @@ const navItems = [
     { linkText: 'Image CDN', href: '/image-cdn' },
     { linkText: 'Edge Function', href: '/edge' },
     { linkText: 'Blobs', href: '/blobs' },
+    { linkText: 'Caching', href: '/caching' },
     { linkText: 'Classics', href: '/classics' }
 ];
 
