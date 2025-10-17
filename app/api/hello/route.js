@@ -23,7 +23,8 @@ export async function GET(request) {
     {
       headers: {
         // Use the new caching directives
-        'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=30',
+        'Cache-Control': 'public, must-revalidate',
+        'Netlify-CDN-Cache-Control': 'public, s-maxage=60, stale-while-revalidate=30, durable',
       },
     },
   );

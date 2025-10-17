@@ -8,11 +8,11 @@ export const metadata = {
 };
 
 const explainer = `
-Next.js 16 introduces **enhanced caching APIs**—like \`revalidateTag\`, 
-\`revalidatePath\`, and new cache headers.  
+Next.js 16 introduces **enhanced caching APIs**—like \`revalidateTag\`,
+\`revalidatePath\`, and new cache headers.
 
 In this demo:
-- \`/api/hello\` uses \`Cache-Control: public, s-maxage=60, stale-while-revalidate=30\`
+- \`/api/hello\` uses \`Cache-Control: public, must-revalidate\` and \`Netlify-CDN-Cache-Control: public, s-maxage=60, stale-while-revalidate=30, durable\`
 - You can trigger cache invalidation with \`revalidateTag('hello')\` and \`revalidatePath('/api/hello')\`
 `;
 
