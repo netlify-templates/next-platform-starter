@@ -30,7 +30,7 @@ async function RandomArticleComponent() {
 After the set time has passed, the first request for this page would trigger its rebuild in the background. When the new page is ready, subsequent requests would return the new page - 
 see [\`stale-white-revalidate\`](https://www.netlify.com/blog/swr-and-fine-grained-cache-control/).
 
-Alternatively, if the cache tag is explicitly invalidated by \`revalidateTag('${tagName}')\`, any page using that tag would be rebuilt in the background when requested.
+Alternatively, if the cache tag is explicitly invalidated by \`revalidateTag('${tagName}', 'max')\`, any page using that tag would be rebuilt in the background when requested. The \`'max'\` cacheLife profile (new in Next.js 16) enables background revalidation for long-lived content.
 
 In real-life applications, tags are typically invalidated when data has changed in an external system (e.g., the CMS notifies the site about content changes via a webhook), or after a data mutation made through the site.
 
@@ -40,7 +40,7 @@ For this functionality to work, Next.js uses the [fine-grained caching headers](
 export default async function Page() {
     async function revalidateWiki() {
         'use server';
-        revalidateTag(tagName);
+        revalidateTag(tagName, 'max');
     }
 
     return (
