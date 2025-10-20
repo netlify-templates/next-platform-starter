@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { generateBlob } from 'app/blobs/generator';
 import { ShapeRenderer } from './renderer';
 import { uploadShapeAction } from './actions';
@@ -8,7 +8,7 @@ import { uploadDisabled } from 'utils';
 
 export function NewShape(props) {
     const { setLastMutationTime } = props;
-    const [blobData, setBlobData] = useState();
+    const [blobData, setBlobData] = useState(() => generateBlob());
     const [wasUploaded, setWasUploaded] = useState(false);
 
     const randomizeBlob = () => {
@@ -21,12 +21,6 @@ export function NewShape(props) {
         setWasUploaded(true);
         setLastMutationTime(Date.now());
     };
-
-    useEffect(() => {
-        if (!blobData) {
-            randomizeBlob();
-        }
-    }, [blobData]);
 
     return (
         <>
