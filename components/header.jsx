@@ -35,7 +35,7 @@ export function Header() {
                 href="https://github.com/netlify-templates/next-platform-starter"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden lg:inline-flex lg:ml-auto"
+                className="ml-auto"
             >
                 <Image src={githubLogo} alt="GitHub logo" className="w-7" />
             </Link>
