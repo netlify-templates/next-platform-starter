@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Doniyi Polo DTP Centre — DChung</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --primary:#1166cc; /* blue */
+      --muted:#6b7280;
+      --bg:#ffffff;
+      --radius:12px;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:#0b1320;line-height:1.45}
+    header{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;border-bottom:1px solid #eef2f7}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{height:56px;width:auto;border-radius:8px}
+    .brand h1{font-size:20px;margin:0}
+    nav a{margin-left:14px;text-decoration:none;color:var(--muted);font-weight:600}
+    .container{max-width:980px;margin:28px auto;padding:0 20px}
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1fr;gap:20px;align-items:center;padding:28px;border-radius:14px}
+    .hero-card{background:#f8fbff;padding:28px;border-radius:14px}
+    .hero h2{color:var(--primary);margin:0 0 8px;font-size:28px}
+    .hero p{margin:0 0 12px;color:var(--muted)}
+    .btn{display:inline-block;padding:10px 16px;border-radius:10px;background:var(--primary);color:#fff;text-decoration:none;font-weight:600}
+
+    /* Sections */
+    .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:18px}
+    .card{padding:18px;border-radius:12px;background:#fff;box-shadow:0 6px 18px rgba(13,18,30,0.03)}
+    h3{margin-top:0}
+    ul{padding-left:18px}
+
+    footer{margin-top:28px;padding:20px;border-top:1px solid #eef2f7;color:var(--muted);text-align:center}
+
+    /* Contact form */
+    form{display:grid;gap:10px}
+    input,textarea{padding:10px;border:1px solid #e6e9ef;border-radius:8px;font-size:14px}
+    textarea{min-height:110px}
+
+    /* Responsive */
+    @media (max-width:820px){.grid{grid-template-columns:1fr}.brand h1{font-size:18px}.hero{padding:18px}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <!-- Replace "logo.png" with your logo file (DChung) -->
+      <img src="logo.png" alt="DChung logo" id="logo">
+      <div>
+        <h1>Doniyi Polo DTP Centre</h1>
+        <div style="color:var(--muted);font-size:13px;margin-top:4px">DChung — English & Assamese DTP • Online Applications</div>
+      </div>
+    </div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section id="home" class="hero">
+      <div class="hero-card">
+        <h2>Professional English & Assamese DTP — Online Help</h2>
+        <p>We provide neat, accurate desktop publishing (DTP) in English and Assamese, online application filling, scanning, document preparation, and more. Fast turnaround and personalised support.</p>
+        <a class="btn" href="#contact">Contact via WhatsApp</a>
+      </div>
+    </section>
+
+    <section id="services" style="margin-top:6px">
+      <h3>Services — সেৱাসমূহ</h3>
+      <div class="grid">
+        <div class="card">
+          <h4>English & Assamese DTP</h4>
+          <p>High-quality typesetting and layout for letters, brochures, certificates, and more. Assamese (অসমীয়া) support included.</p>
+        </div>
+        <div class="card">
+          <h4>Online Application / Form Filling</h4>
+          <p>We fill online applications accurately on your behalf — government forms, university, job applications, and others.</p>
+        </div>
+        <div class="card">
+          <h4>Scanning & Printing</h4>
+          <p>Fast scanning, PDF creation, small-format printing and photo editing services.</p>
+        </div>
+        <div class="card">
+          <h4>Custom Computer Help</h4>
+          <p>Assistance with digital documents, conversions, and file preparation tailored to your needs.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" style="margin-top:18px">
+      <h3>About — সম্পর্কে</h3>
+      <div class="grid">
+        <div class="card">
+          <h4>About Doniyi Polo DTP Centre</h4>
+          <p>Founded and run by an experienced DTP professional with <strong>4 years</strong> of practical service. Qualified with a <strong>Bachelor of Science (2021)</strong>. We focus on accuracy, clear communication, and timely deliveries.</p>
+        </div>
+        <div class="card">
+          <h4>Why choose us? — কিয় আমাক বাছিব</h4>
+          <ul>
+            <li>Assamese & English language support — অসমীয়া আৰু ইংৰাজী</li>
+            <li>Personalised service and revisions</li>
+            <li>Quick turnaround and friendly pricing</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" style="margin-top:18px">
+      <h3>Contact — যোগাযোগ</h3>
+      <div class="grid">
+        <div class="card">
+          <h4>Get in touch</h4>
+          <p><strong>Phone / WhatsApp:</strong> <a href="tel:+918486661285">8486661285</a></p>
+          <p><strong>Email:</strong> <a href="mailto:dekaborachungkrang85@zohomail.in">dekaborachungkrang85@zohomail.in</a></p>
+          <p><strong>Service name:</strong> Doniyi Polo DTP Centre (DChung)</p>
+        </div>
+        <div class="card">
+          <h4>Send a message</h4>
+          <!-- This form is static — it uses mailto for simple delivery. For a working contact system, connect to a server or form service. -->
+          <form action="mailto:dekaborachungkrang85@zohomail.in" method="post" enctype="text/plain">
+            <input type="text" name="Name" placeholder="Your name / আপোনাৰ নাম" required>
+            <input type="tel" name="Phone" placeholder="Phone / ফোন নম্বৰ" required>
+            <input type="email" name="Email" placeholder="Email / ইমেইল">
+            <textarea name="Message" placeholder="Message / বাৰ্তা" required></textarea>
+            <button type="submit" class="btn">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <strong>Doniyi Polo DTP Centre</strong> — DChung • All rights reserved.</div>
+      <div style="margin-top:6px">Made with care • 4 years experience • B.Sc (2021)</div>
+    </footer>
+  </main>
+
+  <script>
+    // Small enhancement: open WhatsApp chat when the hero button is clicked
+    document.querySelectorAll('.btn').forEach(btn => {
+      btn.addEventListener('click', function(e){
+        if(this.getAttribute('href') === '#contact'){
+          // open WhatsApp chat (replace country code if needed)
+          e.preventDefault();
+          window.location.href = 'https://wa.me/918486661285';
+        }
+      })
+    })
+  </script>
+</body>
+</html>
