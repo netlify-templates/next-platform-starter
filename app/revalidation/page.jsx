@@ -60,6 +60,14 @@ async function RandomWikiArticle() {
         next: { revalidate: revalidateTTL, tags: [tagName] }
     });
 
+    if (!randomWiki.ok) {
+        return (
+            <Card className="max-w-2xl">
+                <p className="text-red-600">Failed to fetch Wikipedia article. Please try again later.</p>
+            </Card>
+        );
+    }
+
     const content = await randomWiki.json();
     let extract = content.extract;
     if (extract.length > maxExtractLength) {
