@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pengumuman Lomba Hari Pahlawan - SMP Islam Nurul Hidayah</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            text-align: center;
+            background-color: #ff0000;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        h1, h2 {
+            margin: 0;
+        }
+        section {
+            background-color: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+        .criteria {
+            font-weight: bold;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>📢 PENGUMUMAN LOMBA HARI PAHLAWAN 🇮🇩</h1>
+        <h2>SMP ISLAM NURUL HIDAYAH</h2>
+        <p>Dalam rangka memperingati <em>Hari Pahlawan Nasional 10 November 2025</em>, sekolah akan mengadakan kegiatan lomba <strong>Peringatan Hari Pahlawan</strong> dengan tema:</p>
+        <p>🎯 “Meneladani Semangat Kepahlawanan di Era Digital”</p>
+    </header>
+
+    <section id="cosplay">
+        <h2>🥷 1. Cosplay Pahlawan</h2>
+        <h3>👕 Ketentuan Lomba:</h3>
+        <ul>
+            <li>Peserta: Seluruh siswa SMP Islam</li>
+            <li>Berpenampilan menyerupai tokoh pahlawan nasional Indonesia</li>
+            <li>Membawa atribut sesuai tokoh pahlawan (tidak berlebihan dan tetap sopan)</li>
+        </ul>
+        <h3>Kriteria Penilaian:</h3>
+        <ul class="criteria">
+            <li>Kesesuaian Kostum & Karakter (30)</li>
+            <li>Kreativitas & Ekspresi (25)</li>
+            <li>Kepercayaan Diri (25)</li>
+            <li>Kerapian & Penampilan (20)</li>
+            <li>Total Nilai: 100</li>
+        </ul>
+    </section>
+
+    <section id="pidato">
+        <h2>🗣 2. Lomba Pidato</h2>
+        <ul>
+            <li>Peserta: Perwakilan tiap kelas (Min 2 orang)</li>
+            <li>Tema: Semangat Kepahlawanan di Era Digital</li>
+        </ul>
+        <h3>Kriteria Penilaian:</h3>
+        <ul class="criteria">
+            <li>Intonasi / Ketepatan nada (25)</li>
+            <li>Artikulasi & Bahasa (25)</li>
+            <li>Penghayatan (25)</li>
+            <li>Penampilan & Kepercayaan diri (25)</li>
+            <li>Total Nilai: 100</li>
+        </ul>
+    </section>
+
+    <section id="solo-song">
+        <h2>🎤 3. Lomba Solo Song (Menyanyi Tunggal)</h2>
+        <ul>
+            <li>Peserta: Perwakilan tiap kelas (Min 2 orang)</li>
+            <li>Lagu bertema: Kepahlawanan atau Nasionalisme</li>
+        </ul>
+        <h3>Pilihan Lagu:</h3>
+        <p><strong>Wajib:</strong></p>
+        <ol>
+            <li>Indonesia Pusaka – Ismail Marzuki</li>
+            <li>Gugur Bunga – Ismail Marzuki</li>
+        </ol>
+        <p><strong>Pilihan:</strong></p>
+        <ol>
+            <li>Bendera – Coklat</li>
+            <li>Meraih Bintang – Via Vallen</li>
+            <li>Laskar Pelangi – Nidji</li>
+            <li>Bunda – Mely Goeslaw</li>
+            <li>Berandalah Benderaku – Gombloh</li>
+        </ol>
+        <h3>Kriteria Penilaian:</h3>
+        <ul class="criteria">
+            <li>Vokal (25)</li>
+            <li>Intonasi / Nada (25)</li>
+            <li>Artikulasi (25)</li>
+            <li>Ekspresi & Penampilan (25)</li>
+            <li>Total Nilai: 100</li>
+        </ul>
+    </section>
+
+    <section id="tilawah">
+        <h2>4. Lomba Tilawah</h2>
+        <h3>👥 Peserta: Seluruh siswa kelas 7, 8, dan 9 (perwakilan tiap kelas 1 orang)</h3>
+        <h3>🎙 Ketentuan Lomba:</h3>
+        <ul>
+            <li>Peserta membaca Al-Qur’an maksimal 10 ayat dari surat pilihan (disarankan surat pendek).</li>
+            <li>Waktu tampil maksimal 5 menit.</li>
+            <li>Peserta wajib mengenakan pakaian muslim yang sopan dan rapi.</li>
+            <li>Keputusan juri bersifat mutlak dan tidak dapat diganggu gugat.</li>
+        </ul>
+        <h3>🏆 Kriteria Penilaian Lomba Tilawah:</h3>
+        <ul class="criteria">
+            <li>Tajwid & Makharijul Huruf (40)</li>
+            <li>Irama (Lagu Tilawah) (25)</li>
+            <li>Suara (Vokal & Kejernihan) (20)</li>
+            <li>Adab & Penampilan (15)</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 SMP Islam Nurul Hidayah. Semua hak dilindungi.</p>
+    </footer>
+</body>
+</html>
