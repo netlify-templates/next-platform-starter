@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vortex Info Digital - Produtos Exclusivos</title>
+    <!-- Carregamento do Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configuração da fonte Inter (padrão recomendado) -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f1f5f9; /* Cor de fundo suave (slate-100) */
+        }
+        /* Efeito de hover personalizado para os botões Hotmart */
+        .product-btn {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+        }
+        .product-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(20, 184, 166, 0.4), 0 4px 6px -4px rgba(20, 184, 166, 0.2);
+            background-color: #0d9488; /* teal-700 */
+        }
+        /* Estilo para o ícone de seta do FAQ */
+        .faq-arrow {
+            transition: transform 0.3s ease;
+        }
+        .faq-button[aria-expanded="true"] .faq-arrow {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Cabeçalho (Header) / Seção Hero -->
+    <header class="bg-indigo-700 text-white shadow-xl">
+        <div class="max-w-4xl mx-auto py-12 px-6 sm:py-20 text-center rounded-b-2xl">
+            <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight mb-2">
+                Vortex Info Digital
+            </h1>
+            <p class="text-lg sm:text-xl font-light opacity-90 max-w-xl mx-auto">
+                Transformando Seu Potencial em Resultados com Conteúdo Exclusivo.
+            </p>
+        </div>
+    </header>
+
+    <!-- Seção de Produtos -->
+    <main class="max-w-4xl mx-auto py-12 px-6">
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-10 text-indigo-800 border-b-2 border-indigo-300 pb-3">
+                🚀 Nossos Produtos em Destaque
+            </h2>
+
+            <!-- Cartão do Produto 1 -->
+            <div class="bg-white p-6 sm:p-8 rounded-xl shadow-2xl hover:shadow-3xl transition duration-300 mb-8 border-l-4 border-teal-500">
+                <h3 class="text-2xl font-semibold text-gray-700 mb-4">
+                    Produto Exclusivo 1: Solução Digital Completa
+                </h3>
+                <p class="text-gray-600 mb-6 leading-relaxed">
+                    Acesse o primeiro produto da Vortex, uma solução inovadora projetada para otimizar seus resultados e transformar seu conhecimento em valor de forma prática e escalável.
+                </p>
+                <a href="https://go.hotmart.com/D103054655N?ap=39b3q" target="_blank" rel="noopener noreferrer"
+                   class="product-btn w-full inline-block text-center bg-teal-500 text-white font-bold py-3 px-6 rounded-lg text-lg hover:bg-teal-600">
+                    ACESSAR AGORA (Hotmart 1)
+                </a>
+            </div>
+
+            <!-- Cartão do Produto 2 -->
+            <div class="bg-white p-6 sm:p-8 rounded-xl shadow-2xl hover:shadow-3xl transition duration-300 border-l-4 border-teal-500">
+                <h3 class="text-2xl font-semibold text-gray-700 mb-4">
+                    Produto Exclusivo 2: Seu Guia para o Sucesso Rápido
+                </h3>
+                <p class="text-gray-600 mb-6 leading-relaxed">
+                    O segundo produto é um guia prático e detalhado para quem busca excelência e resultados rápidos. Não perca esta oportunidade de crescimento acelerado.
+                </p>
+                <a href="https://go.hotmart.com/P103054567X?dp=1" target="_blank" rel="noopener noreferrer"
+                   class="product-btn w-full inline-block text-center bg-teal-500 text-white font-bold py-3 px-6 rounded-lg text-lg hover:bg-teal-600">
+                    ACESSAR AGORA (Hotmart 2)
+                </a>
+            </div>
+        </section>
+
+        <!-- Seção de FAQ (Perguntas Frequentes) - NOVO -->
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-center mb-10 text-indigo-800 border-b-2 border-indigo-300 pb-3">
+                ❓ Perguntas Frequentes
+            </h2>
+
+            <div class="space-y-4 max-w-3xl mx-auto" id="faq-accordion">
+                <!-- FAQ Item 1 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+                    <button class="faq-button w-full flex justify-between items-center p-5 text-lg font-semibold text-left text-gray-700 hover:bg-indigo-50 transition duration-300"
+                            aria-expanded="false" aria-controls="content-1" onclick="toggleFaq(1)">
+                        O que eu recebo ao adquirir os produtos?
+                        <svg class="faq-arrow w-5 h-5 ml-2 text-teal-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="content-1" class="faq-content p-5 pt-0 text-gray-600 hidden" aria-hidden="true">
+                        <p>Você recebe acesso imediato à nossa área de membros exclusiva, onde todo o conteúdo digital (e-books, videoaulas, ferramentas) está disponível 24 horas por dia, 7 dias por semana, para você acessar de qualquer dispositivo.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+                    <button class="faq-button w-full flex justify-between items-center p-5 text-lg font-semibold text-left text-gray-700 hover:bg-indigo-50 transition duration-300"
+                            aria-expanded="false" aria-controls="content-2" onclick="toggleFaq(2)">
+                        O acesso aos produtos é vitalício?
+                        <svg class="faq-arrow w-5 h-5 ml-2 text-teal-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="content-2" class="faq-content p-5 pt-0 text-gray-600 hidden" aria-hidden="true">
+                        <p>Sim! O acesso é vitalício. Você pode consumir o conteúdo no seu próprio ritmo, sem qualquer pressão ou prazo limite. Novas atualizações também serão incluídas sem custo adicional.</p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 - Conteúdo da garantia atualizado -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100">
+                    <button class="faq-button w-full flex justify-between items-center p-5 text-lg font-semibold text-left text-gray-700 hover:bg-indigo-50 transition duration-300"
+                            aria-expanded="false" aria-controls="content-3" onclick="toggleFaq(3)">
+                        Existe alguma garantia de reembolso?
+                        <svg class="faq-arrow w-5 h-5 ml-2 text-teal-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="content-3" class="faq-content p-5 pt-0 text-gray-600 hidden" aria-hidden="true">
+                        <p>A Vortex oferece uma garantia de satisfação baseada em resultados! Se você aplicar o conteúdo e, mesmo assim, sentir que o produto não gerou os resultados esperados, você pode solicitar o reembolso total. Os termos e o prazo específico para esta garantia de performance estão detalhados na página de checkout da Hotmart.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Seção de Contato Rápido -->
+        <section class="text-center bg-indigo-50 p-8 rounded-xl shadow-inner border border-indigo-200">
+            <h2 class="text-2xl font-bold mb-6 text-indigo-700">
+                Fale Conosco: Suporte e Dúvidas
+            </h2>
+
+            <div class="space-y-4 max-w-sm mx-auto">
+                <!-- WhatsApp -->
+                <div class="flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-4">
+                    <p class="text-xl font-medium text-gray-700 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M2 5a2 2 0 012-2h7a2 2 0 012 2v4a2 2 0 01-2 2H9l-3 3v-3H4a2 2 0 01-2-2V5z" />
+                        </svg>
+                        WhatsApp:
+                    </p>
+                    <a href="https://wa.me/258834569122" target="_blank" rel="noopener noreferrer"
+                       class="text-green-600 hover:text-green-800 font-semibold transition duration-300 border-b border-green-300">
+                        +258 834 569 122
+                    </a>
+                </div>
+
+                <!-- Email -->
+                <div class="flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-4">
+                     <p class="text-xl font-medium text-gray-700 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                        </svg>
+                        E-mail:
+                    </p>
+                    <a href="mailto:anselmojambo12@gmail.com"
+                       class="text-red-600 hover:text-red-800 font-semibold transition duration-300 border-b border-red-300">
+                        anselmojambo12@gmail.com
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé (Footer) -->
+    <footer class="bg-gray-800 text-white mt-12 py-6">
+        <div class="max-w-4xl mx-auto text-center px-6">
+            <p class="text-sm font-light">&copy; 2025 Vortex Info Digital. Todos os direitos reservados.</p>
+            <p class="text-xs mt-2 opacity-75">Design e Divulgação de Produtos Digitais.</p>
+        </div>
+    </footer>
+
+    <!-- Script para o FAQ Interativo -->
+    <script>
+        /**
+         * Função para alternar a visibilidade do conteúdo do FAQ.
+         * @param {number} id - O ID numérico do item do FAQ (1, 2, 3...).
+         */
+        function toggleFaq(id) {
+            const button = document.querySelector(`.faq-button[aria-controls="content-${id}"]`);
+            const content = document.getElementById(`content-${id}`);
+
+            // Verifica se o conteúdo está visível
+            const isExpanded = button.getAttribute('aria-expanded') === 'true';
+
+            if (isExpanded) {
+                // Fechar
+                content.classList.add('hidden');
+                button.setAttribute('aria-expanded', 'false');
+                content.setAttribute('aria-hidden', 'true');
+            } else {
+                // Abrir
+                content.classList.remove('hidden');
+                button.setAttribute('aria-expanded', 'true');
+                content.setAttribute('aria-hidden', 'false');
+
+                // Opcional: Fechar outros itens (comportamento de acordeão)
+                const allContents = document.querySelectorAll('.faq-content');
+                const allButtons = document.querySelectorAll('.faq-button');
+
+                allContents.forEach(item => {
+                    if (item.id !== `content-${id}`) {
+                        item.classList.add('hidden');
+                        item.setAttribute('aria-hidden', 'true');
+                    }
+                });
+
+                allButtons.forEach(btn => {
+                    if (btn !== button) {
+                        btn.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            }
+        }
+    </script>
+
+</body>
+</html>
+
