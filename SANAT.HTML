@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DGI CBSE TERDAL Exam Website</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        /* Light Mode Background */
+        body.light-mode {
+            background: url('https://www.dgiterdal.com/assets/img/gallery/ComputerLab.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #000;
+        }
+
+        /* Dark Mode Background */
+        body.dark-mode {
+            background: url('https://www.dgiterdal.com/assets/img/logo-about.jpeg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+
+        /* Page Layout Styling */
+        .page {
+            display: none;
+            padding-top: 50px;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .card {
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        #certificateBox {
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: #fff;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Splash Screen Styling */
+        .splash {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            background: url('https://www.dgiterdal.com/assets/img/logo-about.jpeg') no-repeat center center;
+            background-size: cover;
+            color: #fff;
+            font-size: 2rem;
+            text-shadow: 2px 2px 5px black;
+        }
+
+        .table-bg {
+            background: #fff;
+            color: #000;
+        }
+
+        /* Styling for Beautiful Text */
+        .beautiful-text {
+            font-family: 'Cursive', sans-serif;
+            font-size: 48px;
+            font-weight: bold;
+            color: #ff69b4;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        /* Gradient Text Styling */
+        .gradient-text {
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            -webkit-background-clip: text;
+            color: transparent;
+            font-size: 40px;
+            font-weight: bold;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+
+<body class="light-mode">
+
+<!-- SPLASH SCREEN -->
+<div class="splash page active" id="splashPage">
+    <img src="DGI.jfif">
+    <div>SDMT TRUSTS</div>
+    <div style="font-size:3rem;font-weight:bold;">Dr Sidhant Danigond Central School</div>
+    <h1><marquee><h1 style="color:yellow"> DGI CBSE SCHOOL TERDAL</marquee></h1>
+    <div style="margin-top:20px;font-size:1.2rem;"><br>
+        <b><i><h1 style="color:red">DGI CBSE EXAM</h1></i></b>
+        <h1 style="color:orange"> WEB CREATED BY SANAT S CHINAGUNDI <br>(GRADE 9)</h1>
+    </div>
+</div>
+
+<div class="container">
+
+<!-- LOGIN PAGE -->
+<div class="page" id="loginPage">
+  <div class="card p-4 mx-auto" style="max-width:400px;">
+    <h2 class="text-center mb-4">Login</h2>
+    <input id="li_user" class="form-control mb-3" placeholder="Ex=Sanat">
+    <input id="li_pass" type="password" class="form-control mb-3" placeholder="Ex=#Sanat006">
+    <button class="btn btn-primary w-100 mb-2" onclick="login()">Login</button>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<img src="DGI.jfif">
+<h1 style="color:yellow"><i><b><marquee>DGI CBSE TERDAL EXAM <br> WEB CREATED BY SANAT CHINAGUNDI </marquee></b></i></h1>
+<b><i><HR style="color:red"></b></i>
+<hr style="border-top: 10px dotted red;">
+<a href="sanat.htm"> HOME </A>
+
+<div class="page" id="dashboardPage">
+  <div class="card p-4 mx-auto text-center" style="max-width:500px;">
+    <h2>Dashboard</h2>
+    <div class="d-grid gap-3 mt-3">
+      <button class="btn btn-primary" onclick="show('selectExamPage')">Start Exam</button>
+      <button class="btn btn-secondary" onclick="show('leaderboardPage'); loadLeaderboard()">Leaderboard</button>
+      <button class="btn btn-success" onclick="loadCertificate(); show('certificatePage')">Certificate</button>
+      <button class="btn btn-info" onclick="show('profilePage'); loadHistory()">Profile</button>
+      <button class="btn btn-outline-dark" onclick="toggleDarkMode()">Web Created By Sanat Chinagundi</button>
+      <br>
+      <a href="https://www.dgiterdal.com/"> DANIGOND GROUP OF INSITUTES OFFICIAL WEBSITE </a>
+      <a href="https://play.google.com/store/apps/details?id=com.pramarg.dsdcsparent&hl=en_IN"> Dr Siddhant Danigond Central-Cbse School Terdal </a>
+    </div>
+  </div>
+</div>
+
+<!-- SELECT EXAM PAGE -->
+<div class="page" id="selectExamPage">
+  <div class="card p-4 mx-auto text-center" style="max-width:400px;">
+    <h2>Select Exam</h2>
+    <div class="d-grid gap-3">
+      <button class="btn btn-primary" onclick="startExam('Math')">Math Exam</button>
+      <button class="btn btn-success" onclick="startExam('Eng')">English Exam</button>
+      <button class="btn btn-warning" onclick="startExam('IT')">IT Exam</button>
+      <button class="btn btn-secondary" onclick="show('dashboardPage')">Back</button>
+      <hr>
+      <br><br>
+      <h3><b><i><button style="color:yellow"> WEB CREATOR SANAT CHINAGUNDI </button></i></b></h3>
+    </div>
+  </div>
+</div>
+
+<!-- EXAM PAGE -->
+<div class="page" id="examPage">
+  <div class="card p-4 mx-auto" style="max-width:700px;">
+    <h2 id="examTitle">Exam</h2>
+    <h4 id="timer" class="text-danger">Time Left: 600s</h4>
+    <div id="questionsContainer"></div>
+    <button class="btn btn-danger w-100 mt-3" onclick="submitExam()">Submit Exam</button>
+  </div>
+</div>
+
+<!-- LEADERBOARD PAGE -->
+<div class="page" id="leaderboardPage">
+  <div class="card p-4 mx-auto" style="max-width:600px;">
+    <h2 class="text-center">Leaderboard</h2>
+    <table class="table table-bordered table-bg">
+      <thead>
+        <tr><th>User</th><th>Score</th><th>Exam</th></tr>
+      </thead>
+      <tbody id="leaderboardTable"></tbody>
+    </table>
+    <button class="btn btn-secondary w-100" onclick="show('dashboardPage')">Back</button>
+  </div>
+</div>
+
+<!-- CERTIFICATE PAGE -->
+<div class="page" id="certificatePage">
+  <div class="card p-4 mx-auto" style="max-width:600px;">
+    <h2 class="text-center text-white">Certificate</h2>
+    <div id="certificateBox">
+     <img src="DGI.jfif">
+      <h3>Certificate of Completion<br>
+      DGI CBSE SCHOOL TERDAL</h3>
+      <p>This certifies that</p>
+      <h2 id="certName"></h2>
+      <p>has successfully completed</p>
+      <h4 id="certExam"></h4>
+      <p>with a score of:</p>
+      <h2 id="certScore"></h2>
+      <p id="certDate"></p>
+     <H1><B> WEB CRETED BY SANAT CHINAGUNDI </b></H1>
+    </div>
+    <button class="btn btn-light w-100 mt-3" onclick="window.print()">Download</button>
+    <button class="btn btn-secondary w-100 mt-2" onclick="show('dashboardPage')">Back</button>
+  </div>
+</div>
+
+<!-- PROFILE PAGE -->
+<div class="page" id="profilePage">
+  <div class="card p-4 mx-auto" style="max-width:600px;">
+    <h2 class="text-center">Profile</h2>
+    <div id="examHistory"></div>
+    <button class="btn btn-secondary w-100 mt-3" onclick="show('dashboardPage')">Back</button>
+  </div>
+</div>
+
+</div>
+
+<script>
+setTimeout(()=>show('loginPage'),4000);
+
+/* ---------------- MULTI-USER LOGIN ---------------- */
+
+const users = {
+    "Sanat": "Sanat",
+    "Mahesh": "Mahesh98",
+    "Samarth": "Samarth@08",
+    "Chetan": "Chetan66",
+    "Samarth_p": "Samarth_p"
+};
+
+function login(){
+    let u = document.getElementById("li_user").value;
+    let p = document.getElementById("li_pass").value;
+
+    if(users[u] && users[u] === p){
+        localStorage.setItem("user",u);
+        saveLoginHistory(u);
+        loadHistory();
+        show('dashboardPage');
+    } else {
+        alert("Incorrect Username or Password! SANAT ");
+    }
+}
+
+/* ---------------- PAGE SWITCH ---------------- */
+function show(p){
+    document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));
+    document.getElementById(p).classList.add('active');
+}
+
+/* ---------------- DARK MODE ---------------- */
+function toggleDarkMode(){
+    document.body.classList.toggle('dark-mode');
+    document.body.classList.toggle('light-mode');
+}
+
+/* ---------------- EXAMS ---------------- */
+const exams = {
+    "Math":[
+        {q:"2 + 2 = ?", a:["3","4","6","9"], correct:"4"},
+        {q:"5 × 3 = ?", a:["15","10","28","5"], correct:"15"},
+        {q:"10 - 3 = ?", a:["7","8","10","15"], correct:"7"}
+    ],
+    "Eng":[
+        {q:"Capital of India?", a:["Delhi","Mumbai"], correct:"Delhi"},
+        {q:"Largest planet?", a:["Jupiter","Mars"], correct:"Jupiter"}
+    ],
+    "IT":[
+        {q:"HTML stands for?", a:["Hyper Text Markup Language","Cascading Style Sheets"], correct:"Hyper Text Markup Language"}
+    ]
+};
+
+let currentExam="", timeLeft=1000, examTimer;
+
+/* ---------------- START EXAM ---------------- */
+function startExam(ex){
+    currentExam=ex;
+    timeLeft=1000;
+
+    document.getElementById("examTitle").innerText = ex+" Exam";
+
+    let html="";
+    exams[ex].forEach((q,i)=>{
+        html+=`<div class="mb-3 p-3 bg-light rounded">
+            <p>${i+1}. ${q.q}</p>`;
+        q.a.forEach((opt,j)=>{
+            html+=`<div class="form-check">
+                <input class="form-check-input" type="radio" name="q${i}" value="${opt}">
+                <label class="form-check-label">${opt}</label>
+            </div>`; 
+        });
+        html+=`</div>`;
+    });
+
+    document.getElementById("questionsContainer").innerHTML=html;
+    startTimer();
+    show('examPage');
+}
+
+function startTimer(){
+    clearInterval(examTimer);
+    examTimer=setInterval(()=>{
+        document.getElementById("timer").innerText="Time Left: "+timeLeft+"s";
+        timeLeft--;
+        if(timeLeft<=0){ submitExam(); }
+    },1000);
+}
+
+/* ---------------- SUBMIT EXAM ---------------- */
+function submitExam(){
+    clearInterval(examTimer);
+
+    let score=0, user=localStorage.getItem("user");
+
+    exams[currentExam].forEach((q,i)=>{
+        let ans=document.querySelector(`input[name="q${i}"]:checked`)?.value;
+        if(ans===q.correct) score++;
+    });
+
+    saveExamHistory(user,currentExam,score);
+    addToLeaderboard(user,score,currentExam);
+
+    localStorage.setItem("score",score);
+    loadLeaderboard();
+    show('leaderboardPage');
+}
+
+/* ---------------- LEADERBOARD ---------------- */
+function addToLeaderboard(user,score,exam){
+    let lb=JSON.parse(localStorage.getItem("leaderboard")||"[]");
+    lb.push({user,score,exam});
+    localStorage.setItem("leaderboard",JSON.stringify(lb));
+}
+
+function loadLeaderboard(){
+    let lb=JSON.parse(localStorage.getItem("leaderboard")||"[]");
+    lb.sort((a,b)=>b.score-a.score);
+    let html="";
+    lb.forEach(r=>{
+        html+=`<tr><td>${r.user}</td><td>${r.score}</td><td>${r.exam}</td></tr>`;
+    });
+    document.getElementById("leaderboardTable").innerHTML=html;
+}
+
+/* ---------------- CERTIFICATE ---------------- */
+function loadCertificate(){
+    document.getElementById("certName").innerText = localStorage.getItem("user");
+    document.getElementById("certScore").innerText = localStorage.getItem("score");
+    document.getElementById("certExam").innerText = currentExam+" Exam";
+    document.getElementById("certDate").innerText = "Date: "+new Date().toLocaleDateString();
+}
+
+/* ---------------- LOGIN HISTORY + EXAM HISTORY ---------------- */
+
+function saveLoginHistory(user){
+    let log = JSON.parse(localStorage.getItem("loginHistory")||"{}");
+    if(!log[user]) log[user]=[];
+    log[user].push({
+        date:new Date().toLocaleDateString(),
+        time:new Date().toLocaleTimeString()
+    });
+    localStorage.setItem("loginHistory",JSON.stringify(log));
+}
+
+function saveExamHistory(user,exam,score){
+    let hist=JSON.parse(localStorage.getItem("history")||"{}");
+    if(!hist[user]) hist[user]=[];
+    hist[user].push({
+        exam, score,
+        date:new Date().toLocaleDateString()
+    });
+    localStorage.setItem("history",JSON.stringify(hist));
+}
+
+function loadHistory(){
+    let user = localStorage.getItem("user");
+    let logs = JSON.parse(localStorage.getItem("loginHistory")||"{}");
+    let hist = JSON.parse(localStorage.getItem("history")||"{}");
+
+    let html="<h4>Login History</h4>";
+
+    if(logs[user]){
+        html+="<ul class='list-group mb-3'>";
+        logs[user].forEach(l=>{
+            html+=`<li class='list-group-item'>Logged in on ${l.date} at ${l.time}</li>`;
+        });
+        html+="</ul>";
+    } else html+="<p>No Login History.</p>";
+
+    html+="<h4>Exam History</h4>";
+
+    if(hist[user]){
+        html+="<ul class='list-group'>";
+        hist[user].forEach(h=>{
+            html+=`<li class='list-group-item'>${h.date} - ${h.exam} - Score: ${h.score}</li>`;
+        });
+        html+="</ul>";
+    } else html+="<p>No Exam History.</p>";
+
+    document.getElementById("examHistory").innerHTML=html;
+}
+</script>
+
+</body>
+</html>
