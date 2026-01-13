@@ -1,11 +1,216 @@
-<html>
-    <head></head>
-    <body>
-        <form name="feedback" data-netlify="true" hidden>
-            <input type="hidden" name="form-name" value="feedback" />
-            <input name="name" type="text" />
-            <input name="email" type="text" />
-            <input name="message" type="text" />
-        </form>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>MarketMind — Prediction Intelligence</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="MarketMind is a prediction intelligence platform where accuracy becomes reputation and reputation becomes income." />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0b0f19;
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 80px 20px;
+      text-align: center;
+      background: linear-gradient(135deg, #0f172a, #020617);
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 30px;
+      color: #cbd5f5;
+    }
+
+    .cta {
+      display: inline-block;
+      padding: 14px 28px;
+      background: #2563eb;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 70px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 40px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: #020617;
+      border: 1px solid #1e293b;
+      border-radius: 10px;
+      padding: 30px;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: #93c5fd;
+    }
+
+    .card p {
+      color: #cbd5f5;
+    }
+
+    .token {
+      text-align: center;
+      background: #020617;
+      border-radius: 12px;
+      padding: 50px 20px;
+    }
+
+    .token strong {
+      color: #38bdf8;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      background: #020617;
+      color: #94a3b8;
+      font-size: 0.9rem;
+    }
+
+    input {
+      padding: 12px;
+      width: 260px;
+      max-width: 80%;
+      border-radius: 6px;
+      border: none;
+      margin-right: 10px;
+    }
+
+    button {
+      padding: 12px 20px;
+      border-radius: 6px;
+      border: none;
+      background: #22c55e;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>MarketMind</h1>
+  <p>
+    Prediction intelligence where accuracy becomes reputation —
+    and reputation becomes income.
+  </p>
+  <a href="#waitlist" class="cta">Join the Early Access</a>
+</header>
+
+<section>
+  <h2>The Problem</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Noise Everywhere</h3>
+      <p>Social media rewards confidence, not correctness. Anyone can claim expertise.</p>
+    </div>
+    <div class="card">
+      <h3>No Track Record</h3>
+      <p>There is no reliable way to measure who is actually right over time.</p>
+    </div>
+    <div class="card">
+      <h3>Broken Incentives</h3>
+      <p>Being wrong has no cost. Being right has no long-term reward.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>The Solution</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Prediction Markets</h3>
+      <p>Users forecast outcomes across crypto, markets, and macro trends.</p>
+    </div>
+    <div class="card">
+      <h3>Reputation Engine</h3>
+      <p>Accuracy is tracked permanently. Reputation compounds over time.</p>
+    </div>
+    <div class="card">
+      <h3>Aligned Incentives</h3>
+      <p>Rewards flow to those who demonstrate real skill, not hype.</p>
+    </div>
+  </div>
+</section>
+
+<section class="token">
+  <h2>MarketMind Token (MMT)</h2>
+  <p>
+    <strong>MMT</strong> powers the entire ecosystem.
+  </p>
+  <p>
+    Used for market creation, staking on outcomes, unlocking insights,
+    boosting visibility, and rewarding top predictors.
+  </p>
+  <p>
+    Fixed supply. Utility-driven. Accuracy-backed.
+  </p>
+</section>
+
+<section>
+  <h2>Why MarketMind Wins</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Hard to Fake</h3>
+      <p>Historical accuracy cannot be copied or manipulated easily.</p>
+    </div>
+    <div class="card">
+      <h3>Network Effects</h3>
+      <p>More users = better data = stronger signal.</p>
+    </div>
+    <div class="card">
+      <h3>Scales Globally</h3>
+      <p>Crypto, stocks, macro, sports, and beyond.</p>
+    </div>
+  </div>
+</section>
+
+<section id="waitlist" style="text-align:center;">
+  <h2>Join Early Access</h2>
+  <p>Be part of the first wave shaping prediction intelligence.</p>
+  <input type="email" placeholder="Enter your email" />
+  <button>Join Waitlist</button>
+</section>
+
+<footer>
+  © 2026 MarketMind. Accuracy over noise.
+</footer>
+
+</body>
 </html>
