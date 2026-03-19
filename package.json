@@ -10,7 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@netlify/blobs": "^10.7.2",
+    "@netlify/blobs": "^10.7.3",
     "blobshape": "^1.0.0",
     "bright": "^1.0.0",
     "markdown-to-jsx": "^7.7.16",
